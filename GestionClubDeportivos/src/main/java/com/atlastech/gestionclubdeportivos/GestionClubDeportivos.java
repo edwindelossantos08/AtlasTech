@@ -11,6 +11,6 @@ package com.atlastech.gestionclubdeportivos;
 public class GestionClubDeportivos {
 
     public static void main(String[] args) {
-        System.out.println("Atlas Tech said Hi!");
+        System.out.println("Hello Atlas Tech!");
     }
 }
