@@ -8,14 +8,14 @@ package com.atlastech.gestionclubdeportivos.ui.menus;
  *
  * @author loren
  */
-public class MenuPrincipal extends javax.swing.JFrame {
+public class MenuAsitencia extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MenuPrincipal.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MenuAsitencia.class.getName());
 
     /**
-     * Creates new form MenuPrincipal
+     * Creates new form MenuAsitencia
      */
-    public MenuPrincipal() {
+    public MenuAsitencia() {
         initComponents();
     }
 
@@ -66,7 +66,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new MenuPrincipal().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new MenuAsitencia().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
