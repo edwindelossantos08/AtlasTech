@@ -68,4 +68,12 @@ public class Instalacion {
         return String.format("Instalacion{id=%d, nombre='%s', capacidad=%d, estado=%s}",
                 id, nombre, capacidadPersonas, getEstadoFormatted());
     } 
+
+    public String getEstado() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public void setEstado(String string) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }
