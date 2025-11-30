@@ -12,7 +12,7 @@ import java.util.List;
 
 /**
  *
- * @author bryanpeguerocamilo
+ * @author Atlas_Tech
  */
 
 public class SocioDAO {
