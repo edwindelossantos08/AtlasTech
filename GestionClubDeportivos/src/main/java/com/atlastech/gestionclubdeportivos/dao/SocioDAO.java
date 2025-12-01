@@ -123,7 +123,7 @@ public class SocioDAO {
             }
             
         } catch (SQLException e) {
-            System.err.println("❌ Error al actualizar socio: " + e.getMessage());
+            System.err.println("Error al actualizar socio: " + e.getMessage());
             e.printStackTrace();
         }
         return false;
@@ -140,12 +140,12 @@ public class SocioDAO {
             int affectedRows = pstmt.executeUpdate();
             
             if (affectedRows > 0) {
-                System.out.println("✅ Estado del socio cambiado a: " + (estado ? "ACTIVO" : "INACTIVO"));
+                System.out.println("Estado del socio cambiado a: " + (estado ? "ACTIVO" : "INACTIVO"));
                 return true;
             }
             
         } catch (SQLException e) {
-            System.err.println("❌ Error al cambiar estado: " + e.getMessage());
+            System.err.println("Error al cambiar estado: " + e.getMessage());
             e.printStackTrace();
         }
         return false;
@@ -161,12 +161,12 @@ public class SocioDAO {
             int affectedRows = pstmt.executeUpdate();
             
             if (affectedRows > 0) {
-                System.out.println("✅ Socio eliminado correctamente");
+                System.out.println("Socio eliminado correctamente");
                 return true;
             }
             
         } catch (SQLException e) {
-            System.err.println("❌ Error al eliminar socio: " + e.getMessage());
+            System.err.println("Error al eliminar socio: " + e.getMessage());
             e.printStackTrace();
         }
         return false;
@@ -191,7 +191,7 @@ public class SocioDAO {
             }
             
         } catch (SQLException e) {
-            System.err.println("❌ Error en búsqueda: " + e.getMessage());
+            System.err.println("Error en búsqueda: " + e.getMessage());
             e.printStackTrace();
         }
         return socios;
@@ -210,7 +210,7 @@ public class SocioDAO {
             }
             
         } catch (SQLException e) {
-            System.err.println("❌ Error al obtener socios activos: " + e.getMessage());
+            System.err.println("Error al obtener socios activos: " + e.getMessage());
             e.printStackTrace();
         }
         return socios;
@@ -232,7 +232,7 @@ public class SocioDAO {
             }
             
         } catch (SQLException e) {
-            System.err.println("❌ Error al verificar email: " + e.getMessage());
+            System.err.println("Error al verificar email: " + e.getMessage());
             e.printStackTrace();
         }
         return false;
@@ -250,7 +250,7 @@ public class SocioDAO {
             }
             
         } catch (SQLException e) {
-            System.err.println("❌ Error al contar socios: " + e.getMessage());
+            System.err.println("Error al contar socios: " + e.getMessage());
             e.printStackTrace();
         }
         return 0;
@@ -272,7 +272,7 @@ public class SocioDAO {
             }
             
         } catch (SQLException e) {
-            System.err.println("❌ Error al obtener socios con suscripción: " + e.getMessage());
+            System.err.println("Error al obtener socios con suscripción: " + e.getMessage());
             e.printStackTrace();
         }
         return socios;

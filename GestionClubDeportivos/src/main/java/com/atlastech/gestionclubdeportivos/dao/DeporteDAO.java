@@ -31,11 +31,11 @@ public class DeporteDAO {
             if (affectedRows > 0) {
                 ResultSet rs = pstmt.getGeneratedKeys();
                 if (rs.next()) deporte.setId(rs.getInt(1));
-                System.out.println("✅ Deporte registrado: " + deporte.getNombre());
+                System.out.println("Deporte registrado: " + deporte.getNombre());
                 return true;
             }
         } catch (SQLException e) {
-            System.err.println("❌ Error al insertar deporte: " + e.getMessage());
+            System.err.println("Error al insertar deporte: " + e.getMessage());
         }
         return false;
     }
@@ -49,7 +49,7 @@ public class DeporteDAO {
                 deportes.add(mapearResultSetADeporte(rs));
             }
         } catch (SQLException e) {
-            System.err.println("❌ Error: " + e.getMessage());
+            System.err.println("Error: " + e.getMessage());
         }
         return deportes;
     }
@@ -61,7 +61,7 @@ public class DeporteDAO {
             ResultSet rs = pstmt.executeQuery();
             if (rs.next()) return mapearResultSetADeporte(rs);
         } catch (SQLException e) {
-            System.err.println("❌ Error: " + e.getMessage());
+            System.err.println("Error: " + e.getMessage());
         }
         return null;
     }
@@ -74,7 +74,7 @@ public class DeporteDAO {
             pstmt.setInt(3, deporte.getId());
             return pstmt.executeUpdate() > 0;
         } catch (SQLException e) {
-            System.err.println("❌ Error: " + e.getMessage());
+            System.err.println("Error: " + e.getMessage());
         }
         return false;
     }
@@ -86,7 +86,7 @@ public class DeporteDAO {
             ResultSet rs = pstmt.executeQuery();
             if (rs.next()) return mapearResultSetADeporte(rs);
         } catch (SQLException e) {
-            System.err.println("❌ Error: " + e.getMessage());
+            System.err.println("Error: " + e.getMessage());
         }
         return null;
     }

@@ -179,7 +179,7 @@ public class MembresiaDAO {
             }
             
         } catch (SQLException e) {
-            System.err.println("❌ Error al obtener membresías ordenadas: " + e.getMessage());
+            System.err.println("Error al obtener membresías ordenadas: " + e.getMessage());
             e.printStackTrace();
         }
         return membresias;

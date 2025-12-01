@@ -87,7 +87,7 @@ public class InstalacionDAO {
             }
             
         } catch (SQLException e) {
-            System.err.println("❌ Error al buscar instalación: " + e.getMessage());
+            System.err.println("Error al buscar instalación: " + e.getMessage());
             e.printStackTrace();
         }
         return null;
