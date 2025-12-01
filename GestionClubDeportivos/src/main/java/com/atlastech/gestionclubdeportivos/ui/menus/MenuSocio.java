@@ -1,12 +1,17 @@
+package com.atlastech.gestionclubdeportivos.ui.menus;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package com.atlastech.gestionclubdeportivos.ui.menus;
 
 /**
  *
+<<<<<<< HEAD
  * @author Mariely Florian
+=======
+ * @author loren
+>>>>>>> 6d43003a1f3f677707da5202552c83807be9232c
  */
 public class MenuSocio extends javax.swing.JFrame {
     
@@ -28,6 +33,7 @@ public class MenuSocio extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+<<<<<<< HEAD
         panelTitulo = new javax.swing.JPanel();
         lblTitulo = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
@@ -137,10 +143,15 @@ public class MenuSocio extends javax.swing.JFrame {
         });
         panelFormulario.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 240, 920, 40));
 
+=======
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+>>>>>>> 6d43003a1f3f677707da5202552c83807be9232c
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+<<<<<<< HEAD
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -160,11 +171,19 @@ public class MenuSocio extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panelFormulario, javax.swing.GroupLayout.PREFERRED_SIZE, 509, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+=======
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+>>>>>>> 6d43003a1f3f677707da5202552c83807be9232c
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+<<<<<<< HEAD
     private void txtDireccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDireccionActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDireccionActionPerformed
@@ -173,6 +192,8 @@ public class MenuSocio extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtEmailActionPerformed
 
+=======
+>>>>>>> 6d43003a1f3f677707da5202552c83807be9232c
     /**
      * @param args the command line arguments
      */
@@ -199,6 +220,7 @@ public class MenuSocio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+<<<<<<< HEAD
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblApellidos;
@@ -218,5 +240,7 @@ public class MenuSocio extends javax.swing.JFrame {
     private javax.swing.JTextField txtID;
     private javax.swing.JTextField txtNombres;
     private javax.swing.JTextField txtTelefono;
+=======
+>>>>>>> 6d43003a1f3f677707da5202552c83807be9232c
     // End of variables declaration//GEN-END:variables
 }
