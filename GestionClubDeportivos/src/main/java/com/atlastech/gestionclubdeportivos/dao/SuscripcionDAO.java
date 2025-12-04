@@ -6,7 +6,7 @@ package com.atlastech.gestionclubdeportivos.dao;
 import com.atlastech.gestionclubdeportivos.databases.Databases;
 import com.atlastech.gestionclubdeportivos.models.Suscripcion;
 
-import java.sql.*;
+import java.sql.*;  
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
