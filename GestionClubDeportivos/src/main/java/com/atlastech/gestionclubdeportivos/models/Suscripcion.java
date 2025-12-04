@@ -47,12 +47,4 @@ public class Suscripcion {
         return String.format("Suscripcion{id=%d, socio=%d, membresía=%d}",
                 id, idSocio, idMembresia);
     }
-
-    public void setRenovacionAutomatica(boolean aBoolean) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    public boolean isRenovacionAutomatica() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
 }
