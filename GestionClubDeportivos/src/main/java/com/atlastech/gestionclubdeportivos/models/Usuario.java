@@ -10,41 +10,44 @@ public class Usuario {
     private int id;
     private String nombreUsuario;
     private String contraseña;
-    private String nombreCompleto;
-    private String email;
-    private String rol;
-    private boolean activo;
+    public String tipoUsuario; // Aqui para saber si es administrador o socio
+    private Integer idSocio; //Puede ser null si es administrador
+    private boolean estado;
     private LocalDateTime fechaCreacion;
+    private LocalDateTime ultimoAcceso;
     
     //Constructor vacio 
     public Usuario(){
         this.fechaCreacion = LocalDateTime.now();
-        this.activo = true;
+        this.estado = true;
     }
     
     //Constructor con parametros principales
-    public Usuario(String nombreUsuario, String contraseña, String nombreCompleto, String email, String rol){
+    public Usuario(String nombreUsuario, String contraseña, String nombreCompleto, String rol){
+        this();
         this.nombreUsuario = nombreUsuario;
         this.contraseña = contraseña;
-        this.nombreCompleto = nombreCompleto;
-        this.email = email;
-        this.rol = rol;
-        this.activo = true;
-        this.fechaCreacion = LocalDateTime.now();
+        this.tipoUsuario = tipoUsuario;
+        this.idSocio = idSocio;
     }
     
-    //Constructor completo
-     //Constructor con parametros principales
-    public Usuario(int id, String nombreUsuario, String contraseña, String nombreCompleto, String email, String rol, boolean activo, LocalDateTime fechaCreacion){
-        this.id = id;
-        this.nombreUsuario = nombreUsuario;
-        this.contraseña = contraseña;
-        this.nombreCompleto = nombreCompleto;
-        this.email = email;
-        this.rol = rol;
-        this.activo = activo;
-        this.fechaCreacion = fechaCreacion;
+    // Métodos de negocio
+    public boolean isAdministrador() {
+        return "administrador".equalsIgnoreCase(tipoUsuario);
     }
+
+    public boolean isSocio() {
+        return "socio".equalsIgnoreCase(tipoUsuario);
+    }
+
+    public boolean tieneAccesoTotal() {
+        return isAdministrador();
+    }
+
+    public boolean tieneAccesoLimitado() {
+        return isSocio();
+    }
+    
     
     //Getters y Setters
     public int getId() {return id; }
@@ -56,18 +59,25 @@ public class Usuario {
     public String getContraseña() {return contraseña; }
     public void setContraseña(String contraseña) {this.contraseña = contraseña; }
     
-    public String getNombreCompleto() {return nombreCompleto; }
-    public void setNombreCompleto(String nombreCompleto) {this.nombreCompleto = nombreCompleto; }
+    public String getTipoUsuario() {return tipoUsuario; }
+    public void setTipoUsuario(String tipoUsuario) {this.tipoUsuario = tipoUsuario; }
     
-    public String getEmail() {return email; }
-    public void setEmail(String email) {this.email = email; }
+    public Integer getIdSocio() {return idSocio; }
+    public void setIdSocio(Integer idSocio) {this.idSocio = idSocio; }
     
-    public String getRol() {return rol; }
-    public void setRol(String rol) {this.rol = rol; }
+    public boolean isEstado() {return estado; }
+    public void setEstado(boolean estado) {this.estado = estado; }
     
-    public boolean isActivo() {return activo; }
-    public void setActivo(boolean activo) {this.activo = activo; }
+    public LocalDateTime getFechaCreacion() {return fechaCreacion; }
+    public void setFechaCreacion(LocalDateTime fechaCreacion) {this.fechaCreacion = fechaCreacion; }
     
+    public LocalDateTime getUltimoAcceso() {return ultimoAcceso; }
+    public void setUltimoAcceso(LocalDateTime ultimoAcceso) {this.ultimoAcceso = ultimoAcceso; }
+
+    @Override
+    public String toString() {
+        return String.format("Usuario{id=%d, usuario='%s', tipo='%s'}", id, nombreUsuario, tipoUsuario);
+    }
 
     
 }
