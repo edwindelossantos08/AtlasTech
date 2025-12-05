@@ -12,26 +12,34 @@ import java.awt.CardLayout;
 public class MenuPago extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MenuPago.class.getName());
-    
-    
-    //private javax.swing.JButton btnNext; 
-   // private javax.swing.JButton btnBack;
-    
-
-    /**
-     * Creates new form MenuPago
-     */
-
     public MenuPago() {
-        initComponents();
-    panelContenedor.add(new MenuPagoSignIn(panelContenedor), "SignIn");
-    panelContenedor.add(new MenuPagoSummary(panelContenedor), "Summary");
-    panelContenedor.add(new MenuPagoPayment(panelContenedor), "Payment");
-    panelContenedor.add(new MenuPagoCompletado(panelContenedor), "Complete");
-    CardLayout layout = (CardLayout) panelContenedor.getLayout();
-    layout.show(panelContenedor, "SignIn");
+    initComponents();
 
+    MenuPagoSummary summary = new MenuPagoSummary(this);
+    MenuPagoPayment payment = new MenuPagoPayment (this);
+    MenuPagoCompletado completado = new MenuPagoCompletado (this);
+    
+    panelContenedor.add( summary, "Summary");
+    panelContenedor.add(payment, "Payment");
+    panelContenedor.add(completado,"Complete");
+ 
+    CardLayout c = (CardLayout) panelContenedor.getLayout();
+    c.show(panelContenedor, "MenuPagoSummary");
     }
+    public void showPanel(String name) {
+    CardLayout cl = (CardLayout) panelContenedor.getLayout();
+    cl.show(panelContenedor, name);
+    }
+
+    /*public void mostrarPayment() {
+    CardLayout c = (CardLayout) panelContenedor.getLayout();
+    c.show(panelContenedor, "MenuPagoPayment");
+    }
+
+        public void mostrarCompletado() {
+    CardLayout c = (CardLayout) panelContenedor.getLayout();
+    c.show(panelContenedor, "MenuPagoCompletado");
+    }*/
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -44,24 +52,6 @@ public class MenuPago extends javax.swing.JFrame {
 
         popupMenu1 = new java.awt.PopupMenu();
         panelContenedor = new javax.swing.JPanel();
-        jPanel18 = new javax.swing.JPanel();
-        jLabel24 = new javax.swing.JLabel();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jLabel25 = new javax.swing.JLabel();
-        jLabel26 = new javax.swing.JLabel();
-        jLabel27 = new javax.swing.JLabel();
-        jLabel28 = new javax.swing.JLabel();
-        jLabel29 = new javax.swing.JLabel();
-        jLabel34 = new javax.swing.JLabel();
-        jLabel35 = new javax.swing.JLabel();
-        jLabel36 = new javax.swing.JLabel();
-        jLabel37 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
 
         popupMenu1.setLabel("popupMenu1");
 
@@ -70,96 +60,10 @@ public class MenuPago extends javax.swing.JFrame {
 
         panelContenedor.setBackground(new java.awt.Color(255, 255, 255));
         panelContenedor.setLayout(new java.awt.CardLayout());
-
-        jPanel18.setBackground(new java.awt.Color(15, 43, 99));
-        jPanel18.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel24.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel24.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel24.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel24.setText("SELECCIONE DEPORTE");
-        jPanel18.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 200, -1));
-
-        jButton5.setBackground(new java.awt.Color(255, 255, 255));
-        jButton5.setForeground(new java.awt.Color(64, 43, 100));
-        jButton5.setText("Nueva Reserva");
-        jPanel18.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, -1, -1));
-
-        jButton6.setBackground(new java.awt.Color(255, 255, 255));
-        jButton6.setForeground(new java.awt.Color(64, 43, 100));
-        jButton6.setText("Nuevo Socio");
-        jPanel18.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, 110, -1));
-
-        jButton7.setBackground(new java.awt.Color(255, 255, 255));
-        jButton7.setForeground(new java.awt.Color(64, 43, 100));
-        jButton7.setText("Registrar Pago");
-        jPanel18.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 110, -1, -1));
-
-        jButton8.setBackground(new java.awt.Color(255, 255, 255));
-        jButton8.setForeground(new java.awt.Color(64, 43, 100));
-        jButton8.setText("Nueva Membresia");
-        jPanel18.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 150, 130, -1));
-
-        jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/ui/menus/Iconos/Edit Pencil.png"))); // NOI18N
-        jPanel18.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, -1, 50));
-
-        jLabel26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/ui/menus/Iconos/Edit Pencil.png"))); // NOI18N
-        jPanel18.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, 50));
-
-        jLabel27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/ui/menus/Iconos/Edit Pencil.png"))); // NOI18N
-        jPanel18.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 100, -1, 50));
-
-        jLabel28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/ui/menus/Iconos/Edit Pencil.png"))); // NOI18N
-        jPanel18.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 140, -1, 50));
-
-        jLabel29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/ui/menus/Iconos/Edit Pencil.png"))); // NOI18N
-        jPanel18.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, -1, 50));
-
-        jLabel34.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/ui/menus/Iconos/user_32x32.png"))); // NOI18N
-        jPanel18.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
-
-        jLabel35.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/ui/menus/Iconos/add_32x32.png"))); // NOI18N
-        jPanel18.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
-
-        jLabel36.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/ui/menus/Iconos/cardfile_32x32.png"))); // NOI18N
-        jPanel18.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 100, -1, -1));
-
-        jLabel37.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/ui/menus/Iconos/address_book_32x32.png"))); // NOI18N
-        jPanel18.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 150, -1, -1));
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Baseball ", "Baloncesto ", "Natación   " }));
-        jPanel18.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 240, -1));
-
-        jPanel1.setBackground(new java.awt.Color(29, 52, 145));
-
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("  GESTIÓN DE DEPORTES ");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(298, 298, 298)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(139, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addComponent(jLabel1)
-                .addContainerGap(54, Short.MAX_VALUE))
-        );
-
-        jPanel18.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 750, 130));
-
-        panelContenedor.add(jPanel18, "card2");
-
         getContentPane().add(panelContenedor, java.awt.BorderLayout.CENTER);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     /**
@@ -188,24 +92,6 @@ public class MenuPago extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
-    private javax.swing.JLabel jLabel34;
-    private javax.swing.JLabel jLabel35;
-    private javax.swing.JLabel jLabel36;
-    private javax.swing.JLabel jLabel37;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel18;
     private javax.swing.JPanel panelContenedor;
     private java.awt.PopupMenu popupMenu1;
     // End of variables declaration//GEN-END:variables
