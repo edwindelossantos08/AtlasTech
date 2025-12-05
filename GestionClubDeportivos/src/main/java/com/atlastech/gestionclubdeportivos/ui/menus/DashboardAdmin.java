@@ -269,7 +269,7 @@ public class DashboardAdmin extends javax.swing.JFrame {
         lbTitulo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lbTitulo.setForeground(new java.awt.Color(255, 255, 255));
         lbTitulo.setText("AtlasTech");
-        jPanel2.add(lbTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 90, 40));
+        jPanel2.add(lbTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 90, 40));
 
         jLabel32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/ui/menus/Iconos/gear_wheel_32x32.png"))); // NOI18N
         jPanel2.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 590, -1, -1));
