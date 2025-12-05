@@ -35,26 +35,19 @@ public class MenuEntrenador extends javax.swing.JFrame {
         jLabel30 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        VerDetallesDeportes = new javax.swing.JButton();
-        editarDeportes = new javax.swing.JButton();
-        anadirNuevoDeporte = new javax.swing.JButton();
-        eliminarDeportes = new javax.swing.JButton();
+        ListarEntrenadores = new javax.swing.JButton();
+        RegistrarEntrenador = new javax.swing.JButton();
+        GestionarHorarioEntrenador = new javax.swing.JButton();
+        AsignarAUnDeporteEntrenador = new javax.swing.JButton();
         jSeparator4 = new javax.swing.JSeparator();
-        jPanel18 = new javax.swing.JPanel();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jLabel25 = new javax.swing.JLabel();
-        jLabel26 = new javax.swing.JLabel();
-        jLabel27 = new javax.swing.JLabel();
-        jLabel28 = new javax.swing.JLabel();
-        jLabel29 = new javax.swing.JLabel();
-        jLabel34 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        EliminarEntrenador = new javax.swing.JButton();
         jLabel35 = new javax.swing.JLabel();
         jLabel36 = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
         jLabel37 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(764, 574));
@@ -75,7 +68,7 @@ public class MenuEntrenador extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(218, 218, 218)
                 .addComponent(jLabel1)
-                .addContainerGap(216, Short.MAX_VALUE))
+                .addContainerGap(246, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -85,44 +78,65 @@ public class MenuEntrenador extends javax.swing.JFrame {
                 .addContainerGap(46, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 770, 120));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 120));
 
         jPanel3.setBackground(new java.awt.Color(102, 153, 255));
 
         jLabel30.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel30.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel30.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel30.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel30.setText("SELECCIONAR DEPORTE");
+        jLabel30.setText("BUSCAR ENTRENADOR");
 
         jLabel31.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/ui/menus/Iconos/tab_32x32.png"))); // NOI18N
 
         jSeparator1.setBackground(new java.awt.Color(0, 51, 51));
         jSeparator1.setForeground(new java.awt.Color(255, 255, 255));
 
-        VerDetallesDeportes.setBackground(new java.awt.Color(255, 255, 255));
-        VerDetallesDeportes.setForeground(new java.awt.Color(64, 43, 100));
-        VerDetallesDeportes.setText("Ver Detalles");
-        VerDetallesDeportes.addActionListener(new java.awt.event.ActionListener() {
+        ListarEntrenadores.setBackground(new java.awt.Color(255, 255, 255));
+        ListarEntrenadores.setForeground(new java.awt.Color(64, 43, 100));
+        ListarEntrenadores.setText("Listar Todos");
+        ListarEntrenadores.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                VerDetallesDeportesActionPerformed(evt);
+                ListarEntrenadoresActionPerformed(evt);
             }
         });
 
-        editarDeportes.setBackground(new java.awt.Color(255, 255, 255));
-        editarDeportes.setForeground(new java.awt.Color(64, 43, 100));
-        editarDeportes.setText("Editar");
+        RegistrarEntrenador.setBackground(new java.awt.Color(255, 255, 255));
+        RegistrarEntrenador.setForeground(new java.awt.Color(64, 43, 100));
+        RegistrarEntrenador.setText("Registrar Entrenador");
+        RegistrarEntrenador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegistrarEntrenadorActionPerformed(evt);
+            }
+        });
 
-        anadirNuevoDeporte.setBackground(new java.awt.Color(255, 255, 255));
-        anadirNuevoDeporte.setForeground(new java.awt.Color(64, 43, 100));
-        anadirNuevoDeporte.setText("Añadir nuevo deporte");
+        GestionarHorarioEntrenador.setBackground(new java.awt.Color(255, 255, 255));
+        GestionarHorarioEntrenador.setForeground(new java.awt.Color(64, 43, 100));
+        GestionarHorarioEntrenador.setText("Gestionar Horarios");
 
-        eliminarDeportes.setBackground(new java.awt.Color(255, 255, 255));
-        eliminarDeportes.setForeground(new java.awt.Color(64, 43, 100));
-        eliminarDeportes.setText("Eliminar");
+        AsignarAUnDeporteEntrenador.setBackground(new java.awt.Color(255, 255, 255));
+        AsignarAUnDeporteEntrenador.setForeground(new java.awt.Color(64, 43, 100));
+        AsignarAUnDeporteEntrenador.setText("Asignar a un deporte");
 
         jSeparator4.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator4.setForeground(new java.awt.Color(255, 255, 255));
         jSeparator4.setOpaque(true);
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        EliminarEntrenador.setBackground(new java.awt.Color(255, 255, 255));
+        EliminarEntrenador.setForeground(new java.awt.Color(64, 43, 100));
+        EliminarEntrenador.setText("Eliminar Entrenador");
+
+        jLabel35.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/ui/menus/Iconos/add_32x32.png"))); // NOI18N
+
+        jLabel36.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/ui/menus/Iconos/cardfile_32x32.png"))); // NOI18N
+
+        jLabel34.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/ui/menus/Iconos/user_32x32.png"))); // NOI18N
+
+        jLabel37.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/ui/menus/Iconos/address_book_32x32.png"))); // NOI18N
+
+        jLabel32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/ui/menus/Iconos/tab_32x32.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -133,109 +147,75 @@ public class MenuEntrenador extends javax.swing.JFrame {
                 .addGap(402, 402, 402))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addComponent(jLabel31)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(121, 121, 121)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(editarDeportes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(eliminarDeportes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(VerDetallesDeportes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(99, 99, 99)
-                        .addComponent(anadirNuevoDeporte)))
+                        .addGap(38, 38, 38)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(jLabel31)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(77, 77, 77)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel35)
+                            .addComponent(jLabel36)
+                            .addComponent(jLabel34)
+                            .addComponent(jLabel37)
+                            .addComponent(jLabel32))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(RegistrarEntrenador, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(AsignarAUnDeporteEntrenador, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(ListarEntrenadores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(GestionarHorarioEntrenador, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(EliminarEntrenador, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(36, 36, 36)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel31)
                     .addComponent(jLabel30))
-                .addGap(58, 58, 58)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 6, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15)
-                .addComponent(VerDetallesDeportes, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
-                .addComponent(editarDeportes, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
-                .addComponent(eliminarDeportes, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
-                .addComponent(anadirNuevoDeporte, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ListarEntrenadores, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel35))
+                        .addGap(18, 18, 18)
+                        .addComponent(RegistrarEntrenador, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel36))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel32)
+                    .addComponent(AsignarAUnDeporteEntrenador, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(GestionarHorarioEntrenador, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel37, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(EliminarEntrenador, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel34, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 380, 470));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 380, 480));
 
-        jPanel18.setBackground(new java.awt.Color(15, 43, 99));
-        jPanel18.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jButton5.setBackground(new java.awt.Color(255, 255, 255));
-        jButton5.setForeground(new java.awt.Color(64, 43, 100));
-        jButton5.setText("Nueva Reserva");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
-            }
-        });
-        jPanel18.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, -1, -1));
-
-        jButton6.setBackground(new java.awt.Color(255, 255, 255));
-        jButton6.setForeground(new java.awt.Color(64, 43, 100));
-        jButton6.setText("Nuevo Socio");
-        jPanel18.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, 110, -1));
-
-        jButton7.setBackground(new java.awt.Color(255, 255, 255));
-        jButton7.setForeground(new java.awt.Color(64, 43, 100));
-        jButton7.setText("Registrar Pago");
-        jPanel18.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 70, -1, -1));
-
-        jButton8.setBackground(new java.awt.Color(255, 255, 255));
-        jButton8.setForeground(new java.awt.Color(64, 43, 100));
-        jButton8.setText("Nueva Membresia");
-        jPanel18.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 150, 130, -1));
-
-        jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/ui/menus/Iconos/Edit Pencil.png"))); // NOI18N
-        jPanel18.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, -1, 50));
-
-        jLabel26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/ui/menus/Iconos/Edit Pencil.png"))); // NOI18N
-        jPanel18.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, 50));
-
-        jLabel27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/ui/menus/Iconos/Edit Pencil.png"))); // NOI18N
-        jPanel18.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 60, -1, 50));
-
-        jLabel28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/ui/menus/Iconos/Edit Pencil.png"))); // NOI18N
-        jPanel18.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 140, -1, 50));
-
-        jLabel29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/ui/menus/Iconos/Edit Pencil.png"))); // NOI18N
-        jPanel18.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 0, -1, 50));
-
-        jLabel34.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/ui/menus/Iconos/user_32x32.png"))); // NOI18N
-        jPanel18.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
-
-        jLabel35.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/ui/menus/Iconos/add_32x32.png"))); // NOI18N
-        jPanel18.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
-
-        jLabel36.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/ui/menus/Iconos/cardfile_32x32.png"))); // NOI18N
-        jPanel18.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 60, -1, -1));
-
-        jLabel37.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/ui/menus/Iconos/address_book_32x32.png"))); // NOI18N
-        jPanel18.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 150, -1, -1));
-
-        jPanel1.add(jPanel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 380, 380, 220));
-
-        jLabel24.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel24.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel24.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel24.setText("ACCESO RÁPIDO");
-        jPanel1.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 190, 160, -1));
+        jPanel4.setLayout(new java.awt.CardLayout());
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 120, 420, 480));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -251,13 +231,13 @@ public class MenuEntrenador extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void VerDetallesDeportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VerDetallesDeportesActionPerformed
+    private void ListarEntrenadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListarEntrenadoresActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_VerDetallesDeportesActionPerformed
+    }//GEN-LAST:event_ListarEntrenadoresActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void RegistrarEntrenadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarEntrenadorActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_RegistrarEntrenadorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -285,31 +265,24 @@ public class MenuEntrenador extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton VerDetallesDeportes;
-    private javax.swing.JButton anadirNuevoDeporte;
-    private javax.swing.JButton editarDeportes;
-    private javax.swing.JButton eliminarDeportes;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
+    private javax.swing.JButton AsignarAUnDeporteEntrenador;
+    private javax.swing.JButton EliminarEntrenador;
+    private javax.swing.JButton GestionarHorarioEntrenador;
+    private javax.swing.JButton ListarEntrenadores;
+    private javax.swing.JButton RegistrarEntrenador;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel18;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator4;
     // End of variables declaration//GEN-END:variables
