@@ -10,7 +10,7 @@ package com.atlastech.gestionclubdeportivos.ui.menus;
  * @author Mariely Florian
 =======
  * @author loren
->>>>>>> 0cf3cbc388418e40cb1b6083e1e7e05b3441e9a7
+
  */
 public class MenuActividad extends javax.swing.JFrame {
     
@@ -274,8 +274,7 @@ public class MenuActividad extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-<<<<<<< HEAD
-=======
+
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel21;
@@ -293,6 +292,6 @@ public class MenuActividad extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JSeparator jSeparator6;
->>>>>>> 0cf3cbc388418e40cb1b6083e1e7e05b3441e9a7
+
     // End of variables declaration//GEN-END:variables
 }

@@ -102,6 +102,7 @@ public class MenuEntrenadorGestionarHorarios extends javax.swing.JPanel {
                 "Lunes", "Miércoles", "Viernes"
             }
         ));
+        jTable1.setShowGrid(true);
         jScrollPane1.setViewportView(jTable1);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 360, 90));

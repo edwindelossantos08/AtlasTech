@@ -3,21 +3,65 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.atlastech.gestionclubdeportivos.ui.menus;
+import com.atlastech.gestionclubdeportivos.models.Deporte;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.DefaultComboBoxModel;
 
 /**
  *
  * @author Mariely Florian
  */
 public class MenuDeporte extends javax.swing.JFrame {
-    
+
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MenuDeporte.class.getName());
 
     /**
      * Creates new form MenuDeporte
      */
+    private List<Deporte> listaDeportesObjetos = new ArrayList<>();
+    
+    /* Cargar datos de ejemplo (reemplaza más tarde por la BD) */
+    private void cargarDeportesEjemplo() {
+        listaDeportesObjetos.clear();
+        listaDeportesObjetos.add(new Deporte(1, "Baseball", "Deporte de bate y pelota."));
+        listaDeportesObjetos.add(new Deporte(2, "Baloncesto", "Juego de equipo en cancha donde se encestan balones."));
+        listaDeportesObjetos.add(new Deporte(3, "Natación", "Deporte acuático en piscina."));
+    }
+    
+    private void llenarComboDesdeObjetos(){
+        DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
+        for (Deporte d : listaDeportesObjetos) {
+            model.addElement(d.getNombre());
+        }
+        listaDeportes.setModel(model);
+    }
+    
     public MenuDeporte() {
         initComponents();
+        cargarDeportesEjemplo();
+        llenarComboDesdeObjetos();
+
+        // Inicializar campos de detalles como no editables
+        jTextField2.setEditable(false); 
+        jTextField1.setEditable(false);
+        guardarCambiosDetalles.setEnabled(false);
     }
+        // vaciar combo Swing
+        listaDeportesObjetos.forEach(d -> {}); 
+        listaDeportesObjetos.clear();
+        
+        // cargar datos
+        cargarDeportesEjemplo();
+        // limpiar combo  
+        listaDeportesObjetos.forEach(d -> {}); // no-op
+
+        // ahora agregamos los nombres al combo Swing
+        listaDeportesObjetos.forEach(d -> {}); // no-op
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -51,8 +95,6 @@ public class MenuDeporte extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
         jButton9 = new javax.swing.JButton();
-        editarDeporteDetalles = new javax.swing.JButton();
-        eliminarDeporteDetalles = new javax.swing.JButton();
         guardarCambiosDetalles = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -95,6 +137,11 @@ public class MenuDeporte extends javax.swing.JFrame {
         jLabel31.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/ui/menus/Iconos/tab_32x32.png"))); // NOI18N
 
         listaDeportes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Baseball ", "Baloncesto ", "Natación  " }));
+        listaDeportes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                listaDeportesActionPerformed(evt);
+            }
+        });
 
         jSeparator1.setBackground(new java.awt.Color(0, 51, 51));
         jSeparator1.setForeground(new java.awt.Color(255, 255, 255));
@@ -111,6 +158,11 @@ public class MenuDeporte extends javax.swing.JFrame {
         editarDeportes.setBackground(new java.awt.Color(255, 255, 255));
         editarDeportes.setForeground(new java.awt.Color(64, 43, 100));
         editarDeportes.setText("Editar");
+        editarDeportes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editarDeportesActionPerformed(evt);
+            }
+        });
 
         anadirNuevoDeporte.setBackground(new java.awt.Color(255, 255, 255));
         anadirNuevoDeporte.setForeground(new java.awt.Color(64, 43, 100));
@@ -210,33 +262,13 @@ public class MenuDeporte extends javax.swing.JFrame {
         jLabel25.setForeground(new java.awt.Color(255, 255, 255));
         jLabel25.setText("Nombre:");
         jPanel1.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 240, 80, -1));
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 330, 340, 80));
+        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 330, 340, 130));
         jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 240, 230, 30));
 
         jButton9.setBackground(new java.awt.Color(255, 255, 255));
         jButton9.setForeground(new java.awt.Color(64, 43, 100));
         jButton9.setText("Editar");
         jPanel1.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, 110, -1));
-
-        editarDeporteDetalles.setBackground(new java.awt.Color(255, 255, 255));
-        editarDeporteDetalles.setForeground(new java.awt.Color(64, 43, 100));
-        editarDeporteDetalles.setText("Editar Deporte");
-        editarDeporteDetalles.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                editarDeporteDetallesActionPerformed(evt);
-            }
-        });
-        jPanel1.add(editarDeporteDetalles, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 430, 130, 30));
-
-        eliminarDeporteDetalles.setBackground(new java.awt.Color(255, 255, 255));
-        eliminarDeporteDetalles.setForeground(new java.awt.Color(64, 43, 100));
-        eliminarDeporteDetalles.setText("Eliminar Deporte");
-        eliminarDeporteDetalles.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                eliminarDeporteDetallesActionPerformed(evt);
-            }
-        });
-        jPanel1.add(eliminarDeporteDetalles, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 480, 130, 30));
 
         guardarCambiosDetalles.setBackground(new java.awt.Color(255, 255, 255));
         guardarCambiosDetalles.setForeground(new java.awt.Color(64, 43, 100));
@@ -246,7 +278,7 @@ public class MenuDeporte extends javax.swing.JFrame {
                 guardarCambiosDetallesActionPerformed(evt);
             }
         });
-        jPanel1.add(guardarCambiosDetalles, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 530, 130, 30));
+        jPanel1.add(guardarCambiosDetalles, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 510, 130, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -263,20 +295,98 @@ public class MenuDeporte extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void VerDetallesDeportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VerDetallesDeportesActionPerformed
-        // TODO add your handling code here:
+      
+    String nombreSeleccionado = (String) listaDeportes.getSelectedItem();
+    if (nombreSeleccionado == null || nombreSeleccionado.trim().isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Selecciona un deporte primero.", "Aviso", JOptionPane.WARNING_MESSAGE);
+        return;
+    }
+    
+    String nombreBuscado = nombreSeleccionado.trim();
+    
+    Deporte seleccionado = null;
+    for (Deporte d : listaDeportesObjetos) {
+        if (d.getNombre().equalsIgnoreCase(nombreBuscado)) {
+            seleccionado = d;
+            break;
+        }
+    }
+    if (seleccionado != null) {
+        // Mostrar los detalles en los campos de texto
+        jTextField2.setText(seleccionado.getNombre());
+        jTextField1.setText(seleccionado.getDescripcion());
+        
+    // Deshabilitar edición al ver detalles (se habilitará con el botón "Editar")
+        jTextField2.setEditable(false); 
+        jTextField1.setEditable(false);
+        guardarCambiosDetalles.setEnabled(false); // Deshabilitar el botón de guardar
+    } else {
+        JOptionPane.showMessageDialog(this, "No se encontró información para: " + nombreBuscado, "Error", JOptionPane.ERROR_MESSAGE);
+    }
+
     }//GEN-LAST:event_VerDetallesDeportesActionPerformed
 
-    private void editarDeporteDetallesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarDeporteDetallesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_editarDeporteDetallesActionPerformed
-
-    private void eliminarDeporteDetallesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarDeporteDetallesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_eliminarDeporteDetallesActionPerformed
-
     private void guardarCambiosDetallesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarCambiosDetallesActionPerformed
-        // TODO add your handling code here:
+       
+    String nombreActualCombo = (String) listaDeportes.getSelectedItem();
+    if (nombreActualCombo == null || nombreActualCombo.trim().isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Selecciona un deporte para guardar cambios.", "Aviso", JOptionPane.WARNING_MESSAGE);
+        return;
+    }
+    
+    String nuevoNombre = jTextField2.getText().trim();
+    String nuevaDesc = jTextField1.getText().trim();
+
+    if (nuevoNombre.isEmpty()) {
+        JOptionPane.showMessageDialog(this, "El nombre no puede quedar vacío.", "Validación", JOptionPane.WARNING_MESSAGE);
+        return;
+    }
+
+    // buscar y actualizar el objeto
+    boolean encontrado = false;
+    for (Deporte d : listaDeportesObjetos) {
+        if (d.getNombre().equalsIgnoreCase(nombreActualCombo.trim())) {
+            d.setNombre(nuevoNombre);
+            d.setDescripcion(nuevaDesc);
+        encontrado = true;
+            break;
+        }
+    }
+
+    if (encontrado) {
+    // refrescar combo manteniendo índice
+    int idx = listaDeportes.getSelectedIndex();
+    llenarComboDesdeObjetos();
+    if (idx >= 0 && idx < listaDeportes.getItemCount()) {
+        listaDeportes.setSelectedIndex(idx);
+    }
+    
+    // Bloquear campos y botón de guardar después de guardar
+        jTextField2.setEditable(false); 
+        jTextField1.setEditable(false);
+        guardarCambiosDetalles.setEnabled(false);
+    
+    JOptionPane.showMessageDialog(this, "Cambios guardados correctamente.");
+}   else {
+        JOptionPane.showMessageDialog(this, "Error al guardar cambios: Deporte no encontrado.", "Error", JOptionPane.ERROR_MESSAGE);
+    }
+
     }//GEN-LAST:event_guardarCambiosDetallesActionPerformed
+
+    private void listaDeportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaDeportesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_listaDeportesActionPerformed
+
+    private void editarDeportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarDeportesActionPerformed
+           if (listaDeportes.getSelectedItem() == null) {
+         JOptionPane.showMessageDialog(this, "Selecciona un deporte para editar.", "Aviso", JOptionPane.WARNING_MESSAGE);
+         return;
+    }
+    // Habilitar la edición de los campos
+    jTextField2.setEditable(true); 
+    jTextField1.setEditable(true);
+    guardarCambiosDetalles.setEnabled(true);
+    }//GEN-LAST:event_editarDeportesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -303,12 +413,11 @@ public class MenuDeporte extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(() -> new MenuDeporte().setVisible(true));
     }
 
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton VerDetallesDeportes;
     private javax.swing.JButton anadirNuevoDeporte;
-    private javax.swing.JButton editarDeporteDetalles;
     private javax.swing.JButton editarDeportes;
-    private javax.swing.JButton eliminarDeporteDetalles;
     private javax.swing.JButton eliminarDeportes;
     private javax.swing.JButton guardarCambiosDetalles;
     private javax.swing.JButton jButton9;

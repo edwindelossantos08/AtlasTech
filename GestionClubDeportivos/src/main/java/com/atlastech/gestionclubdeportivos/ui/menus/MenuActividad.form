@@ -23,15 +23,11 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-
           <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
-
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-
-
           <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
@@ -348,5 +344,4 @@
       </SubComponents>
     </Container>
   </SubComponents>
->>>>>>> 0cf3cbc388418e40cb1b6083e1e7e05b3441e9a7
 </Form>
