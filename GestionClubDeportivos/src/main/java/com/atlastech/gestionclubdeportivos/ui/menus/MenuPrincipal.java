@@ -62,7 +62,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Cooper Black", 0, 24)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(15, 43, 99));
         jLabel7.setText("¡Bienvenido Otra vez!");
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, -1, -1));
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(15, 43, 99));

@@ -256,11 +256,11 @@ public class DashboardAdmin extends javax.swing.JFrame {
 
         lbSalir.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lbSalir.setText("Salir ");
-        jPanel2.add(lbSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 600, -1, -1));
+        jPanel2.add(lbSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 590, -1, -1));
 
         lbSettings.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lbSettings.setText("Settings");
-        jPanel2.add(lbSettings, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 600, 60, -1));
+        jPanel2.add(lbSettings, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 590, 60, -1));
 
         jSeparator1.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator1.setOpaque(true);
@@ -272,10 +272,10 @@ public class DashboardAdmin extends javax.swing.JFrame {
         jPanel2.add(lbTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 90, 40));
 
         jLabel32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/ui/menus/Iconos/gear_wheel_32x32.png"))); // NOI18N
-        jPanel2.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 590, -1, -1));
+        jPanel2.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 580, -1, -1));
 
         jLabel33.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/ui/menus/Iconos/door_32x32.png"))); // NOI18N
-        jPanel2.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 590, -1, -1));
+        jPanel2.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 580, -1, -1));
 
         jPanel19.setBackground(new java.awt.Color(29, 52, 145));
         jPanel19.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
