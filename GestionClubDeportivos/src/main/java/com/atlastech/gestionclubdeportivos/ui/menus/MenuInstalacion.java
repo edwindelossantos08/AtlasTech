@@ -4,19 +4,38 @@
  */
 package com.atlastech.gestionclubdeportivos.ui.menus;
 
+import java.awt.CardLayout;
+import javax.swing.JPanel;
 /**
  *
  * @author loren
  */
 public class MenuInstalacion extends javax.swing.JFrame {
     
+    CardLayout cardLayout;
+    // paneles del cardlayout 
+    
+    MenuInstalacionRegistrar panelVer;
+    MenuInstalacionHorarios panelHorarios;
+    MenuInstalacionReglas panelReglas;
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MenuInstalacion.class.getName());
 
+    
     /**
      * Creates new form MenuInstalacion
      */
     public MenuInstalacion() {
         initComponents();
+        cardLayout = (CardLayout) jPanel4.getLayout();
+        
+        panelVer = new MenuInstalacionRegistrar();
+        panelHorarios = new MenuInstalacionHorarios();
+        panelReglas = new MenuInstalacionReglas();
+        
+        jPanel4.add(panelVer, "ver");
+        jPanel4.add(panelReglas, "reglas");
+        jPanel4.add(panelHorarios, "horarios");
+        
     }
 
     /**
@@ -35,9 +54,9 @@ public class MenuInstalacion extends javax.swing.JFrame {
         jLabel30 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        btnRealizarReserva = new javax.swing.JButton();
-        btnVerReserva = new javax.swing.JButton();
-        btnCancelarReserva = new javax.swing.JButton();
+        btnVerInstalaciones = new javax.swing.JButton();
+        btnHorarios = new javax.swing.JButton();
+        btnReglasDeUso = new javax.swing.JButton();
         jSeparator4 = new javax.swing.JSeparator();
         jLabel35 = new javax.swing.JLabel();
         jLabel36 = new javax.swing.JLabel();
@@ -85,30 +104,30 @@ public class MenuInstalacion extends javax.swing.JFrame {
         jSeparator1.setBackground(new java.awt.Color(0, 51, 51));
         jSeparator1.setForeground(new java.awt.Color(255, 255, 255));
 
-        btnRealizarReserva.setBackground(new java.awt.Color(255, 255, 255));
-        btnRealizarReserva.setForeground(new java.awt.Color(64, 43, 100));
-        btnRealizarReserva.setText("Ver Instalaciones");
-        btnRealizarReserva.addActionListener(new java.awt.event.ActionListener() {
+        btnVerInstalaciones.setBackground(new java.awt.Color(255, 255, 255));
+        btnVerInstalaciones.setForeground(new java.awt.Color(64, 43, 100));
+        btnVerInstalaciones.setText("Ver Instalaciones");
+        btnVerInstalaciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRealizarReservaActionPerformed(evt);
+                btnVerInstalacionesActionPerformed(evt);
             }
         });
 
-        btnVerReserva.setBackground(new java.awt.Color(255, 255, 255));
-        btnVerReserva.setForeground(new java.awt.Color(64, 43, 100));
-        btnVerReserva.setText("Horarios");
-        btnVerReserva.addActionListener(new java.awt.event.ActionListener() {
+        btnHorarios.setBackground(new java.awt.Color(255, 255, 255));
+        btnHorarios.setForeground(new java.awt.Color(64, 43, 100));
+        btnHorarios.setText("Horarios");
+        btnHorarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVerReservaActionPerformed(evt);
+                btnHorariosActionPerformed(evt);
             }
         });
 
-        btnCancelarReserva.setBackground(new java.awt.Color(255, 255, 255));
-        btnCancelarReserva.setForeground(new java.awt.Color(64, 43, 100));
-        btnCancelarReserva.setText("Reglas de Uso");
-        btnCancelarReserva.addActionListener(new java.awt.event.ActionListener() {
+        btnReglasDeUso.setBackground(new java.awt.Color(255, 255, 255));
+        btnReglasDeUso.setForeground(new java.awt.Color(64, 43, 100));
+        btnReglasDeUso.setText("Reglas de Uso");
+        btnReglasDeUso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCancelarReservaActionPerformed(evt);
+                btnReglasDeUsoActionPerformed(evt);
             }
         });
 
@@ -139,9 +158,9 @@ public class MenuInstalacion extends javax.swing.JFrame {
                             .addComponent(jLabel37))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnVerReserva, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnRealizarReserva, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
-                            .addComponent(btnCancelarReserva, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(btnHorarios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnVerInstalaciones, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
+                            .addComponent(btnReglasDeUso, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addComponent(jSeparator4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
@@ -163,18 +182,18 @@ public class MenuInstalacion extends javax.swing.JFrame {
                 .addGap(39, 39, 39)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnRealizarReserva, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel35))
-                        .addGap(18, 18, 18)
-                        .addComponent(btnVerReserva, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel36))
-                .addGap(47, 47, 47)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel37)
-                    .addComponent(btnCancelarReserva, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnVerInstalaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel35))
+                .addGap(31, 31, 31)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(btnHorarios, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(34, 34, 34)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel37)
+                            .addComponent(btnReglasDeUso, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLabel36))
                 .addContainerGap(123, Short.MAX_VALUE))
         );
 
@@ -197,17 +216,20 @@ public class MenuInstalacion extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnRealizarReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRealizarReservaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnRealizarReservaActionPerformed
+    private void btnVerInstalacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerInstalacionesActionPerformed
+        java.awt.CardLayout cl = (java.awt.CardLayout) jPanel4.getLayout();
+        cl.show(jPanel4, "ver");
+    }//GEN-LAST:event_btnVerInstalacionesActionPerformed
 
-    private void btnVerReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerReservaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnVerReservaActionPerformed
+    private void btnHorariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHorariosActionPerformed
+        java.awt.CardLayout cl = (java.awt.CardLayout) jPanel4.getLayout();
+        cl.show(jPanel4, "horarios");
+    }//GEN-LAST:event_btnHorariosActionPerformed
 
-    private void btnCancelarReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarReservaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnCancelarReservaActionPerformed
+    private void btnReglasDeUsoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReglasDeUsoActionPerformed
+        java.awt.CardLayout cl = (java.awt.CardLayout) jPanel4.getLayout();
+        cl.show(jPanel4, "reglas");
+    }//GEN-LAST:event_btnReglasDeUsoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -235,9 +257,9 @@ public class MenuInstalacion extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCancelarReserva;
-    private javax.swing.JButton btnRealizarReserva;
-    private javax.swing.JButton btnVerReserva;
+    private javax.swing.JButton btnHorarios;
+    private javax.swing.JButton btnReglasDeUso;
+    private javax.swing.JButton btnVerInstalaciones;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;

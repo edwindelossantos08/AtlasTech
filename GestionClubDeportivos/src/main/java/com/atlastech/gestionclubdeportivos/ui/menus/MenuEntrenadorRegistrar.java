@@ -4,17 +4,24 @@
  */
 package com.atlastech.gestionclubdeportivos.ui.menus;
 
+import com.atlastech.gestionclubdeportivos.models.Entrenador;
+import com.atlastech.gestionclubdeportivos.dao.EntrenadorDAO;
+import java.time.LocalDate;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Mariely Florian
  */
 public class MenuEntrenadorRegistrar extends javax.swing.JPanel {
+private EntrenadorDAO entrenadorDAO;
 
     /**
      * Creates new form MenuEntrenadorRegistrar
      */
     public MenuEntrenadorRegistrar() {
         initComponents();
+        entrenadorDAO = new EntrenadorDAO(); 
     }
 
     /**
@@ -31,19 +38,19 @@ public class MenuEntrenadorRegistrar extends javax.swing.JPanel {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jSeparator4 = new javax.swing.JSeparator();
-        btnExportarLista = new javax.swing.JButton();
-        btnVerDetallesLista = new javax.swing.JButton();
+        btnGuardar = new javax.swing.JButton();
+        btnLimpiar = new javax.swing.JButton();
         jLabel24 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
+        txtNombre = new javax.swing.JTextField();
+        txtApellido = new javax.swing.JTextField();
+        txtCedula = new javax.swing.JTextField();
+        txtTelefono = new javax.swing.JTextField();
+        txtDireccion = new javax.swing.JTextField();
         jComboBox1 = new javax.swing.JComboBox<>();
 
         jPanel1.setBackground(new java.awt.Color(0, 102, 204));
@@ -80,12 +87,12 @@ public class MenuEntrenadorRegistrar extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(93, 0, 0, 0);
         jPanel1.add(jSeparator4, gridBagConstraints);
 
-        btnExportarLista.setBackground(new java.awt.Color(0, 102, 51));
-        btnExportarLista.setForeground(new java.awt.Color(255, 255, 255));
-        btnExportarLista.setText("GUARDAR");
-        btnExportarLista.addActionListener(new java.awt.event.ActionListener() {
+        btnGuardar.setBackground(new java.awt.Color(0, 102, 51));
+        btnGuardar.setForeground(new java.awt.Color(255, 255, 255));
+        btnGuardar.setText("GUARDAR");
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnExportarListaActionPerformed(evt);
+                btnGuardarActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -96,14 +103,14 @@ public class MenuEntrenadorRegistrar extends javax.swing.JPanel {
         gridBagConstraints.ipady = 13;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(50, 2, 71, 0);
-        jPanel1.add(btnExportarLista, gridBagConstraints);
+        jPanel1.add(btnGuardar, gridBagConstraints);
 
-        btnVerDetallesLista.setBackground(new java.awt.Color(153, 0, 0));
-        btnVerDetallesLista.setForeground(new java.awt.Color(255, 255, 255));
-        btnVerDetallesLista.setText("LIMPIAR");
-        btnVerDetallesLista.addActionListener(new java.awt.event.ActionListener() {
+        btnLimpiar.setBackground(new java.awt.Color(153, 0, 0));
+        btnLimpiar.setForeground(new java.awt.Color(255, 255, 255));
+        btnLimpiar.setText("LIMPIAR");
+        btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVerDetallesListaActionPerformed(evt);
+                btnLimpiarActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -114,7 +121,7 @@ public class MenuEntrenadorRegistrar extends javax.swing.JPanel {
         gridBagConstraints.ipady = 13;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(50, 60, 71, 0);
-        jPanel1.add(btnVerDetallesLista, gridBagConstraints);
+        jPanel1.add(btnLimpiar, gridBagConstraints);
 
         jLabel24.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel24.setForeground(new java.awt.Color(0, 0, 0));
@@ -181,9 +188,9 @@ public class MenuEntrenadorRegistrar extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(20, 30, 0, 0);
         jPanel1.add(jLabel29, gridBagConstraints);
 
-        jTextField2.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField2.setText("jTextField1");
-        jTextField2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txtNombre.setBackground(new java.awt.Color(255, 255, 255));
+        txtNombre.setText("jTextField1");
+        txtNombre.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 2;
@@ -192,11 +199,11 @@ public class MenuEntrenadorRegistrar extends javax.swing.JPanel {
         gridBagConstraints.ipady = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(37, 2, 0, 0);
-        jPanel1.add(jTextField2, gridBagConstraints);
+        jPanel1.add(txtNombre, gridBagConstraints);
 
-        jTextField3.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField3.setText("jTextField1");
-        jTextField3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txtApellido.setBackground(new java.awt.Color(255, 255, 255));
+        txtApellido.setText("jTextField1");
+        txtApellido.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 3;
@@ -205,11 +212,11 @@ public class MenuEntrenadorRegistrar extends javax.swing.JPanel {
         gridBagConstraints.ipady = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 2, 0, 0);
-        jPanel1.add(jTextField3, gridBagConstraints);
+        jPanel1.add(txtApellido, gridBagConstraints);
 
-        jTextField4.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField4.setText("jTextField1");
-        jTextField4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txtCedula.setBackground(new java.awt.Color(255, 255, 255));
+        txtCedula.setText("jTextField1");
+        txtCedula.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 4;
@@ -218,11 +225,11 @@ public class MenuEntrenadorRegistrar extends javax.swing.JPanel {
         gridBagConstraints.ipady = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(20, 1, 0, 0);
-        jPanel1.add(jTextField4, gridBagConstraints);
+        jPanel1.add(txtCedula, gridBagConstraints);
 
-        jTextField5.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField5.setText("jTextField1");
-        jTextField5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txtTelefono.setBackground(new java.awt.Color(255, 255, 255));
+        txtTelefono.setText("jTextField1");
+        txtTelefono.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 5;
@@ -231,11 +238,11 @@ public class MenuEntrenadorRegistrar extends javax.swing.JPanel {
         gridBagConstraints.ipady = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 2, 0, 0);
-        jPanel1.add(jTextField5, gridBagConstraints);
+        jPanel1.add(txtTelefono, gridBagConstraints);
 
-        jTextField6.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField6.setText("jTextField1");
-        jTextField6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txtDireccion.setBackground(new java.awt.Color(255, 255, 255));
+        txtDireccion.setText("jTextField1");
+        txtDireccion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 6;
@@ -244,7 +251,7 @@ public class MenuEntrenadorRegistrar extends javax.swing.JPanel {
         gridBagConstraints.ipady = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(20, 12, 0, 0);
-        jPanel1.add(jTextField6, gridBagConstraints);
+        jPanel1.add(txtDireccion, gridBagConstraints);
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -269,18 +276,57 @@ public class MenuEntrenadorRegistrar extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnExportarListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExportarListaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnExportarListaActionPerformed
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+     
+                                               
+    // 1. Crear objeto Entrenador
+    Entrenador entrenador = new Entrenador();
+    
+    // 2. Obtener datos de los campos
+    entrenador.setNombres(txtNombre.getText().trim());
+    entrenador.setApellidos(txtApellido.getText().trim());
+    entrenador.setTelefono(txtTelefono.getText().trim());
+   // entrenador.setDireccion(txtDireccion.getText().trim());
+    
+    // Para el email y la fecha puedes usar valores por defecto
+    entrenador.setEmail(""); // si no tienes campo email
+    entrenador.setFechaContratacion(LocalDate.now());
+    entrenador.setEstado(true);
+    
+    // Especialidad del combo
+    entrenador.setEspecialidad(jComboBox1.getSelectedItem().toString());
 
-    private void btnVerDetallesListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerDetallesListaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnVerDetallesListaActionPerformed
+    // 3. Llamar al DAO
+    boolean guardado = entrenadorDAO.insertarEntrenador(entrenador);
+    
+    // 4. Mensaje de resultado
+    if (guardado) {
+        JOptionPane.showMessageDialog(this, "Entrenador registrado correctamente", 
+                                      "Éxito", JOptionPane.INFORMATION_MESSAGE);
+        limpiarCampos();
+    } else {
+        JOptionPane.showMessageDialog(this, "Error al registrar entrenador", 
+                                      "Error", JOptionPane.ERROR_MESSAGE);
+    }
+}   
+    
+private void limpiarCampos() {
+    txtNombre.setText("");
+    txtApellido.setText("");
+    txtCedula.setText("");
+    txtTelefono.setText("");
+   // txtDireccion.setText("");
+    jComboBox1.setSelectedIndex(0);
+    }//GEN-LAST:event_btnGuardarActionPerformed
+
+    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
+        limpiarCampos();
+    }//GEN-LAST:event_btnLimpiarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnExportarLista;
-    private javax.swing.JButton btnVerDetallesLista;
+    private javax.swing.JButton btnGuardar;
+    private javax.swing.JButton btnLimpiar;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel24;
@@ -292,10 +338,10 @@ public class MenuEntrenadorRegistrar extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField txtApellido;
+    private javax.swing.JTextField txtCedula;
+    private javax.swing.JTextField txtDireccion;
+    private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtTelefono;
     // End of variables declaration//GEN-END:variables
 }

@@ -115,9 +115,9 @@
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="btnVerReserva" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="btnRealizarReserva" alignment="0" pref="162" max="32767" attributes="0"/>
-                                  <Component id="btnCancelarReserva" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="btnHorarios" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="btnVerInstalaciones" alignment="0" pref="162" max="32767" attributes="0"/>
+                                  <Component id="btnReglasDeUso" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Component id="jSeparator4" alignment="1" min="-2" pref="380" max="-2" attributes="0"/>
@@ -146,21 +146,21 @@
                       <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                       <Component id="jSeparator1" min="-2" pref="14" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="btnRealizarReserva" alignment="0" min="-2" pref="38" max="-2" attributes="0"/>
-                                  <Component id="jLabel35" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="btnVerReserva" min="-2" pref="35" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="jLabel36" alignment="1" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel37" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnCancelarReserva" min="-2" pref="40" max="-2" attributes="0"/>
+                          <Component id="btnVerInstalaciones" alignment="0" min="-2" pref="38" max="-2" attributes="0"/>
+                          <Component id="jLabel35" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="btnHorarios" min="-2" pref="35" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabel37" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnReglasDeUso" min="-2" pref="40" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Component id="jLabel36" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="123" max="32767" attributes="0"/>
                   </Group>
@@ -199,7 +199,7 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="btnRealizarReserva">
+            <Component class="javax.swing.JButton" name="btnVerInstalaciones">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -210,10 +210,10 @@
                 <Property name="text" type="java.lang.String" value="Ver Instalaciones"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRealizarReservaActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVerInstalacionesActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnVerReserva">
+            <Component class="javax.swing.JButton" name="btnHorarios">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -224,10 +224,10 @@
                 <Property name="text" type="java.lang.String" value="Horarios"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVerReservaActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnHorariosActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnCancelarReserva">
+            <Component class="javax.swing.JButton" name="btnReglasDeUso">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -238,7 +238,7 @@
                 <Property name="text" type="java.lang.String" value="Reglas de Uso"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCancelarReservaActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnReglasDeUsoActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JSeparator" name="jSeparator4">

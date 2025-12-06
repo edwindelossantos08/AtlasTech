@@ -50,7 +50,6 @@ public class MenuInstalacionReglas extends javax.swing.JPanel {
         jLabel6 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
-        btnVolver = new javax.swing.JButton();
 
         jPanel1.setBackground(new java.awt.Color(230, 230, 230));
         jPanel1.setPreferredSize(new java.awt.Dimension(750, 450));
@@ -258,11 +257,6 @@ public class MenuInstalacionReglas extends javax.swing.JPanel {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 410, 310));
 
-        btnVolver.setBackground(new java.awt.Color(0, 0, 0));
-        btnVolver.setForeground(new java.awt.Color(255, 255, 255));
-        btnVolver.setText("Volver ");
-        jPanel1.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 467, -1, 40));
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -279,7 +273,6 @@ public class MenuInstalacionReglas extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnVolver;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

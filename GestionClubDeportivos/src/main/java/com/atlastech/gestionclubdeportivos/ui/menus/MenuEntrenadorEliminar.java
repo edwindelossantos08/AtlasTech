@@ -4,6 +4,7 @@
  */
 package com.atlastech.gestionclubdeportivos.ui.menus;
 
+import javax.swing.JOptionPane;
 /**
  *
  * @author Mariely Florian
@@ -30,18 +31,18 @@ public class MenuEntrenadorEliminar extends javax.swing.JPanel {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jSeparator4 = new javax.swing.JSeparator();
-        btnVerDetallesLista = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
         jLabel25 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
+        txtNombre = new javax.swing.JTextField();
+        txtEstado = new javax.swing.JTextField();
+        txtDeporte = new javax.swing.JTextField();
         jLabel30 = new javax.swing.JLabel();
         jComboBox2 = new javax.swing.JComboBox<>();
         jLabel31 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
+        txtTelefono = new javax.swing.JTextField();
 
         jPanel1.setBackground(new java.awt.Color(102, 204, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -61,15 +62,15 @@ public class MenuEntrenadorEliminar extends javax.swing.JPanel {
         jSeparator4.setOpaque(true);
         jPanel1.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 93, 460, 10));
 
-        btnVerDetallesLista.setBackground(new java.awt.Color(153, 0, 0));
-        btnVerDetallesLista.setForeground(new java.awt.Color(255, 255, 255));
-        btnVerDetallesLista.setText("ELIMINAR");
-        btnVerDetallesLista.addActionListener(new java.awt.event.ActionListener() {
+        btnEliminar.setBackground(new java.awt.Color(153, 0, 0));
+        btnEliminar.setForeground(new java.awt.Color(255, 255, 255));
+        btnEliminar.setText("ELIMINAR");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVerDetallesListaActionPerformed(evt);
+                btnEliminarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnVerDetallesLista, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 420, 90, 40));
+        jPanel1.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 420, 90, 40));
 
         jLabel25.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel25.setForeground(new java.awt.Color(0, 0, 0));
@@ -91,20 +92,20 @@ public class MenuEntrenadorEliminar extends javax.swing.JPanel {
         jLabel29.setText("Estado:");
         jPanel1.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, -1, -1));
 
-        jTextField4.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField4.setText("jTextField1");
-        jTextField4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, 210, 20));
+        txtNombre.setBackground(new java.awt.Color(255, 255, 255));
+        txtNombre.setText("jTextField1");
+        txtNombre.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, 210, 20));
 
-        jTextField5.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField5.setText("jTextField1");
-        jTextField5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 360, 210, 20));
+        txtEstado.setBackground(new java.awt.Color(255, 255, 255));
+        txtEstado.setText("jTextField1");
+        txtEstado.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel1.add(txtEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 360, 210, 20));
 
-        jTextField6.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField6.setText("jTextField1");
-        jTextField6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 300, 210, 20));
+        txtDeporte.setBackground(new java.awt.Color(255, 255, 255));
+        txtDeporte.setText("jTextField1");
+        txtDeporte.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel1.add(txtDeporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 300, 210, 20));
 
         jLabel30.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel30.setForeground(new java.awt.Color(0, 0, 0));
@@ -119,10 +120,10 @@ public class MenuEntrenadorEliminar extends javax.swing.JPanel {
         jLabel31.setText("Seleccionar Entrenador:");
         jPanel1.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, -1, -1));
 
-        jTextField7.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField7.setText("jTextField1");
-        jTextField7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 330, 210, 20));
+        txtTelefono.setBackground(new java.awt.Color(255, 255, 255));
+        txtTelefono.setText("jTextField1");
+        txtTelefono.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel1.add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 330, 210, 20));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -136,13 +137,34 @@ public class MenuEntrenadorEliminar extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnVerDetallesListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerDetallesListaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnVerDetallesListaActionPerformed
-
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        String nombre = txtNombre.getText().trim();
+        if (nombre.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Ingrese el nombre del entrenador", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+     }
+        
+       int confirm = JOptionPane.showConfirmDialog(this,
+                "¿Está seguro que desea eliminar a " + nombre + "?",
+                "Confirmar eliminación",
+                JOptionPane.YES_NO_OPTION);
+       
+       if (confirm == JOptionPane.YES_OPTION) {
+            // Simulación de eliminación
+            JOptionPane.showMessageDialog(this, "Entrenador " + nombre + " eliminado correctamente",
+                    "Éxito", JOptionPane.INFORMATION_MESSAGE);
+            limpiarCampos();
+       }
+    }//GEN-LAST:event_btnEliminarActionPerformed
+         private void limpiarCampos() {
+            txtNombre.setText("");
+            txtDeporte.setText("");
+            txtTelefono.setText("");
+            txtEstado.setText("");
+         }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnVerDetallesLista;
+    private javax.swing.JButton btnEliminar;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel25;
@@ -154,9 +176,9 @@ public class MenuEntrenadorEliminar extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField txtDeporte;
+    private javax.swing.JTextField txtEstado;
+    private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtTelefono;
     // End of variables declaration//GEN-END:variables
 }

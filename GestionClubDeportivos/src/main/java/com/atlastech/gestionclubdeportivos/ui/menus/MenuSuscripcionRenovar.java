@@ -4,6 +4,11 @@
  */
 package com.atlastech.gestionclubdeportivos.ui.menus;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import com.atlastech.gestionclubdeportivos.databases.Databases;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Mariely Florian
@@ -15,6 +20,12 @@ public class MenuSuscripcionRenovar extends javax.swing.JPanel {
      */
     public MenuSuscripcionRenovar() {
         initComponents();
+        // Campos que NO se escriben manualmente
+    jTextField2.setEditable(false);
+    jTextField3.setEditable(false);
+
+    jDateChooser1.setEnabled(false);
+    jDateChooser2.setEnabled(false);
     }
 
     /**
@@ -43,6 +54,11 @@ public class MenuSuscripcionRenovar extends javax.swing.JPanel {
         jLabel31 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
+        jTextField2 = new javax.swing.JTextField();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        jDateChooser2 = new com.toedter.calendar.JDateChooser();
+        jTextField3 = new javax.swing.JTextField();
+        jDateChooser3 = new com.toedter.calendar.JDateChooser();
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -87,12 +103,21 @@ public class MenuSuscripcionRenovar extends javax.swing.JPanel {
 
         jTextField1.setBackground(new java.awt.Color(255, 255, 255));
         jTextField1.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField1.setText("jTextField1");
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
         jPanel4.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 300, 30));
 
         btnBuscar.setBackground(new java.awt.Color(255, 255, 255));
         btnBuscar.setForeground(new java.awt.Color(0, 0, 0));
         btnBuscar.setText("Buscar");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
         jPanel4.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 50, -1, -1));
 
         jLabel26.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -142,6 +167,11 @@ public class MenuSuscripcionRenovar extends javax.swing.JPanel {
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jPanel4.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 290, 220, -1));
+        jPanel4.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 150, -1, -1));
+        jPanel4.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 180, -1, -1));
+        jPanel4.add(jDateChooser2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 210, -1, -1));
+        jPanel4.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 240, -1, -1));
+        jPanel4.add(jDateChooser3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 320, -1, -1));
 
         jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 460, 420));
 
@@ -158,14 +188,87 @@ public class MenuSuscripcionRenovar extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRenovarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRenovarActionPerformed
-        // TODO add your handling code here:
+        String id = jTextField1.getText().trim();
+    String nuevoPlan = jComboBox1.getSelectedItem().toString();
+    java.util.Date nuevaFechaFin = jDateChooser3.getDate();
+
+    if (id.isEmpty() || nuevaFechaFin == null) {
+        JOptionPane.showMessageDialog(this, "Complete los datos requeridos.");
+        return;
+    }
+
+    try {
+        Connection con = Databases.getConection();
+
+        String sql = "INSERT INTO suscripciones (id_socio, plan, estado, fecha_inicio, fecha_fin) "
+                   + "VALUES (?, ?, 'Activa', NOW(), ?)";
+
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setString(1, id);
+        ps.setString(2, nuevoPlan);
+        ps.setDate(3, new java.sql.Date(nuevaFechaFin.getTime()));
+
+        ps.executeUpdate();
+
+        JOptionPane.showMessageDialog(this, "Suscripción renovada correctamente.");
+
+        con.close();
+
+    } catch (Exception ex) {
+        JOptionPane.showMessageDialog(this, "Error al renovar: " + ex.getMessage());
+    }
     }//GEN-LAST:event_btnRenovarActionPerformed
+
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        String buscar = jTextField1.getText().trim();
+
+    if (buscar.isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Ingrese un ID de socio.");
+        return;
+    }
+
+    try {
+        Connection con = Databases.getConection();
+
+        String sql = "SELECT plan, estado, fecha_inicio, fecha_fin FROM suscripciones WHERE id_socio = ? ORDER BY fecha_fin DESC LIMIT 1";
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setString(1, buscar);
+
+        ResultSet rs = ps.executeQuery();
+
+        if (rs.next()) {
+            jTextField2.setText(rs.getString("plan"));          // Plan actual
+            jTextField3.setText(rs.getString("estado"));        // Estado
+
+            java.util.Date fi = rs.getDate("fecha_inicio");
+            java.util.Date ff = rs.getDate("fecha_fin");
+
+            jDateChooser1.setDate(fi);                         // Fecha inicio actual
+            jDateChooser2.setDate(ff);                         // Fecha fin actual
+
+        } else {
+            JOptionPane.showMessageDialog(this, "Este socio no tiene suscripción activa.");
+        }
+
+        con.close();
+
+    } catch (Exception ex) {
+        JOptionPane.showMessageDialog(this, "Error al buscar socio: " + ex.getMessage());
+    }
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnRenovar;
     private javax.swing.JComboBox<String> jComboBox1;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
+    private com.toedter.calendar.JDateChooser jDateChooser2;
+    private com.toedter.calendar.JDateChooser jDateChooser3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
@@ -180,5 +283,7 @@ public class MenuSuscripcionRenovar extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
 }

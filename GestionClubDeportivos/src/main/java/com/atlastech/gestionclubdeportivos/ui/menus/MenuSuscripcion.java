@@ -4,12 +4,22 @@
  */
 package com.atlastech.gestionclubdeportivos.ui.menus;
 
+import java.awt.CardLayout;
+import javax.swing.JPanel;
 /**
  *
  * @author loren
  */
 public class MenuSuscripcion extends javax.swing.JFrame {
     
+    CardLayout cardLayout;
+    // paneles del cardlayout 
+    MenuRegistrarSuscripcion panelRegistrar;
+    MenuSuscripcionCancelar panelCancelar;
+    MenuSuscripcionRenovar panelRenovar;
+    MenuSuscripcionConsultarSocio panelConsultar;
+    MenuSuscripcionVerSuscripciones panelVer;
+
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MenuSuscripcion.class.getName());
 
     /**
@@ -17,6 +27,19 @@ public class MenuSuscripcion extends javax.swing.JFrame {
      */
     public MenuSuscripcion() {
         initComponents();
+        cardLayout = (CardLayout) jPanel4.getLayout();
+
+        panelRegistrar = new MenuRegistrarSuscripcion();
+        panelCancelar = new MenuSuscripcionCancelar();
+        panelRenovar = new MenuSuscripcionRenovar();
+        panelConsultar = new MenuSuscripcionConsultarSocio();
+        panelVer = new MenuSuscripcionVerSuscripciones();
+
+        jPanel4.add(panelVer, "ver");
+        jPanel4.add(panelRegistrar, "registrar");
+        jPanel4.add(panelCancelar, "cancelar");
+        jPanel4.add(panelRenovar, "renovar");
+        jPanel4.add(panelConsultar, "consultar");
     }
 
     /**
@@ -117,6 +140,11 @@ public class MenuSuscripcion extends javax.swing.JFrame {
         btnVerSuscripciones.setBackground(new java.awt.Color(255, 255, 255));
         btnVerSuscripciones.setForeground(new java.awt.Color(64, 43, 100));
         btnVerSuscripciones.setText("Ver suscripciones");
+        btnVerSuscripciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerSuscripcionesActionPerformed(evt);
+            }
+        });
 
         jSeparator4.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator4.setForeground(new java.awt.Color(255, 255, 255));
@@ -219,20 +247,29 @@ public class MenuSuscripcion extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRegistrarSuscripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarSuscripcionActionPerformed
-        // TODO add your handling code here:
+        java.awt.CardLayout cl = (java.awt.CardLayout) jPanel4.getLayout();
+        cl.show(jPanel4, "registrar");
     }//GEN-LAST:event_btnRegistrarSuscripcionActionPerformed
 
     private void btnRenovarSuscripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRenovarSuscripcionActionPerformed
-        // TODO add your handling code here:
+        java.awt.CardLayout cl = (java.awt.CardLayout) jPanel4.getLayout();
+        cl.show(jPanel4, "renovar");
     }//GEN-LAST:event_btnRenovarSuscripcionActionPerformed
 
     private void btnCancelarSuscripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarSuscripcionActionPerformed
-        // TODO add your handling code here:
+        java.awt.CardLayout cl = (java.awt.CardLayout) jPanel4.getLayout();
+        cl.show(jPanel4, "cancelar");
     }//GEN-LAST:event_btnCancelarSuscripcionActionPerformed
 
-    private void btnConsultarSocioActionPerformed(java.awt.event.ActionEvent evtbtnRegistrarSuscripcion//GEN-FIRST:event_btnConsultarSocioActionPerformed
-        // TODO add your handling code here:
+    private void btnConsultarSocioActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnConsultarSocioActionPerformed
+    { java.awt.CardLayout cl = (java.awt.CardLayout) jPanel4.getLayout();
+        cl.show(jPanel4, "consultar");
     }//GEN-LAST:event_btnConsultarSocioActionPerformed
+
+    private void btnVerSuscripcionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerSuscripcionesActionPerformed
+        java.awt.CardLayout cl = (java.awt.CardLayout) jPanel4.getLayout();
+        cl.show(jPanel4, "ver");
+    }//GEN-LAST:event_btnVerSuscripcionesActionPerformed
 
     /**
      * @param args the command line arguments

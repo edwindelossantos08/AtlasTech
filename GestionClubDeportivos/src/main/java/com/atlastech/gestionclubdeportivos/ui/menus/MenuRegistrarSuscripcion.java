@@ -4,6 +4,12 @@
  */
 package com.atlastech.gestionclubdeportivos.ui.menus;
 
+import com.atlastech.gestionclubdeportivos.databases.Databases;
+import javax.swing.JOptionPane; 
+import java.util.Date; 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import com.toedter.calendar.JDateChooser; 
 /**
  *
  * @author Mariely Florian
@@ -15,6 +21,13 @@ public class MenuRegistrarSuscripcion extends javax.swing.JPanel {
      */
     public MenuRegistrarSuscripcion() {
         initComponents();
+        initComboBoxes();
+    }
+    
+    private void initComboBoxes() { // 🔹 CONFIGURAR LOS COMBOBOX
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Mensual", "Trimestral", "Anual"}));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Activo", "Inactivo"}));
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"Efectivo", "Tarjeta", "Transferencia"}));
     }
 
     /**
@@ -25,7 +38,6 @@ public class MenuRegistrarSuscripcion extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
@@ -39,11 +51,15 @@ public class MenuRegistrarSuscripcion extends javax.swing.JPanel {
         jLabel30 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
-        btnExportarLista = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        btnGuardar = new javax.swing.JButton();
+        txtIDSocio = new javax.swing.JTextField();
+        txtNombre = new javax.swing.JTextField();
         jComboBox1 = new javax.swing.JComboBox<>();
         jComboBox2 = new javax.swing.JComboBox<>();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        jDateChooser2 = new com.toedter.calendar.JDateChooser();
+        jTextField3 = new javax.swing.JTextField();
+        jComboBox3 = new javax.swing.JComboBox<>();
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -100,31 +116,39 @@ public class MenuRegistrarSuscripcion extends javax.swing.JPanel {
         jLabel32.setText("Método de pago: ");
         jPanel3.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, -1, -1));
 
-        btnExportarLista.setBackground(new java.awt.Color(0, 102, 51));
-        btnExportarLista.setForeground(new java.awt.Color(255, 255, 255));
-        btnExportarLista.setText("GUARDAR SUSCRIPCIÓN");
-        btnExportarLista.addActionListener(new java.awt.event.ActionListener() {
+        btnGuardar.setBackground(new java.awt.Color(0, 102, 51));
+        btnGuardar.setForeground(new java.awt.Color(255, 255, 255));
+        btnGuardar.setText("GUARDAR SUSCRIPCIÓN");
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnExportarListaActionPerformed(evt);
+                btnGuardarActionPerformed(evt);
             }
         });
-        jPanel3.add(btnExportarLista, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 320, -1, 40));
+        jPanel3.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 320, -1, 40));
 
-        jTextField1.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField1.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField1.setText("jTextField1");
-        jPanel3.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 36, 210, 30));
+        txtIDSocio.setBackground(new java.awt.Color(255, 255, 255));
+        txtIDSocio.setForeground(new java.awt.Color(0, 0, 0));
+        txtIDSocio.setText("jTextField1");
+        jPanel3.add(txtIDSocio, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 36, 210, 30));
 
-        jTextField2.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField2.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField2.setText("jTextField2");
-        jPanel3.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, 210, 30));
+        txtNombre.setBackground(new java.awt.Color(255, 255, 255));
+        txtNombre.setForeground(new java.awt.Color(0, 0, 0));
+        txtNombre.setText("jTextField2");
+        jPanel3.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, 210, 30));
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jPanel3.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 220, -1));
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jPanel3.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 260, 220, -1));
+        jPanel3.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, -1, -1));
+        jPanel3.add(jDateChooser2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 170, -1, -1));
+
+        jTextField3.setText("jTextField3");
+        jPanel3.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 200, -1, -1));
+
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel3.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 230, -1, -1));
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 460, 390));
 
@@ -140,15 +164,79 @@ public class MenuRegistrarSuscripcion extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnExportarListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExportarListaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnExportarListaActionPerformed
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+    String idSocio = txtIDSocio.getText();
+    String nombre = txtNombre.getText();
+    String precioStr = jTextField3.getText();
+    String tipoPlan = (String) jComboBox1.getSelectedItem();
+    String metodoPago = (String) jComboBox3.getSelectedItem();
+    String estado = (String) jComboBox2.getSelectedItem();
+    java.util.Date fechaInicio = jDateChooser1.getDate();
+    java.util.Date fechaFin = jDateChooser2.getDate();
+    
+    if (idSocio.isEmpty() || nombre.isEmpty() || precioStr.isEmpty()) {
+    javax.swing.JOptionPane.showMessageDialog(this, "Por favor, complete todos los campos.");
+    return;
+}
+
+    double precio;
+    try {
+        precio = Double.parseDouble(precioStr);
+    } catch (NumberFormatException e) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Precio inválido.");
+        return;
+    }
+
+    if (fechaInicio == null || fechaFin == null) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Seleccione las fechas.");
+        return;
+    }
+
+    if (fechaFin.before(fechaInicio)) {
+        javax.swing.JOptionPane.showMessageDialog(this, "La fecha fin debe ser posterior a la fecha inicio.");
+        return;
+    }
+    try {
+            Connection con = Databases.getConection(); // tu clase de conexión
+            String sql = "INSERT INTO suscripciones (id_socio, nombre, tipo_plan, fecha_inicio, fecha_fin, precio, metodo_pago, estado) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, idSocio);
+            ps.setString(2, nombre);
+            ps.setString(3, tipoPlan);
+            ps.setDate(4, new java.sql.Date(fechaInicio.getTime()));
+            ps.setDate(5, new java.sql.Date(fechaFin.getTime()));
+            ps.setDouble(6, precio);
+            ps.setString(7, metodoPago);
+            ps.setString(8, estado);
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(this, "Suscripción registrada con éxito.");
+
+            // 🔹 Limpiar campos
+            txtIDSocio.setText("");
+            txtNombre.setText("");
+            jTextField3.setText("");
+            jComboBox1.setSelectedIndex(0);
+            jComboBox2.setSelectedIndex(0);
+            jComboBox3.setSelectedIndex(0);
+            jDateChooser1.setDate(null);
+            jDateChooser2.setDate(null);
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error al guardar: " + e.getMessage());
+            e.printStackTrace();
+        }
+    
+
+    }//GEN-LAST:event_btnGuardarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnExportarLista;
+    private javax.swing.JButton btnGuardar;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> jComboBox3;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
+    private com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
@@ -161,7 +249,8 @@ public class MenuRegistrarSuscripcion extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField txtIDSocio;
+    private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 }

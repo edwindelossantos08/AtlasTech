@@ -48,19 +48,7 @@ public class MenuDeporte extends javax.swing.JFrame {
         jTextField1.setEditable(false);
         guardarCambiosDetalles.setEnabled(false);
     }
-        // vaciar combo Swing
-        listaDeportesObjetos.forEach(d -> {}); 
-        listaDeportesObjetos.clear();
-        
-        // cargar datos
-        cargarDeportesEjemplo();
-        // limpiar combo  
-        listaDeportesObjetos.forEach(d -> {}); // no-op
-
-        // ahora agregamos los nombres al combo Swing
-        listaDeportesObjetos.forEach(d -> {}); // no-op
-    }
-    
+ 
     
 
     /**

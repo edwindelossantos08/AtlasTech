@@ -4,19 +4,60 @@
  */
 package com.atlastech.gestionclubdeportivos.ui.menus;
 
+import javax.swing.table.DefaultTableModel;
+import javax.swing.JOptionPane;
+
+
 /**
  *
  * @author Mariely Florian
  */
 public class MenuInstalacionHorarios extends javax.swing.JPanel {
 
+    private DefaultTableModel tableModel;
     /**
      * Creates new form MenuInstalacionHorarios
      */
     public MenuInstalacionHorarios() {
         initComponents();
+        initTable();
+    initActions();
     }
+    
+    private void initTable() {
+    tableModel = new DefaultTableModel(
+        new Object[][]{}, 
+        new String[] {"Hora inicio", "Hora fin", "Estado"}
+    );
+    jTable1.setModel(tableModel);
+}
 
+    private void initActions() {
+    // Cuando cambie la instalación o el día, actualizamos los horarios
+    ComboBoxInstalacion.addActionListener(e -> actualizarHorarios());
+    ComboBoxDiaSemana.addActionListener(e -> actualizarHorarios());
+}
+
+    // Simula la carga de horarios (en la práctica vendrán de DB)
+    private void actualizarHorarios() {
+    tableModel.setRowCount(0); // Limpiar tabla
+    String instalacion = ComboBoxInstalacion.getSelectedItem().toString();
+    String dia = ComboBoxDiaSemana.getSelectedItem().toString();
+
+    // Datos de ejemplo
+    if(instalacion.equals("Item 1")) {
+        if(dia.equals("Lunes")) {
+            tableModel.addRow(new Object[]{"08:00", "09:00", "Disponible"});
+            tableModel.addRow(new Object[]{"09:00", "10:00", "Ocupado"});
+        } else {
+            tableModel.addRow(new Object[]{"10:00", "11:00", "Disponible"});
+            tableModel.addRow(new Object[]{"11:00", "12:00", "Disponible"});
+        }
+    } else {
+        tableModel.addRow(new Object[]{"14:00", "15:00", "Disponible"});
+        tableModel.addRow(new Object[]{"15:00", "16:00", "Disponible"});
+    }
+}
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -35,7 +76,7 @@ public class MenuInstalacionHorarios extends javax.swing.JPanel {
         jSeparator4 = new javax.swing.JSeparator();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        btnVolver = new javax.swing.JButton();
+        btnListo = new javax.swing.JButton();
         jLabel26 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
         ComboBoxInstalacion = new javax.swing.JComboBox<>();
@@ -88,15 +129,15 @@ public class MenuInstalacionHorarios extends javax.swing.JPanel {
 
         jPanel4.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 410, 110));
 
-        btnVolver.setBackground(new java.awt.Color(0, 102, 51));
-        btnVolver.setForeground(new java.awt.Color(255, 255, 255));
-        btnVolver.setText("VOLVER");
-        btnVolver.addActionListener(new java.awt.event.ActionListener() {
+        btnListo.setBackground(new java.awt.Color(0, 102, 51));
+        btnListo.setForeground(new java.awt.Color(255, 255, 255));
+        btnListo.setText("LISTO");
+        btnListo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVolverActionPerformed(evt);
+                btnListoActionPerformed(evt);
             }
         });
-        jPanel4.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 450, 100, 40));
+        jPanel4.add(btnListo, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 450, 100, 40));
 
         jLabel26.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel26.setForeground(new java.awt.Color(0, 0, 0));
@@ -134,19 +175,27 @@ public class MenuInstalacionHorarios extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 550, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnVolverActionPerformed
+    private void btnListoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListoActionPerformed
+        int fila = jTable1.getSelectedRow();
+    if(fila == -1) {
+        JOptionPane.showMessageDialog(this, "Selecciona un horario");
+        return;
+    }
+    String horaInicio = tableModel.getValueAt(fila, 0).toString();
+    String horaFin = tableModel.getValueAt(fila, 1).toString();
+    JOptionPane.showMessageDialog(this, "Has seleccionado: " + horaInicio + " - " + horaFin);
+
+    }//GEN-LAST:event_btnListoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> ComboBoxDiaSemana;
     private javax.swing.JComboBox<String> ComboBoxInstalacion;
-    private javax.swing.JButton btnVolver;
+    private javax.swing.JButton btnListo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel26;

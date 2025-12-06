@@ -4,6 +4,11 @@
  */
 package com.atlastech.gestionclubdeportivos.ui.menus;
 
+import com.atlastech.gestionclubdeportivos.databases.Databases;
+import javax.swing.JOptionPane;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 /**
  *
  * @author Mariely Florian
@@ -15,6 +20,8 @@ public class MenuSuscripcionConsultarSocio extends javax.swing.JPanel {
      */
     public MenuSuscripcionConsultarSocio() {
         initComponents();
+        jTextField5.setEditable(false); // Estado siempre Activa
+        jTextField5.setText("Activa");
     }
 
     /**
@@ -32,21 +39,20 @@ public class MenuSuscripcionConsultarSocio extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        btnBuscar = new javax.swing.JButton();
         jLabel26 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
-        btnExportarLista = new javax.swing.JButton();
         jLabel31 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
         jTextField5 = new javax.swing.JTextField();
         jLabel33 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        jComboBox1 = new javax.swing.JComboBox<>();
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -89,10 +95,15 @@ public class MenuSuscripcionConsultarSocio extends javax.swing.JPanel {
         jTextField1.setText("jTextField1");
         jPanel4.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 300, 30));
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
-        jButton1.setText("Buscar");
-        jPanel4.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 50, -1, -1));
+        btnBuscar.setBackground(new java.awt.Color(255, 255, 255));
+        btnBuscar.setForeground(new java.awt.Color(0, 0, 0));
+        btnBuscar.setText("Buscar");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
+        jPanel4.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 50, -1, -1));
 
         jLabel26.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel26.setForeground(new java.awt.Color(0, 0, 0));
@@ -119,16 +130,6 @@ public class MenuSuscripcionConsultarSocio extends javax.swing.JPanel {
         jLabel30.setText("Vence:");
         jPanel4.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, -1, -1));
 
-        btnExportarLista.setBackground(new java.awt.Color(102, 0, 0));
-        btnExportarLista.setForeground(new java.awt.Color(255, 255, 255));
-        btnExportarLista.setText("CANCELAR SUSCRIPCION");
-        btnExportarLista.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnExportarListaActionPerformed(evt);
-            }
-        });
-        jPanel4.add(btnExportarLista, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 410, -1, 40));
-
         jLabel31.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel31.setForeground(new java.awt.Color(0, 0, 0));
         jLabel31.setText("Estado:");
@@ -149,16 +150,6 @@ public class MenuSuscripcionConsultarSocio extends javax.swing.JPanel {
         jTextField3.setText("jTextField3");
         jPanel4.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 180, 220, -1));
 
-        jTextField4.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField4.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField4.setText("jTextField4");
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
-            }
-        });
-        jPanel4.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 310, 80, -1));
-
         jTextField5.setBackground(new java.awt.Color(255, 255, 255));
         jTextField5.setForeground(new java.awt.Color(0, 0, 0));
         jTextField5.setText("Activa");
@@ -168,11 +159,10 @@ public class MenuSuscripcionConsultarSocio extends javax.swing.JPanel {
         jLabel33.setForeground(new java.awt.Color(0, 0, 0));
         jLabel33.setText("Detalles:");
         jPanel4.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 110, -1, -1));
+        jPanel4.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 310, -1, -1));
 
-        jTextField6.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField6.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField6.setText("jTextField6");
-        jPanel4.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 270, 90, -1));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel4.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 270, -1, -1));
 
         jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 460, 470));
 
@@ -188,18 +178,67 @@ public class MenuSuscripcionConsultarSocio extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnExportarListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExportarListaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnExportarListaActionPerformed
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        String idSocio = jTextField1.getText().trim();
+        if (idSocio.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Ingrese el ID del socio para buscar.");
+            return;
+        }
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+        try {
+            Connection con = Databases.getConection();
+            
+            // Buscar datos del socio
+            String sqlSocio = "SELECT nombre, telefono FROM socios WHERE id_socio=?";
+            PreparedStatement psSocio = con.prepareStatement(sqlSocio);
+            psSocio.setString(1, idSocio);
+            ResultSet rsSocio = psSocio.executeQuery();
+            
+            if(rsSocio.next()) {
+                jTextField2.setText(rsSocio.getString("nombre"));
+                jTextField3.setText(rsSocio.getString("telefono"));
+            } else {
+                JOptionPane.showMessageDialog(this, "No se encontró el socio.");
+                jTextField2.setText("");
+                jTextField3.setText("");
+                jTextField5.setText("Activa");
+                jComboBox1.setSelectedIndex(-1);
+                jDateChooser1.setDate(null);
+                return;
+            }
+            rsSocio.close();
+            psSocio.close();
+            
+            // Buscar última suscripción activa
+            String sqlSub = "SELECT plan, fecha_fin FROM suscripciones WHERE id_socio=? AND estado='Activa' ORDER BY id_suscripcion DESC LIMIT 1";
+            PreparedStatement psSub = con.prepareStatement(sqlSub);
+            psSub.setString(1, idSocio);
+            ResultSet rsSub = psSub.executeQuery();
+            
+            if(rsSub.next()) {
+                jComboBox1.setSelectedItem(rsSub.getString("plan"));
+                jDateChooser1.setDate(rsSub.getDate("fecha_fin"));
+                jTextField5.setText("Activa");
+            } else {
+                jComboBox1.setSelectedIndex(-1);
+                jDateChooser1.setDate(null);
+                jTextField5.setText("No hay suscripción activa");
+            }
+            
+            rsSub.close();
+            psSub.close();
+            
+        } catch(Exception e) {
+            JOptionPane.showMessageDialog(this, "Error al buscar: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_btnBuscarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnExportarLista;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnBuscar;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
@@ -216,8 +255,6 @@ public class MenuSuscripcionConsultarSocio extends javax.swing.JPanel {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
     // End of variables declaration//GEN-END:variables
 }

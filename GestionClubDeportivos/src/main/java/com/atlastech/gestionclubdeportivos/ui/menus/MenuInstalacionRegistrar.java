@@ -4,19 +4,39 @@
  */
 package com.atlastech.gestionclubdeportivos.ui.menus;
 
+import javax.swing.table.DefaultTableModel;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Mariely Florian
  */
 public class MenuInstalacionRegistrar extends javax.swing.JPanel {
-
+    
+    private DefaultTableModel tableModel;
     /**
      * Creates new form MenuInstalacionRegistrar
      */
     public MenuInstalacionRegistrar() {
         initComponents();
+        initTable();
+           }
+
+    private void initTable() {
+        // Configuramos el modelo de la tabla
+        tableModel = new DefaultTableModel(
+            new Object[][]{}, 
+            new String[] {"ID", "Nombre", "Ubicación", "Estado", "Capacidad", "Tipo"}
+        );
+        jTable1.setModel(tableModel);
+
+        // Datos de ejemplo (en la práctica vendrían de la base de datos)
+        tableModel.addRow(new Object[]{1, "Gimnasio Central", "1er Piso", "Activo", 50, "Deporte"});
+        tableModel.addRow(new Object[]{2, "Piscina Olímpica", "Exterior", "Mantenimiento", 30, "Natación"});
+        tableModel.addRow(new Object[]{3, "Cancha Futbol", "Exterior", "Activo", 22, "Fútbol"});
     }
 
+                      
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -40,7 +60,7 @@ public class MenuInstalacionRegistrar extends javax.swing.JPanel {
         btnEliminarSeleccion = new javax.swing.JButton();
         jLabel26 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtBuscar = new javax.swing.JTextField();
         btnBuscar = new javax.swing.JButton();
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -129,14 +149,19 @@ public class MenuInstalacionRegistrar extends javax.swing.JPanel {
         jLabel33.setText("Buscar instalacion:");
         jPanel4.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 120, -1, -1));
 
-        jTextField1.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField1.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField1.setText("jTextField1");
-        jPanel4.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, 280, -1));
+        txtBuscar.setBackground(new java.awt.Color(255, 255, 255));
+        txtBuscar.setForeground(new java.awt.Color(0, 0, 0));
+        txtBuscar.setText("jTextField1");
+        jPanel4.add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, 280, -1));
 
         btnBuscar.setBackground(new java.awt.Color(255, 255, 255));
         btnBuscar.setForeground(new java.awt.Color(0, 0, 0));
         btnBuscar.setText("Buscar");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
         jPanel4.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 150, -1, -1));
 
         jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 520));
@@ -154,13 +179,68 @@ public class MenuInstalacionRegistrar extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnActualizarSeleccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarSeleccionActionPerformed
-        // TODO add your handling code here:
+     actualizarSeleccion();
+            
     }//GEN-LAST:event_btnActualizarSeleccionActionPerformed
 
     private void btnEliminarSeleccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarSeleccionActionPerformed
-        // TODO add your handling code here:
+      eliminarSeleccion();
+            
     }//GEN-LAST:event_btnEliminarSeleccionActionPerformed
 
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        buscarInstalacion();
+    }//GEN-LAST:event_btnBuscarActionPerformed
+    
+        private void buscarInstalacion() {
+        String busqueda = txtBuscar.getText().trim().toLowerCase();
+        if (busqueda.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Ingresa un nombre para buscar.");
+            return;
+        }
+        
+        for (int i = 0; i < jTable1.getRowCount(); i++) {
+            String nombre = jTable1.getValueAt(i, 1).toString().toLowerCase();
+            jTable1.setRowSelectionInterval(i, i);
+            if (!nombre.contains(busqueda)) {
+                jTable1.removeRowSelectionInterval(i, i);
+            }
+        }
+    }
+        
+        private void eliminarSeleccion() {
+        int selectedRow = jTable1.getSelectedRow();
+        if (selectedRow == -1) {
+            JOptionPane.showMessageDialog(this, "Selecciona una instalación para eliminar.");
+            return;
+        }
+
+        int confirm = JOptionPane.showConfirmDialog(this, 
+                "¿Seguro que deseas eliminar la instalación seleccionada?", 
+                "Confirmar eliminación", JOptionPane.YES_NO_OPTION);
+
+        if (confirm == JOptionPane.YES_OPTION) {
+            tableModel.removeRow(selectedRow);
+            JOptionPane.showMessageDialog(this, "Instalación eliminada.");
+        }
+    }
+        
+        private void actualizarSeleccion() {
+        int selectedRow = jTable1.getSelectedRow();
+        if (selectedRow == -1) {
+            JOptionPane.showMessageDialog(this, "Selecciona una instalación para actualizar.");
+            return;
+        }
+
+        String nuevoNombre = JOptionPane.showInputDialog(this, 
+                "Ingresa el nuevo nombre:", 
+                tableModel.getValueAt(selectedRow, 1));
+        if (nuevoNombre != null && !nuevoNombre.trim().isEmpty()) {
+            tableModel.setValueAt(nuevoNombre, selectedRow, 1);
+            JOptionPane.showMessageDialog(this, "Instalación actualizada.");
+        }
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnActualizarSeleccion;
@@ -178,6 +258,6 @@ public class MenuInstalacionRegistrar extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField txtBuscar;
     // End of variables declaration//GEN-END:variables
 }

@@ -3,13 +3,21 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.atlastech.gestionclubdeportivos.ui.menus;
+import java.awt.CardLayout;
 
 /**
  *
  * @author loren
  */
 public class MenuEntrenador extends javax.swing.JFrame {
-    
+    CardLayout cardLayout;
+    // Panels del CardLayout
+    MenuEntrenadorListar panelListar;
+    MenuEntrenadorRegistrar panelRegistrar;
+    MenuEntrenadorAsignar panelAsignar;
+    MenuEntrenadorGestionarHorarios panelHorarios;
+    MenuEntrenadorEliminar panelEliminar;
+
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MenuEntrenador.class.getName());
 
     /**
@@ -17,6 +25,19 @@ public class MenuEntrenador extends javax.swing.JFrame {
      */
     public MenuEntrenador() {
         initComponents();
+        cardLayout = (CardLayout) jPanel4.getLayout();
+        panelListar = new MenuEntrenadorListar();
+        panelRegistrar = new MenuEntrenadorRegistrar();
+        panelAsignar = new MenuEntrenadorAsignar();
+        panelHorarios = new MenuEntrenadorGestionarHorarios();
+        panelEliminar = new MenuEntrenadorEliminar();
+        
+        // Agregar al CardLayout con nombres únicos
+        jPanel4.add(panelListar, "listar");
+        jPanel4.add(panelRegistrar, "registrar");
+        jPanel4.add(panelAsignar, "asignar");
+        jPanel4.add(panelHorarios, "horarios");
+        jPanel4.add(panelEliminar, "eliminar");
     }
 
     /**
@@ -113,10 +134,20 @@ public class MenuEntrenador extends javax.swing.JFrame {
         GestionarHorarioEntrenador.setBackground(new java.awt.Color(255, 255, 255));
         GestionarHorarioEntrenador.setForeground(new java.awt.Color(64, 43, 100));
         GestionarHorarioEntrenador.setText("Gestionar Horarios");
+        GestionarHorarioEntrenador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                GestionarHorarioEntrenadorActionPerformed(evt);
+            }
+        });
 
         AsignarAUnDeporteEntrenador.setBackground(new java.awt.Color(255, 255, 255));
         AsignarAUnDeporteEntrenador.setForeground(new java.awt.Color(64, 43, 100));
-        AsignarAUnDeporteEntrenador.setText("Asignar a un deporte");
+        AsignarAUnDeporteEntrenador.setText("Asignar a un Deporte");
+        AsignarAUnDeporteEntrenador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AsignarAUnDeporteEntrenadorActionPerformed(evt);
+            }
+        });
 
         jSeparator4.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator4.setForeground(new java.awt.Color(255, 255, 255));
@@ -127,6 +158,11 @@ public class MenuEntrenador extends javax.swing.JFrame {
         EliminarEntrenador.setBackground(new java.awt.Color(255, 255, 255));
         EliminarEntrenador.setForeground(new java.awt.Color(64, 43, 100));
         EliminarEntrenador.setText("Eliminar Entrenador");
+        EliminarEntrenador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EliminarEntrenadorActionPerformed(evt);
+            }
+        });
 
         jLabel35.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/ui/menus/Iconos/add_32x32.png"))); // NOI18N
 
@@ -232,13 +268,31 @@ public class MenuEntrenador extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ListarEntrenadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListarEntrenadoresActionPerformed
-        // TODO add your handling code here:
+        java.awt.CardLayout cl = (java.awt.CardLayout) jPanel4.getLayout();
+        cl.show(jPanel4, "listar");
     }//GEN-LAST:event_ListarEntrenadoresActionPerformed
 
     private void RegistrarEntrenadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarEntrenadorActionPerformed
-        // TODO add your handling code here:
+        java.awt.CardLayout cl = (java.awt.CardLayout) jPanel4.getLayout();
+        cl.show(jPanel4, "registrar");
     }//GEN-LAST:event_RegistrarEntrenadorActionPerformed
 
+    private void AsignarAUnDeporteEntrenadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AsignarAUnDeporteEntrenadorActionPerformed
+        java.awt.CardLayout cl = (java.awt.CardLayout) jPanel4.getLayout();
+        cl.show(jPanel4, "asignar");
+    }//GEN-LAST:event_AsignarAUnDeporteEntrenadorActionPerformed
+
+    private void GestionarHorarioEntrenadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GestionarHorarioEntrenadorActionPerformed
+        java.awt.CardLayout cl = (java.awt.CardLayout) jPanel4.getLayout();
+        cl.show(jPanel4, "horarios");
+    }//GEN-LAST:event_GestionarHorarioEntrenadorActionPerformed
+
+    private void EliminarEntrenadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarEntrenadorActionPerformed
+        java.awt.CardLayout cl = (java.awt.CardLayout) jPanel4.getLayout();
+        cl.show(jPanel4, "eliminar");
+    }//GEN-LAST:event_EliminarEntrenadorActionPerformed
+    
+    
     /**
      * @param args the command line arguments
      */

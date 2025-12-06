@@ -3,19 +3,53 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package com.atlastech.gestionclubdeportivos.ui.menus;
+import javax.swing.table.DefaultTableModel;
+import java.util.List;
+import com.atlastech.gestionclubdeportivos.models.Entrenador;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Mariely Florian
  */
 public class MenuEntrenadorListar extends javax.swing.JPanel {
+private DefaultTableModel modeloTabla;
 
     /**
      * Creates new form MenuEntrenadorListar
      */
     public MenuEntrenadorListar() {
         initComponents();
+        configurarTabla();
+        cargarDatos();
     }
+    
+    private void configurarTabla() {
+    // Definir columnas
+    String[] columnas = {"ID", "Nombre", "Teléfono", "Especialidad"};
+    modeloTabla = new DefaultTableModel(columnas, 0) {
+        @Override
+        public boolean isCellEditable(int row, int column) {
+            return false; // Hacer tabla no editable
+   }
+        };
+    jTable1.setModel(modeloTabla); // jTable1 es el nombre de tu JTable
+    }
+    
+    private void cargarDatos() {
+    // Limpiar tabla
+    modeloTabla.setRowCount(0);
+    
+    // Obtener lista de entrenadores (aquí usar tu DAO o Service)
+    // List<Entrenador> entrenadores = entrenadorDAO.listarTodos();
+    
+    // Por ahora, datos de ejemplo:
+    modeloTabla.addRow(new Object[]{1, "Juan Pérez", "809-555-1234", "Fútbol"});
+    modeloTabla.addRow(new Object[]{2, "María López", "809-555-5678", "Natación"});
+    modeloTabla.addRow(new Object[]{3, "Carlos Gómez", "809-555-9012", "Baloncesto"});
+}
+   
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -33,8 +67,6 @@ public class MenuEntrenadorListar extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         btnActualizarLista = new javax.swing.JButton();
-        btnExportarLista = new javax.swing.JButton();
-        btnVerDetallesLista = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(390, 480));
 
@@ -67,39 +99,20 @@ public class MenuEntrenadorListar extends javax.swing.JPanel {
                 "ID", "Nombre", "Telefono", "Especialidad"
             }
         ));
+        jTable1.setShowGrid(true);
         jScrollPane1.setViewportView(jTable1);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 410, 320));
 
-        btnActualizarLista.setBackground(new java.awt.Color(255, 255, 255));
-        btnActualizarLista.setForeground(new java.awt.Color(64, 43, 100));
-        btnActualizarLista.setText("Actualizar");
+        btnActualizarLista.setBackground(new java.awt.Color(0, 102, 51));
+        btnActualizarLista.setForeground(new java.awt.Color(255, 255, 255));
+        btnActualizarLista.setText("ACTUALIZAR");
         btnActualizarLista.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnActualizarListaActionPerformed(evt);
             }
         });
-        jPanel1.add(btnActualizarLista, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 450, -1, 30));
-
-        btnExportarLista.setBackground(new java.awt.Color(255, 255, 255));
-        btnExportarLista.setForeground(new java.awt.Color(64, 43, 100));
-        btnExportarLista.setText("Exportar");
-        btnExportarLista.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnExportarListaActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnExportarLista, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 450, -1, 30));
-
-        btnVerDetallesLista.setBackground(new java.awt.Color(255, 255, 255));
-        btnVerDetallesLista.setForeground(new java.awt.Color(64, 43, 100));
-        btnVerDetallesLista.setText("Ver Detalles");
-        btnVerDetallesLista.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVerDetallesListaActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnVerDetallesLista, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 450, -1, 30));
+        jPanel1.add(btnActualizarLista, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 460, 110, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -109,27 +122,18 @@ public class MenuEntrenadorListar extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 521, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 551, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnActualizarListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarListaActionPerformed
-        // TODO add your handling code here:
+        cargarDatos();
+        JOptionPane.showMessageDialog(this, "Datos actualizados", "Éxito", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_btnActualizarListaActionPerformed
-
-    private void btnExportarListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExportarListaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnExportarListaActionPerformed
-
-    private void btnVerDetallesListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerDetallesListaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnVerDetallesListaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnActualizarLista;
-    private javax.swing.JButton btnExportarLista;
-    private javax.swing.JButton btnVerDetallesLista;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

@@ -4,6 +4,18 @@
  */
 package com.atlastech.gestionclubdeportivos.ui.menus;
 
+import com.atlastech.gestionclubdeportivos.dao.EntrenadorDAO;
+import com.atlastech.gestionclubdeportivos.dao.DeporteDAO;
+//import com.atlastech.gestionclubdeportivos.dao.AsignacionEntrenadorDAO;
+import com.atlastech.gestionclubdeportivos.models.Entrenador;
+import com.atlastech.gestionclubdeportivos.models.Deporte;
+//import com.atlastech.gestionclubdeportivos.models.AsignacionEntrenador;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Date;
+import java.util.List;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Mariely Florian
@@ -15,8 +27,26 @@ public class MenuEntrenadorAsignar extends javax.swing.JPanel {
      */
     public MenuEntrenadorAsignar() {
         initComponents();
+        cargarCombos();
     }
 
+    private void cargarCombos() {
+    // Entrenadores activos
+    EntrenadorDAO entrenadorDAO = new EntrenadorDAO();
+    List<Entrenador> entrenadores = entrenadorDAO.obtenerEntrenadoresActivos();
+    jComboBox1.removeAllItems();
+    for (Entrenador e : entrenadores) {
+        jComboBox1.addItem(e.getId() + " - " + e.getNombres() + " " + e.getApellidos());
+    }
+
+    // Deportes
+    DeporteDAO deporteDAO = new DeporteDAO();
+    List<Deporte> deportes = deporteDAO.obtenerTodosDeportes();
+    jComboBox2.removeAllItems();
+    for (Deporte d : deportes) {
+        jComboBox2.addItem(d.getId() + " - " + d.getNombre());
+    }
+}
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -30,12 +60,13 @@ public class MenuEntrenadorAsignar extends javax.swing.JPanel {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jSeparator4 = new javax.swing.JSeparator();
-        btnExportarLista = new javax.swing.JButton();
+        btnAsignar = new javax.swing.JButton();
         jLabel24 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         jComboBox2 = new javax.swing.JComboBox<>();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
 
         jPanel1.setBackground(new java.awt.Color(0, 102, 204));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -55,15 +86,15 @@ public class MenuEntrenadorAsignar extends javax.swing.JPanel {
         jSeparator4.setOpaque(true);
         jPanel1.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 93, 460, 10));
 
-        btnExportarLista.setBackground(new java.awt.Color(0, 102, 51));
-        btnExportarLista.setForeground(new java.awt.Color(255, 255, 255));
-        btnExportarLista.setText("ASIGNAR");
-        btnExportarLista.addActionListener(new java.awt.event.ActionListener() {
+        btnAsignar.setBackground(new java.awt.Color(0, 102, 51));
+        btnAsignar.setForeground(new java.awt.Color(255, 255, 255));
+        btnAsignar.setText("ASIGNAR");
+        btnAsignar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnExportarListaActionPerformed(evt);
+                btnAsignarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnExportarLista, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 410, 90, 40));
+        jPanel1.add(btnAsignar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 410, 90, 40));
 
         jLabel24.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel24.setForeground(new java.awt.Color(0, 0, 0));
@@ -85,6 +116,7 @@ public class MenuEntrenadorAsignar extends javax.swing.JPanel {
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jPanel1.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 260, 300, -1));
+        jPanel1.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 350, 160, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -98,15 +130,49 @@ public class MenuEntrenadorAsignar extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnExportarListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExportarListaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnExportarListaActionPerformed
+    private void btnAsignarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAsignarActionPerformed
+                                                  
+    // Obtener entrenador seleccionado
+    String entrenadorSeleccionado = (String) jComboBox1.getSelectedItem();
+    int entrenadorId = Integer.parseInt(entrenadorSeleccionado.split(" - ")[0]);
+
+    // Obtener deporte seleccionado
+    String deporteSeleccionado = (String) jComboBox2.getSelectedItem();
+    int deporteId = Integer.parseInt(deporteSeleccionado.split(" - ")[0]);
+
+    // Obtener fecha
+    Date fecha = jDateChooser1.getDate();
+    if (fecha == null) {
+        JOptionPane.showMessageDialog(this, "Debe seleccionar una fecha", "Error", JOptionPane.ERROR_MESSAGE);
+        return;
+    }
+    LocalDate fechaInicio = fecha.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+
+   /*// Crear objeto de asignación
+    AsignacionEntrenador asignacion = new AsignacionEntrenador();
+    asignacion.setEntrenadorId(entrenadorId);
+    asignacion.setDeporteId(deporteId);
+    asignacion.setFechaInicio(fechaInicio);
+
+    // Guardar en DB
+    AsignacionEntrenadorDAO asignacionDAO = new AsignacionEntrenadorDAO();
+    boolean guardado = asignacionDAO.insertarAsignacion(asignacion);
+
+    if (guardado) {
+        JOptionPane.showMessageDialog(this, "Asignación realizada correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+    } else {
+        JOptionPane.showMessageDialog(this, "Error al asignar", "Error", JOptionPane.ERROR_MESSAGE);
+    }
+    */
+
+    }//GEN-LAST:event_btnAsignarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnExportarLista;
+    private javax.swing.JButton btnAsignar;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;

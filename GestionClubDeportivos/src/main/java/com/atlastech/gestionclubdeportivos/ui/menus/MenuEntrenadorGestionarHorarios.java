@@ -4,17 +4,23 @@
  */
 package com.atlastech.gestionclubdeportivos.ui.menus;
 
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import com.toedter.calendar.JDateChooser;
+import java.text.SimpleDateFormat;
 /**
  *
  * @author Mariely Florian
  */
 public class MenuEntrenadorGestionarHorarios extends javax.swing.JPanel {
 
+      private DefaultTableModel modelHorarios;
     /**
      * Creates new form MenuEntrenadorGestionarHorarios
      */
     public MenuEntrenadorGestionarHorarios() {
         initComponents();
+         inicializarTabla();
     }
 
     /**
@@ -30,20 +36,20 @@ public class MenuEntrenadorGestionarHorarios extends javax.swing.JPanel {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jSeparator4 = new javax.swing.JSeparator();
-        btnExportarLista = new javax.swing.JButton();
+        btnAgregarHorario = new javax.swing.JButton();
         jLabel24 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        comboBoxEntrenador = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tableHorarios = new javax.swing.JTable();
         jLabel35 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox<>();
-        jComboBox4 = new javax.swing.JComboBox<>();
-        jComboBox5 = new javax.swing.JComboBox<>();
+        comboDia = new javax.swing.JComboBox<>();
+        dateHoraFin = new com.toedter.calendar.JDateChooser();
+        dateHoraInicio = new com.toedter.calendar.JDateChooser();
 
         jPanel1.setBackground(new java.awt.Color(153, 204, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -63,15 +69,15 @@ public class MenuEntrenadorGestionarHorarios extends javax.swing.JPanel {
         jSeparator4.setOpaque(true);
         jPanel1.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 93, 490, 10));
 
-        btnExportarLista.setBackground(new java.awt.Color(0, 102, 51));
-        btnExportarLista.setForeground(new java.awt.Color(255, 255, 255));
-        btnExportarLista.setText("AGREGAR HORARIO");
-        btnExportarLista.addActionListener(new java.awt.event.ActionListener() {
+        btnAgregarHorario.setBackground(new java.awt.Color(0, 102, 51));
+        btnAgregarHorario.setForeground(new java.awt.Color(255, 255, 255));
+        btnAgregarHorario.setText("AGREGAR HORARIO");
+        btnAgregarHorario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnExportarListaActionPerformed(evt);
+                btnAgregarHorarioActionPerformed(evt);
             }
         });
-        jPanel1.add(btnExportarLista, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 450, 150, 40));
+        jPanel1.add(btnAgregarHorario, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 450, 150, 40));
 
         jLabel24.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel24.setForeground(new java.awt.Color(0, 0, 0));
@@ -88,10 +94,10 @@ public class MenuEntrenadorGestionarHorarios extends javax.swing.JPanel {
         jLabel26.setText("Horarios actuales:");
         jPanel1.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, -1, -1));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, 300, 30));
+        comboBoxEntrenador.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel1.add(comboBoxEntrenador, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, 300, 30));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tableHorarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -102,8 +108,8 @@ public class MenuEntrenadorGestionarHorarios extends javax.swing.JPanel {
                 "Lunes", "Miércoles", "Viernes"
             }
         ));
-        jTable1.setShowGrid(true);
-        jScrollPane1.setViewportView(jTable1);
+        tableHorarios.setShowGrid(true);
+        jScrollPane1.setViewportView(tableHorarios);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 360, 90));
 
@@ -125,14 +131,10 @@ public class MenuEntrenadorGestionarHorarios extends javax.swing.JPanel {
         jLabel29.setText(" Día:");
         jPanel1.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 360, -1, -1));
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", " " }));
-        jPanel1.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 360, -1, -1));
-
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel1.add(jComboBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 400, -1, -1));
-
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel1.add(jComboBox5, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 370, -1, -1));
+        comboDia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", " " }));
+        jPanel1.add(comboDia, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 360, -1, -1));
+        jPanel1.add(dateHoraFin, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 370, -1, -1));
+        jPanel1.add(dateHoraInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 400, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -146,17 +148,28 @@ public class MenuEntrenadorGestionarHorarios extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnExportarListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExportarListaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnExportarListaActionPerformed
+        private void inicializarTabla() {
+        modelHorarios = (DefaultTableModel) tableHorarios.getModel();
+    }
+        
+    private void btnAgregarHorarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarHorarioActionPerformed
+        String dia = comboDia.getSelectedItem().toString();
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+        String horaInicio = sdf.format(dateHoraInicio.getDate());
+        String horaFin = sdf.format(dateHoraFin.getDate());
+
+        modelHorarios.addRow(new Object[]{dia, horaInicio, horaFin});
+
+        JOptionPane.showMessageDialog(this, "Horario agregado correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_btnAgregarHorarioActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnExportarLista;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox3;
-    private javax.swing.JComboBox<String> jComboBox4;
-    private javax.swing.JComboBox<String> jComboBox5;
+    private javax.swing.JButton btnAgregarHorario;
+    private javax.swing.JComboBox<String> comboBoxEntrenador;
+    private javax.swing.JComboBox<String> comboDia;
+    private com.toedter.calendar.JDateChooser dateHoraFin;
+    private com.toedter.calendar.JDateChooser dateHoraInicio;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
@@ -169,6 +182,6 @@ public class MenuEntrenadorGestionarHorarios extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tableHorarios;
     // End of variables declaration//GEN-END:variables
 }

@@ -4,19 +4,56 @@
  */
 package com.atlastech.gestionclubdeportivos.ui.menus;
 
+import com.atlastech.gestionclubdeportivos.dao.SuscripcionDAO;
+import com.atlastech.gestionclubdeportivos.models.Suscripcion;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author Mariely Florian
  */
 public class MenuSuscripcionVerSuscripciones extends javax.swing.JPanel {
 
+    private SuscripcionDAO dao = new SuscripcionDAO();
     /**
      * Creates new form MenuSuscripcionVerSuscripciones
      */
     public MenuSuscripcionVerSuscripciones() {
         initComponents();
+        // cargarTabla("Todos"); 
+        eventos();
     }
+    
+        
+    private void eventos() {
+        jComboBox1.addActionListener(e -> {
+            String filtro = jComboBox1.getSelectedItem().toString();
+          //  cargarTabla(filtro);
+        });
+    }
+    
+    /*private void cargarTabla(String filtro) {
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.setRowCount(0); // limpiar tabla
 
+       // List<Suscripcion> lista = dao.listarSuscripciones();
+
+
+
+
+        for (Suscripcion s : lista) {
+        model.addRow(new Object[]{
+        s.getId(),
+        s.getIdSocio(),      // no tienes nombre del socio
+        s.getIdMembresia(),  // no tienes nombre del plan
+        "N/A",               // no tienes fecha inicio
+        "N/A",               // no tienes fecha fin
+        "N/A"                // no tienes estado
+            });
+        }
+        }
+    */
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -31,7 +68,6 @@ public class MenuSuscripcionVerSuscripciones extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel26 = new javax.swing.JLabel();
-        btnExportarLista = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -56,17 +92,7 @@ public class MenuSuscripcionVerSuscripciones extends javax.swing.JPanel {
         jLabel26.setText("Filtros:");
         jPanel4.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 30, -1, -1));
 
-        btnExportarLista.setBackground(new java.awt.Color(0, 102, 51));
-        btnExportarLista.setForeground(new java.awt.Color(255, 255, 255));
-        btnExportarLista.setText("ACTUALIZAR");
-        btnExportarLista.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnExportarListaActionPerformed(evt);
-            }
-        });
-        jPanel4.add(btnExportarLista, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 380, -1, 40));
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Activas", "Vencidas", "Canceladas", " " }));
         jPanel4.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 330, 30));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -98,13 +124,8 @@ public class MenuSuscripcionVerSuscripciones extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnExportarListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExportarListaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnExportarListaActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnExportarLista;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel26;
