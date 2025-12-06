@@ -1,13 +1,12 @@
-package com.atlastech.gestionclubdeportivos.ui.menus;
-
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
+package com.atlastech.gestionclubdeportivos.ui.menus;
 
 /**
  *
- * @author loren
+ * @author Mariely Florian
  */
 public class MenuSocio extends javax.swing.JFrame {
     

@@ -74,6 +74,7 @@ public class MenuActividad extends javax.swing.JFrame {
         lbListaActividad2 = new javax.swing.JLabel();
         lbSimbolitoListaActividad2 = new javax.swing.JLabel();
 
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         PanelContenedor.setBackground(new java.awt.Color(15, 43, 99));
@@ -351,21 +352,9 @@ public class MenuActividad extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+
     private javax.swing.JPanel PanelContenedor;
     private javax.swing.JPanel PanelMenuActividad;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
-    private javax.swing.JPanel jPanel11;
-    private javax.swing.JPanel jPanel12;
-    private javax.swing.JPanel jPanel13;
-    private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JLabel lbActividadActualizar;
@@ -396,7 +385,6 @@ public class MenuActividad extends javax.swing.JFrame {
     private javax.swing.JLabel lbSimboloActualizarActividad1;
     private javax.swing.JLabel lbSimboloActualizarActividad2;
     private javax.swing.JLabel lbSimboloRegistrarActividad;
-    private javax.swing.JLabel lbSimboloRegistrarActividad1;
-    private javax.swing.JLabel lbSimboloRegistrarActividad2;
+    
     // End of variables declaration//GEN-END:variables
 }
