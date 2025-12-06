@@ -13,8 +13,11 @@ public class MenuActividadRegistrar extends javax.swing.JPanel {
     /**
      * Creates new form MenuActividadRegistrar
      */
-    public MenuActividadRegistrar() {
+    MenuActividad parent;
+    public MenuActividadRegistrar(MenuActividad parent) {
+        this.parent=parent;
         initComponents();
+        
     }
 
     /**
@@ -32,11 +35,11 @@ public class MenuActividadRegistrar extends javax.swing.JPanel {
         jSeparator6 = new javax.swing.JSeparator();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
+        lbIDMiembro = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        lbNombreActividad = new javax.swing.JLabel();
+        lbDuraciónActividad = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
@@ -44,7 +47,7 @@ public class MenuActividadRegistrar extends javax.swing.JPanel {
         jComboBox2 = new javax.swing.JComboBox<>();
         jTextField2 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
+        lbTipoActividad = new javax.swing.JLabel();
         jTextField4 = new javax.swing.JTextField();
         jTextField5 = new javax.swing.JTextField();
         jTextField6 = new javax.swing.JTextField();
@@ -75,10 +78,10 @@ public class MenuActividadRegistrar extends javax.swing.JPanel {
         jLabel23.setForeground(new java.awt.Color(0, 0, 0));
         jPanel11.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(455, 286, -1, 49));
 
-        jLabel24.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel24.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel24.setText("ID Miembro:");
-        jPanel11.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 94, -1));
+        lbIDMiembro.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lbIDMiembro.setForeground(new java.awt.Color(0, 0, 0));
+        lbIDMiembro.setText("ID Miembro:");
+        jPanel11.add(lbIDMiembro, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 94, -1));
 
         jTextField1.setBackground(new java.awt.Color(255, 255, 255));
         jTextField1.setText("jTextField1");
@@ -95,15 +98,15 @@ public class MenuActividadRegistrar extends javax.swing.JPanel {
         });
         jPanel11.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 70, 100, 20));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("Nombre de la actividad:");
-        jPanel11.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 160, -1));
+        lbNombreActividad.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lbNombreActividad.setForeground(new java.awt.Color(0, 0, 0));
+        lbNombreActividad.setText("Nombre de la actividad:");
+        jPanel11.add(lbNombreActividad, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 160, -1));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel2.setText("Duración:");
-        jPanel11.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 70, -1));
+        lbDuraciónActividad.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lbDuraciónActividad.setForeground(new java.awt.Color(0, 0, 0));
+        lbDuraciónActividad.setText("Duración:");
+        jPanel11.add(lbDuraciónActividad, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 70, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
@@ -150,10 +153,10 @@ public class MenuActividadRegistrar extends javax.swing.JPanel {
         jTextField3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel11.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 220, 170, 20));
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel5.setText("Tipo:");
-        jPanel11.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 44, -1));
+        lbTipoActividad.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lbTipoActividad.setForeground(new java.awt.Color(0, 0, 0));
+        lbTipoActividad.setText("Tipo:");
+        jPanel11.add(lbTipoActividad, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 44, -1));
 
         jTextField4.setBackground(new java.awt.Color(255, 255, 255));
         jTextField4.setText("jTextField1");
@@ -217,15 +220,11 @@ public class MenuActividadRegistrar extends javax.swing.JPanel {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
@@ -236,5 +235,9 @@ public class MenuActividadRegistrar extends javax.swing.JPanel {
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
+    private javax.swing.JLabel lbDuraciónActividad;
+    private javax.swing.JLabel lbIDMiembro;
+    private javax.swing.JLabel lbNombreActividad;
+    private javax.swing.JLabel lbTipoActividad;
     // End of variables declaration//GEN-END:variables
 }

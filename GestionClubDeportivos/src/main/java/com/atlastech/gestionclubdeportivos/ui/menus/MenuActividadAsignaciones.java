@@ -13,7 +13,9 @@ public class MenuActividadAsignaciones extends javax.swing.JPanel {
     /**
      * Creates new form MenuActividadAsignaciones
      */
-    public MenuActividadAsignaciones() {
+    MenuActividad parent;
+    public MenuActividadAsignaciones(MenuActividad parent) {
+        this.parent = parent;
         initComponents();
     }
 

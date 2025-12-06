@@ -13,8 +13,10 @@ public class MenuActividadEliminar extends javax.swing.JPanel {
     /**
      * Creates new form MenuActividadEliminar
      */
-    public MenuActividadEliminar() {
-        initComponents();
+    MenuActividad parent;
+    public MenuActividadEliminar(MenuActividad parent) {
+        this.parent = parent;
+        initComponents();   
     }
 
     /**
