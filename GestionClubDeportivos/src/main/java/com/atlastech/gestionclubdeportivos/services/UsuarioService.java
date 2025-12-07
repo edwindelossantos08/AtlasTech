@@ -12,13 +12,14 @@ import java.util.List;
  * @author AtlasTech
  */
 public class UsuarioService {
-    private UsuarioDAO usuarioDAO;
+private UsuarioDAO usuarioDAO;
 
     public UsuarioService() {
         this.usuarioDAO = new UsuarioDAO();
     }
 
     public Usuario autenticar(String nombreUsuario, String contraseña) {
+
         if (nombreUsuario == null || nombreUsuario.trim().isEmpty()) {
             System.err.println("El nombre de usuario es obligatorio");
             return null;
@@ -32,7 +33,7 @@ public class UsuarioService {
         Usuario usuario = usuarioDAO.autenticar(nombreUsuario, contraseña);
         
         if (usuario != null) {
-            System.out.println("Autenticación exitosa: " + usuario.getNombreCompleto());
+            System.out.println("Autenticación exitosa: " + usuario.getNombreUsuario());
         } else {
             System.err.println("Usuario o contraseña incorrectos");
         }
@@ -41,7 +42,7 @@ public class UsuarioService {
     }
 
     public boolean registrarUsuario(Usuario usuario) {
-        // Validaciones
+
         if (usuario.getNombreUsuario() == null || usuario.getNombreUsuario().trim().isEmpty()) {
             System.err.println("El nombre de usuario es obligatorio");
             return false;
@@ -77,14 +78,15 @@ public class UsuarioService {
     }
 
     public boolean eliminarUsuario(int id) {
-        // No permitir eliminar el admin principal
+
         Usuario usuario = usuarioDAO.obtenerPorId(id);
+
         if (usuario != null && "admin".equals(usuario.getNombreUsuario())) {
             System.err.println("No se puede eliminar el administrador principal");
             return false;
         }
+
         return usuarioDAO.eliminar(id);
     }
 }
     
-}

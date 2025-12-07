@@ -61,6 +61,7 @@ public class ReservaService {
             System.err.println("El socio no tiene suscripción vigente");
             System.out.println("Debe adquirir una membresía para hacer reservas");
             return false;
+        } else {
         }
         
         // Verificar que la instalación existe y está disponible
