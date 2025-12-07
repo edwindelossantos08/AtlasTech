@@ -25,12 +25,12 @@ public class SuscripcionService {
         this.suscripcionDAO = new SuscripcionDAO();
         this.socioDAO = new SocioDAO();
         this.membresiaDAO = new MembresiaDAO();
-    }
+    }}
     
     // OPERACIONES CRUD CON VALIDACIONES
     
     /* Crea una nueva suscripción con validaciones completas */
-    public boolean crearSuscripcion(Suscripcion suscripcion) {
+    /*public boolean crearSuscripcion(Suscripcion suscripcion) {
         // Validar IDs
         if (!validarIds(suscripcion)) {
             return false;
@@ -55,7 +55,7 @@ public class SuscripcionService {
             return false;
         }
         
-        // Verificar que el socio no tenga una suscripción activa
+        /* Verificar que el socio no tenga una suscripción activa
         if (suscripcionDAO.verificarSuscripcionVigente(suscripcion.getIdSocio())) {
             System.err.println("El socio ya tiene una suscripción activa");
             System.out.println("Debe cancelar la suscripción actual antes de crear una nueva");
@@ -78,12 +78,12 @@ public class SuscripcionService {
     }
     
     /* Obtiene todas las suscripciones */
-    public List<Suscripcion> listarTodasSuscripciones() {
+    /*public List<Suscripcion> listarTodasSuscripciones() {
         return suscripcionDAO.obtenerTodasSuscripciones();
     }
     
     /* Busca una suscripción por ID */
-    public Suscripcion buscarSuscripcionPorId(int id) {
+    /*public Suscripcion buscarSuscripcionPorId(int id) {
         if (id <= 0) {
             System.err.println("ID inválido");
             return null;
@@ -99,14 +99,14 @@ public class SuscripcionService {
     }
     
     /* Actualiza una suscripción */
-    public boolean modificarSuscripcion(Suscripcion suscripcion) {
+    /*public boolean modificarSuscripcion(Suscripcion suscripcion) {
         if (suscripcion.getId() <= 0) {
             System.err.println("ID de suscripción inválido");
             return false;
         }
         
         // Verificar que la suscripción existe
-        Suscripcion suscripcionExistente = suscripcionDAO.obtenerSuscripcionPorId(suscripcion.getId());
+        /*Suscripcion suscripcionExistente = suscripcionDAO.obtenerSuscripcionPorId(suscripcion.getId());
         if (suscripcionExistente == null) {
             System.err.println("La suscripción no existe");
             return false;
@@ -132,7 +132,7 @@ public class SuscripcionService {
     }
     
     /* Cancela una suscripción (desactiva renovación automática) */
-    public boolean cancelarSuscripcion(int id) {
+    /*public boolean cancelarSuscripcion(int id) {
         if (id <= 0) {
             System.err.println("ID inválido");
             return false;
@@ -153,7 +153,7 @@ public class SuscripcionService {
     }
     
     /* Elimina permanentemente una suscripción */
-    public boolean eliminarSuscripcion(int id) {
+   /* public boolean eliminarSuscripcion(int id) {
         if (id <= 0) {
             System.err.println("ID inválido");
             return false;
@@ -173,7 +173,7 @@ public class SuscripcionService {
     // OPERACIONES ESPECÍFICAS
     
     /* Renueva una suscripción */
-    public boolean renovarSuscripcion(int idSuscripcion) {
+    /*public boolean renovarSuscripcion(int idSuscripcion) {
         if (idSuscripcion <= 0) {
             System.err.println("ID inválido");
             return false;
@@ -204,7 +204,7 @@ public class SuscripcionService {
     }
     
     /* Verifica si un socio tiene suscripción vigente */
-    public boolean verificarSuscripcionVigente(int idSocio) {
+    /*public boolean verificarSuscripcionVigente(int idSocio) {
         if (idSocio <= 0) {
             System.err.println("ID de socio inválido");
             return false;
@@ -216,12 +216,12 @@ public class SuscripcionService {
     // BÚSQUEDAS Y CONSULTAS
     
     /* Obtiene suscripciones activas */
-    public List<Suscripcion> listarSuscripcionesActivas() {
+    /*public List<Suscripcion> listarSuscripcionesActivas() {
         return suscripcionDAO.obtenerSuscripcionesActivas();
     }
     
     /* Obtiene suscripciones de un socio */
-    public List<Suscripcion> obtenerSuscripcionesPorSocio(int idSocio) {
+    /*public List<Suscripcion> obtenerSuscripcionesPorSocio(int idSocio) {
         if (idSocio <= 0) {
             System.err.println("ID de socio inválido");
             return List.of();
@@ -231,7 +231,7 @@ public class SuscripcionService {
     }
     
     /* Obtiene la suscripción activa de un socio */
-    public Suscripcion obtenerSuscripcionActivaDeSocio(int idSocio) {
+    /*public Suscripcion obtenerSuscripcionActivaDeSocio(int idSocio) {
         if (idSocio <= 0) {
             System.err.println("ID de socio inválido");
             return null;
@@ -241,7 +241,7 @@ public class SuscripcionService {
     }
     
     /* Obtiene suscripciones por tipo de membresía */
-    public List<Suscripcion> obtenerSuscripcionesPorMembresia(int idMembresia) {
+    /*public List<Suscripcion> obtenerSuscripcionesPorMembresia(int idMembresia) {
         if (idMembresia <= 0) {
             System.err.println("ID de membresía inválido");
             return List.of();
@@ -253,12 +253,12 @@ public class SuscripcionService {
     // ESTADÍSTICAS
     
     /* Obtiene el total de suscripciones activas */
-    public int obtenerTotalSuscripcionesActivas() {
+    /*public int obtenerTotalSuscripcionesActivas() {
         return suscripcionDAO.contarSuscripcionesActivas();
     }
     
     /* Obtiene información detallada de una suscripción */
-    public String obtenerDetallesSuscripcion(int idSuscripcion) {
+   /* public String obtenerDetallesSuscripcion(int idSuscripcion) {
         Suscripcion suscripcion = suscripcionDAO.obtenerSuscripcionPorId(idSuscripcion);
         
         if (suscripcion == null) {
@@ -289,7 +289,7 @@ public class SuscripcionService {
     }
     
     /* Obtiene estadísticas generales */
-    public String obtenerEstadisticas() {
+    /*public String obtenerEstadisticas() {
         List<Suscripcion> todas = suscripcionDAO.obtenerTodasSuscripciones();
         int activas = suscripcionDAO.contarSuscripcionesActivas();
         int canceladas = todas.size() - activas;
@@ -309,7 +309,7 @@ public class SuscripcionService {
     // MÉTODOS DE VALIDACIÓN PRIVADOS
     
     /* Valida que los IDs sean válidos */
-    private boolean validarIds(Suscripcion suscripcion) {
+   /* private boolean validarIds(Suscripcion suscripcion) {
         if (suscripcion.getIdSocio() <= 0) {
             System.err.println("ID de socio inválido");
             return false;
@@ -322,4 +322,5 @@ public class SuscripcionService {
         
         return true;
     }
-}
+
+}*/

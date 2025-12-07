@@ -34,7 +34,7 @@ public class PagoService {
     // OPERACIONES CRUD CON VALIDACIONES
 
     /*  Registra un pago de suscripción con validaciones */
-    public boolean registrarPagoSuscripcion(int idSuscripcion, BigDecimal monto, 
+    /*public boolean registrarPagoSuscripcion(int idSuscripcion, BigDecimal monto, 
                                             String metodoPago, String concepto) {
         // Validar que la suscripción existe
         Suscripcion suscripcion = suscripcionDAO.obtenerSuscripcionPorId(idSuscripcion);
@@ -382,4 +382,5 @@ public class PagoService {
         }
         return total;
     }
+   
 }

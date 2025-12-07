@@ -13,7 +13,7 @@ import java.util.List;
  * @author AtlasTech
  */
 public class UsuarioDAO {
-    private Connection connection;
+    /*private Connection connection;
 
     public UsuarioDAO() {
         this.connection = Databases.getInstance().getConnection();
@@ -189,6 +189,6 @@ public class UsuarioDAO {
         }
         
         return usuario;
-    }
+    }*/
 }
 

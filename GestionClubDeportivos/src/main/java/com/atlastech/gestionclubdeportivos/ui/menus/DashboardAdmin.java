@@ -114,7 +114,7 @@ public class DashboardAdmin extends javax.swing.JFrame {
         lbHome.setText("Home");
         jPanel4.add(lbHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 70, 40));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/ui/menus/Iconos/house_32x32.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/Iconos/house_32x32.png"))); // NOI18N
         jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, -1, -1));
 
         jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 320, 50));
@@ -144,7 +144,7 @@ public class DashboardAdmin extends javax.swing.JFrame {
 
         jPanel5.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 390, 320, 50));
 
-        jLabel31.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/ui/menus/Iconos/document_32x32.png"))); // NOI18N
+        jLabel31.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/Iconos/document_32x32.png"))); // NOI18N
         jPanel5.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, -1, -1));
 
         jPanel2.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 460, 320, 50));
@@ -155,7 +155,7 @@ public class DashboardAdmin extends javax.swing.JFrame {
         jPanel7.setPreferredSize(new java.awt.Dimension(320, 50));
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/ui/menus/Iconos/picture_32x32.png"))); // NOI18N
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/Iconos/picture_32x32.png"))); // NOI18N
         jPanel7.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, -1, -1));
 
         lbSocio.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -174,7 +174,7 @@ public class DashboardAdmin extends javax.swing.JFrame {
         lbMembresia.setText("Membresía");
         jPanel8.add(lbMembresia, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 0, 150, 50));
 
-        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/ui/menus/Iconos/layout_32x32.png"))); // NOI18N
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/Iconos/layout_32x32.png"))); // NOI18N
         jPanel8.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, -1, -1));
 
         jPanel2.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 320, 50));
@@ -189,7 +189,7 @@ public class DashboardAdmin extends javax.swing.JFrame {
         lbPago.setText("Pagos");
         jPanel6.add(lbPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 0, 150, 50));
 
-        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/ui/menus/Iconos/card_32x32.png"))); // NOI18N
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/Iconos/card_32x32.png"))); // NOI18N
         jPanel6.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, -1, -1));
 
         jPanel2.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 320, 50));
@@ -204,7 +204,7 @@ public class DashboardAdmin extends javax.swing.JFrame {
         lbReserva.setText("Reservas");
         jPanel10.add(lbReserva, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 0, 150, 50));
 
-        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/ui/menus/Iconos/cal_32x32.png"))); // NOI18N
+        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/Iconos/cal_32x32.png"))); // NOI18N
         jPanel10.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, -1, -1));
 
         jPanel2.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 310, 320, 50));
@@ -219,7 +219,7 @@ public class DashboardAdmin extends javax.swing.JFrame {
         lbInstalaciones.setText("Instalaciones");
         jPanel11.add(lbInstalaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 0, 150, 50));
 
-        jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/ui/menus/Iconos/buildings_32x32.png"))); // NOI18N
+        jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/Iconos/buildings_32x32.png"))); // NOI18N
         jPanel11.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, -1, -1));
 
         jPanel2.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, 320, 50));
@@ -249,7 +249,7 @@ public class DashboardAdmin extends javax.swing.JFrame {
 
         jPanel13.add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 390, 320, 50));
 
-        jLabel30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/ui/menus/Iconos/tab_32x32.png"))); // NOI18N
+        jLabel30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/Iconos/tab_32x32.png"))); // NOI18N
         jPanel13.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, -1, -1));
 
         jPanel2.add(jPanel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 410, 320, 50));
@@ -271,10 +271,10 @@ public class DashboardAdmin extends javax.swing.JFrame {
         lbTitulo.setText("AtlasTech");
         jPanel2.add(lbTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 90, 40));
 
-        jLabel32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/ui/menus/Iconos/gear_wheel_32x32.png"))); // NOI18N
+        jLabel32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/Iconos/gear_wheel_32x32.png"))); // NOI18N
         jPanel2.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 580, -1, -1));
 
-        jLabel33.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/ui/menus/Iconos/door_32x32.png"))); // NOI18N
+        jLabel33.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/Iconos/door_32x32.png"))); // NOI18N
         jPanel2.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 580, -1, -1));
 
         jPanel19.setBackground(new java.awt.Color(29, 52, 145));
@@ -417,16 +417,16 @@ public class DashboardAdmin extends javax.swing.JFrame {
         jButton8.setText("Nueva Membresia");
         jPanel18.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 150, 130, -1));
 
-        jLabel34.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/ui/menus/Iconos/user_32x32.png"))); // NOI18N
+        jLabel34.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/Iconos/user_32x32.png"))); // NOI18N
         jPanel18.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
 
-        jLabel35.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/ui/menus/Iconos/add_32x32.png"))); // NOI18N
+        jLabel35.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/Iconos/add_32x32.png"))); // NOI18N
         jPanel18.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
 
-        jLabel36.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/ui/menus/Iconos/cardfile_32x32.png"))); // NOI18N
+        jLabel36.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/Iconos/cardfile_32x32.png"))); // NOI18N
         jPanel18.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 60, -1, -1));
 
-        jLabel37.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/ui/menus/Iconos/address_book_32x32.png"))); // NOI18N
+        jLabel37.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/Iconos/address_book_32x32.png"))); // NOI18N
         jPanel18.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 150, -1, -1));
 
         Dashboard.add(jPanel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 380, 380, 220));

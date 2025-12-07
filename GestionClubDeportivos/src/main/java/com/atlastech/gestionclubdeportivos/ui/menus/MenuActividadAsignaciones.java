@@ -1,6 +1,6 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.atlastech.gestionclubdeportivos.ui.menus;
 
@@ -8,14 +8,14 @@ package com.atlastech.gestionclubdeportivos.ui.menus;
  *
  * @author loren
  */
-public class MenuActividadAsignaciones extends javax.swing.JPanel {
+public class MenuActividadAsignaciones extends javax.swing.JFrame {
+    
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MenuActividadAsignaciones.class.getName());
 
     /**
      * Creates new form MenuActividadAsignaciones
      */
-    MenuActividad parent;
-    public MenuActividadAsignaciones(MenuActividad parent) {
-        this.parent = parent;
+    public MenuActividadAsignaciones() {
         initComponents();
     }
 
@@ -40,7 +40,9 @@ public class MenuActividadAsignaciones extends javax.swing.JPanel {
         jComboBox2 = new javax.swing.JComboBox<>();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
+        btnVolver = new javax.swing.JButton();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(15, 43, 99));
 
@@ -110,15 +112,15 @@ public class MenuActividadAsignaciones extends javax.swing.JPanel {
         });
         jPanel11.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 400, 30));
 
-        jButton8.setBackground(new java.awt.Color(0, 0, 0));
-        jButton8.setForeground(new java.awt.Color(255, 255, 255));
-        jButton8.setText("Volver");
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
+        btnVolver.setBackground(new java.awt.Color(0, 0, 0));
+        btnVolver.setForeground(new java.awt.Color(255, 255, 255));
+        btnVolver.setText("Volver");
+        btnVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
+                btnVolverActionPerformed(evt);
             }
         });
-        jPanel11.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 270, 90, 30));
+        jPanel11.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 270, 90, 30));
 
         jPanel10.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 52, -1, 350));
 
@@ -143,8 +145,8 @@ public class MenuActividadAsignaciones extends javax.swing.JPanel {
                     .addContainerGap(50, Short.MAX_VALUE)))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 780, Short.MAX_VALUE)
@@ -163,6 +165,8 @@ public class MenuActividadAsignaciones extends javax.swing.JPanel {
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
+
+        pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -177,16 +181,42 @@ public class MenuActividadAsignaciones extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton6ActionPerformed
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton8ActionPerformed
+    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
+        MenuActividadAsignaciones InicioAsignaciones = new MenuActividadAsignaciones();
+        InicioAsignaciones.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnVolverActionPerformed
 
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
+            logger.log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(() -> new MenuActividadAsignaciones().setVisible(true));
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnVolver;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton8;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;

@@ -12,13 +12,13 @@ import java.util.List;
  * @author AtlasTech
  */
 public class UsuarioService {
-    private UsuarioDAO usuarioDAO;
+    /*private UsuarioDAO usuarioDAO;
 
     public UsuarioService() {
         this.usuarioDAO = new UsuarioDAO();
-    }
+    }*/
 
-    public Usuario autenticar(String nombreUsuario, String contraseña) {
+    /*public Usuario autenticar(String nombreUsuario, String contraseña) {
         if (nombreUsuario == null || nombreUsuario.trim().isEmpty()) {
             System.err.println("El nombre de usuario es obligatorio");
             return null;
@@ -29,7 +29,7 @@ public class UsuarioService {
             return null;
         }
 
-        Usuario usuario = usuarioDAO.autenticar(nombreUsuario, contraseña);
+        /*Usuario usuario = usuarioDAO.autenticar(nombreUsuario, contraseña);
         
         if (usuario != null) {
             System.out.println("Autenticación exitosa: " + usuario.getNombreCompleto());
@@ -84,7 +84,7 @@ public class UsuarioService {
             return false;
         }
         return usuarioDAO.eliminar(id);
-    }
+    }*/
 }
-    
+
 

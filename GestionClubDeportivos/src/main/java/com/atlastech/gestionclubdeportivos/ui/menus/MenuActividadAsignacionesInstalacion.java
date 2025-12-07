@@ -1,6 +1,6 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.atlastech.gestionclubdeportivos.ui.menus;
 
@@ -8,14 +8,14 @@ package com.atlastech.gestionclubdeportivos.ui.menus;
  *
  * @author loren
  */
-public class MenuActividadAsignacionesInstalacion extends javax.swing.JPanel {
+public class MenuActividadAsignacionesInstalacion extends javax.swing.JFrame {
+    
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MenuActividadAsignacionesInstalacion.class.getName());
 
     /**
      * Creates new form MenuActividadAsignacionesInstalacion
      */
-    MenuActividad parent;
-    public MenuActividadAsignacionesInstalacion(MenuActividad parent) {
-        this.parent = parent;
+    public MenuActividadAsignacionesInstalacion() {
         initComponents();
     }
 
@@ -38,9 +38,11 @@ public class MenuActividadAsignacionesInstalacion extends javax.swing.JPanel {
         jLabel24 = new javax.swing.JLabel();
         jComboBox2 = new javax.swing.JComboBox<>();
         jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
+        btnVolver = new javax.swing.JButton();
         jLabel25 = new javax.swing.JLabel();
         jComboBox3 = new javax.swing.JComboBox<>();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(15, 43, 99));
 
@@ -87,15 +89,15 @@ public class MenuActividadAsignacionesInstalacion extends javax.swing.JPanel {
         });
         jPanel11.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, 90, 30));
 
-        jButton9.setBackground(new java.awt.Color(0, 0, 0));
-        jButton9.setForeground(new java.awt.Color(255, 255, 255));
-        jButton9.setText("Volver");
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
+        btnVolver.setBackground(new java.awt.Color(0, 0, 0));
+        btnVolver.setForeground(new java.awt.Color(255, 255, 255));
+        btnVolver.setText("Volver");
+        btnVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
+                btnVolverActionPerformed(evt);
             }
         });
-        jPanel11.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 200, 90, 30));
+        jPanel11.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 200, 90, 30));
 
         jLabel25.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel25.setForeground(new java.awt.Color(0, 0, 0));
@@ -130,8 +132,8 @@ public class MenuActividadAsignacionesInstalacion extends javax.swing.JPanel {
                     .addContainerGap(90, Short.MAX_VALUE)))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -140,20 +142,48 @@ public class MenuActividadAsignacionesInstalacion extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
+
+        pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        // TODO add your handling code here:
+      
     }//GEN-LAST:event_jButton8ActionPerformed
 
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton9ActionPerformed
+    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
+        MenuActividadAsignaciones InicioAsignaciones = new MenuActividadAsignaciones();
+        InicioAsignaciones.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnVolverActionPerformed
 
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
+            logger.log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(() -> new MenuActividadAsignacionesInstalacion().setVisible(true));
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnVolver;
     private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JLabel jLabel21;

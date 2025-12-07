@@ -56,12 +56,12 @@ public class ReservaService {
             return false;
         }
         
-        // Verificar que el socio tiene suscripción vigente
+        /*// Verificar que el socio tiene suscripción vigente
         if (!suscripcionDAO.verificarSuscripcionVigente(reserva.getIdSocio())) {
             System.err.println("El socio no tiene suscripción vigente");
             System.out.println("Debe adquirir una membresía para hacer reservas");
             return false;
-        }
+        }*/
         
         // Verificar que la instalación existe y está disponible
         Instalacion instalacion = instalacionDAO.obtenerInstalacionPorId(reserva.getIdInstalacion());

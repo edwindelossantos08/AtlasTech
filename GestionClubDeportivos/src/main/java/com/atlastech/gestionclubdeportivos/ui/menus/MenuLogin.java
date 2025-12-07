@@ -8,14 +8,14 @@ package com.atlastech.gestionclubdeportivos.ui.menus;
  *
  * @author loren
  */
-public class MenuActividadAsignacionesEntrenadorSocio extends javax.swing.JFrame {
+public class MenuLogin extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MenuActividadAsignacionesEntrenadorSocio.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MenuLogin.class.getName());
 
     /**
-     * Creates new form MenuActividadAsignacionesEntrenadorSocio
+     * Creates new form MenuLogin
      */
-    public MenuActividadAsignacionesEntrenadorSocio() {
+    public MenuLogin() {
         initComponents();
     }
 
@@ -35,12 +35,9 @@ public class MenuActividadAsignacionesEntrenadorSocio extends javax.swing.JFrame
         jSeparator6 = new javax.swing.JSeparator();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jButton8 = new javax.swing.JButton();
-        btnVolver = new javax.swing.JButton();
-        jLabel25 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox<>();
+        btnMenuAdmin = new javax.swing.JButton();
+        btnMenuSocio = new javax.swing.JButton();
+        btnGoBack = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -55,8 +52,8 @@ public class MenuActividadAsignacionesEntrenadorSocio extends javax.swing.JFrame
 
         jLabel21.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
         jLabel21.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel21.setText("Asignar Entrenador a Socio");
-        jPanel11.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 23, 310, -1));
+        jLabel21.setText("Log In");
+        jPanel11.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 23, 70, -1));
 
         jSeparator6.setForeground(new java.awt.Color(204, 204, 204));
         jPanel11.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 389, -1));
@@ -69,47 +66,39 @@ public class MenuActividadAsignacionesEntrenadorSocio extends javax.swing.JFrame
         jLabel23.setForeground(new java.awt.Color(0, 0, 0));
         jPanel11.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(455, 286, -1, 49));
 
-        jLabel24.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel24.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel24.setText("Entrenadores:");
-        jPanel11.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 100, -1));
-
-        jComboBox2.setBackground(new java.awt.Color(255, 255, 255));
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBox2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel11.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, 180, -1));
-
-        jButton8.setBackground(new java.awt.Color(0, 0, 0));
-        jButton8.setForeground(new java.awt.Color(255, 255, 255));
-        jButton8.setText("Asignar");
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
+        btnMenuAdmin.setBackground(new java.awt.Color(204, 204, 204));
+        btnMenuAdmin.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        btnMenuAdmin.setForeground(new java.awt.Color(0, 0, 0));
+        btnMenuAdmin.setText("Iniciar Sesión Como Admin.");
+        btnMenuAdmin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
+                btnMenuAdminActionPerformed(evt);
             }
         });
-        jPanel11.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, 90, 30));
+        jPanel11.add(btnMenuAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 400, 30));
 
-        btnVolver.setBackground(new java.awt.Color(0, 0, 0));
-        btnVolver.setForeground(new java.awt.Color(255, 255, 255));
-        btnVolver.setText("Volver");
-        btnVolver.addActionListener(new java.awt.event.ActionListener() {
+        btnMenuSocio.setBackground(new java.awt.Color(204, 204, 204));
+        btnMenuSocio.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        btnMenuSocio.setForeground(new java.awt.Color(0, 0, 0));
+        btnMenuSocio.setText("Iniciar Sesión Como Socio");
+        btnMenuSocio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVolverActionPerformed(evt);
+                btnMenuSocioActionPerformed(evt);
             }
         });
-        jPanel11.add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 200, 90, 30));
+        jPanel11.add(btnMenuSocio, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 400, 30));
 
-        jLabel25.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel25.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel25.setText("Socios:");
-        jPanel11.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 60, -1));
+        btnGoBack.setBackground(new java.awt.Color(0, 0, 0));
+        btnGoBack.setForeground(new java.awt.Color(255, 255, 255));
+        btnGoBack.setText("Volver a Inicio");
+        btnGoBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGoBackActionPerformed(evt);
+            }
+        });
+        jPanel11.add(btnGoBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, 120, 30));
 
-        jComboBox3.setBackground(new java.awt.Color(255, 255, 255));
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBox3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel11.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, 210, -1));
-
-        jPanel10.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, -1, 280));
+        jPanel10.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, -1, 250));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -128,7 +117,7 @@ public class MenuActividadAsignacionesEntrenadorSocio extends javax.swing.JFrame
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(90, 90, 90)
-                    .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
@@ -146,15 +135,23 @@ public class MenuActividadAsignacionesEntrenadorSocio extends javax.swing.JFrame
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton8ActionPerformed
+    private void btnMenuAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuAdminActionPerformed
+    MenuAdmin loginAdminFrame = new MenuAdmin();
+    loginAdminFrame.setVisible(true);
+    this.dispose(); 
+    }//GEN-LAST:event_btnMenuAdminActionPerformed
 
-    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
-        MenuActividadAsignaciones InicioAsignaciones = new MenuActividadAsignaciones();
-        InicioAsignaciones.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_btnVolverActionPerformed
+    private void btnMenuSocioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuSocioActionPerformed
+    MenuSocio loginSocioFrame = new MenuSocio();
+    loginSocioFrame.setVisible(true);
+    this.dispose();
+    }//GEN-LAST:event_btnMenuSocioActionPerformed
+
+    private void btnGoBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGoBackActionPerformed
+    MenuPrincipal principal = new MenuPrincipal();
+    principal.setVisible(true);
+    this.dispose();
+    }//GEN-LAST:event_btnGoBackActionPerformed
 
     /**
      * @param args the command line arguments
@@ -178,19 +175,16 @@ public class MenuActividadAsignacionesEntrenadorSocio extends javax.swing.JFrame
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new MenuActividadAsignacionesEntrenadorSocio().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new MenuLogin().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnVolver;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
+    private javax.swing.JButton btnGoBack;
+    private javax.swing.JButton btnMenuAdmin;
+    private javax.swing.JButton btnMenuSocio;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;

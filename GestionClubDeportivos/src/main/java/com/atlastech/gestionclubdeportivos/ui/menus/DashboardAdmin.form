@@ -97,7 +97,7 @@
                 <Component class="javax.swing.JLabel" name="jLabel2">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/com/atlastech/gestionclubdeportivos/ui/menus/Iconos/house_32x32.png"/>
+                      <Image iconType="3" name="/com/atlastech/gestionclubdeportivos/Iconos/house_32x32.png"/>
                     </Property>
                   </Properties>
                   <Constraints>
@@ -205,7 +205,7 @@
                 <Component class="javax.swing.JLabel" name="jLabel31">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/com/atlastech/gestionclubdeportivos/ui/menus/Iconos/document_32x32.png"/>
+                      <Image iconType="3" name="/com/atlastech/gestionclubdeportivos/Iconos/document_32x32.png"/>
                     </Property>
                   </Properties>
                   <Constraints>
@@ -246,7 +246,7 @@
                 <Component class="javax.swing.JLabel" name="jLabel11">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/com/atlastech/gestionclubdeportivos/ui/menus/Iconos/picture_32x32.png"/>
+                      <Image iconType="3" name="/com/atlastech/gestionclubdeportivos/Iconos/picture_32x32.png"/>
                     </Property>
                   </Properties>
                   <Constraints>
@@ -313,7 +313,7 @@
                 <Component class="javax.swing.JLabel" name="jLabel13">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/com/atlastech/gestionclubdeportivos/ui/menus/Iconos/layout_32x32.png"/>
+                      <Image iconType="3" name="/com/atlastech/gestionclubdeportivos/Iconos/layout_32x32.png"/>
                     </Property>
                   </Properties>
                   <Constraints>
@@ -367,7 +367,7 @@
                 <Component class="javax.swing.JLabel" name="jLabel15">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/com/atlastech/gestionclubdeportivos/ui/menus/Iconos/card_32x32.png"/>
+                      <Image iconType="3" name="/com/atlastech/gestionclubdeportivos/Iconos/card_32x32.png"/>
                     </Property>
                   </Properties>
                   <Constraints>
@@ -421,7 +421,7 @@
                 <Component class="javax.swing.JLabel" name="jLabel19">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/com/atlastech/gestionclubdeportivos/ui/menus/Iconos/cal_32x32.png"/>
+                      <Image iconType="3" name="/com/atlastech/gestionclubdeportivos/Iconos/cal_32x32.png"/>
                     </Property>
                   </Properties>
                   <Constraints>
@@ -475,7 +475,7 @@
                 <Component class="javax.swing.JLabel" name="jLabel23">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/com/atlastech/gestionclubdeportivos/ui/menus/Iconos/buildings_32x32.png"/>
+                      <Image iconType="3" name="/com/atlastech/gestionclubdeportivos/Iconos/buildings_32x32.png"/>
                     </Property>
                   </Properties>
                   <Constraints>
@@ -583,7 +583,7 @@
                 <Component class="javax.swing.JLabel" name="jLabel30">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/com/atlastech/gestionclubdeportivos/ui/menus/Iconos/tab_32x32.png"/>
+                      <Image iconType="3" name="/com/atlastech/gestionclubdeportivos/Iconos/tab_32x32.png"/>
                     </Property>
                   </Properties>
                   <Constraints>
@@ -652,7 +652,7 @@
             <Component class="javax.swing.JLabel" name="jLabel32">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/com/atlastech/gestionclubdeportivos/ui/menus/Iconos/gear_wheel_32x32.png"/>
+                  <Image iconType="3" name="/com/atlastech/gestionclubdeportivos/Iconos/gear_wheel_32x32.png"/>
                 </Property>
               </Properties>
               <Constraints>
@@ -664,7 +664,7 @@
             <Component class="javax.swing.JLabel" name="jLabel33">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/com/atlastech/gestionclubdeportivos/ui/menus/Iconos/door_32x32.png"/>
+                  <Image iconType="3" name="/com/atlastech/gestionclubdeportivos/Iconos/door_32x32.png"/>
                 </Property>
               </Properties>
               <Constraints>
@@ -1082,7 +1082,7 @@
             <Component class="javax.swing.JLabel" name="jLabel34">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/com/atlastech/gestionclubdeportivos/ui/menus/Iconos/user_32x32.png"/>
+                  <Image iconType="3" name="/com/atlastech/gestionclubdeportivos/Iconos/user_32x32.png"/>
                 </Property>
               </Properties>
               <Constraints>
@@ -1094,7 +1094,7 @@
             <Component class="javax.swing.JLabel" name="jLabel35">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/com/atlastech/gestionclubdeportivos/ui/menus/Iconos/add_32x32.png"/>
+                  <Image iconType="3" name="/com/atlastech/gestionclubdeportivos/Iconos/add_32x32.png"/>
                 </Property>
               </Properties>
               <Constraints>
@@ -1106,7 +1106,7 @@
             <Component class="javax.swing.JLabel" name="jLabel36">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/com/atlastech/gestionclubdeportivos/ui/menus/Iconos/cardfile_32x32.png"/>
+                  <Image iconType="3" name="/com/atlastech/gestionclubdeportivos/Iconos/cardfile_32x32.png"/>
                 </Property>
               </Properties>
               <Constraints>
@@ -1118,7 +1118,7 @@
             <Component class="javax.swing.JLabel" name="jLabel37">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/com/atlastech/gestionclubdeportivos/ui/menus/Iconos/address_book_32x32.png"/>
+                  <Image iconType="3" name="/com/atlastech/gestionclubdeportivos/Iconos/address_book_32x32.png"/>
                 </Property>
               </Properties>
               <Constraints>

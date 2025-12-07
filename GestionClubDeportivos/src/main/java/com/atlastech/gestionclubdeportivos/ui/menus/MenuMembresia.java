@@ -35,15 +35,15 @@ public class MenuMembresia extends javax.swing.JFrame {
         jSeparator6 = new javax.swing.JSeparator();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        lbRegistrarMembresia = new javax.swing.JLabel();
+        lbMemembresiaEditar = new javax.swing.JLabel();
+        lbMembresiaCancelar = new javax.swing.JLabel();
+        lbMembresiarenovar = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
         jLabel36 = new javax.swing.JLabel();
         jLabel37 = new javax.swing.JLabel();
         jLabel38 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        lbMembresiaDetalles = new javax.swing.JLabel();
         jLabel39 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -68,21 +68,41 @@ public class MenuMembresia extends javax.swing.JFrame {
 
         jLabel23.setForeground(new java.awt.Color(0, 0, 0));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("Registrar Membresía");
+        lbRegistrarMembresia.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lbRegistrarMembresia.setForeground(new java.awt.Color(0, 0, 0));
+        lbRegistrarMembresia.setText("Registrar Membresía");
+        lbRegistrarMembresia.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbRegistrarMembresiaMouseClicked(evt);
+            }
+        });
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel2.setText("Editar");
+        lbMemembresiaEditar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lbMemembresiaEditar.setForeground(new java.awt.Color(0, 0, 0));
+        lbMemembresiaEditar.setText("Editar");
+        lbMemembresiaEditar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbMemembresiaEditarMouseClicked(evt);
+            }
+        });
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setText("Cancelar/Desactivar");
+        lbMembresiaCancelar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lbMembresiaCancelar.setForeground(new java.awt.Color(0, 0, 0));
+        lbMembresiaCancelar.setText("Cancelar/Desactivar");
+        lbMembresiaCancelar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbMembresiaCancelarMouseClicked(evt);
+            }
+        });
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel4.setText("Renovar");
+        lbMembresiarenovar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lbMembresiarenovar.setForeground(new java.awt.Color(0, 0, 0));
+        lbMembresiarenovar.setText("Renovar");
+        lbMembresiarenovar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbMembresiarenovarMouseClicked(evt);
+            }
+        });
 
         jLabel35.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/ui/menus/Iconos/add_32x32.png"))); // NOI18N
 
@@ -92,9 +112,14 @@ public class MenuMembresia extends javax.swing.JFrame {
 
         jLabel38.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/ui/menus/Iconos/delete_32x32.png"))); // NOI18N
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel5.setText("Detalles Membresía");
+        lbMembresiaDetalles.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lbMembresiaDetalles.setForeground(new java.awt.Color(0, 0, 0));
+        lbMembresiaDetalles.setText("Detalles Membresía");
+        lbMembresiaDetalles.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbMembresiaDetallesMouseClicked(evt);
+            }
+        });
 
         jLabel39.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/ui/menus/Iconos/script_32x32.png"))); // NOI18N
 
@@ -108,7 +133,7 @@ public class MenuMembresia extends javax.swing.JFrame {
                     .addGroup(jPanel11Layout.createSequentialGroup()
                         .addComponent(jLabel39)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lbMembresiaDetalles, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel23))
                     .addGroup(jPanel11Layout.createSequentialGroup()
@@ -120,7 +145,7 @@ public class MenuMembresia extends javax.swing.JFrame {
                                 .addGap(16, 16, 16))
                             .addGroup(jPanel11Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lbMembresiarenovar, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                     .addGroup(jPanel11Layout.createSequentialGroup()
                         .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -129,15 +154,15 @@ public class MenuMembresia extends javax.swing.JFrame {
                             .addGroup(jPanel11Layout.createSequentialGroup()
                                 .addComponent(jLabel35)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(lbRegistrarMembresia, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel11Layout.createSequentialGroup()
                                 .addComponent(jLabel37)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(lbMemembresiaEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel11Layout.createSequentialGroup()
                                 .addComponent(jLabel38)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(lbMembresiaCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 46, Short.MAX_VALUE))))
         );
         jPanel11Layout.setVerticalGroup(
@@ -150,15 +175,15 @@ public class MenuMembresia extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel35)
-                    .addComponent(jLabel1))
+                    .addComponent(lbRegistrarMembresia))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel37)
-                    .addComponent(jLabel2))
+                    .addComponent(lbMemembresiaEditar))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel38)
-                    .addComponent(jLabel3))
+                    .addComponent(lbMembresiaCancelar))
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel11Layout.createSequentialGroup()
                         .addGap(0, 3, Short.MAX_VALUE)
@@ -169,9 +194,9 @@ public class MenuMembresia extends javax.swing.JFrame {
                                 .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel11Layout.createSequentialGroup()
                                 .addGap(11, 11, 11)
-                                .addComponent(jLabel4)
+                                .addComponent(lbMembresiarenovar)
                                 .addGap(23, 23, 23)
-                                .addComponent(jLabel5))))
+                                .addComponent(lbMembresiaDetalles))))
                     .addGroup(jPanel11Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(jLabel36)
@@ -213,6 +238,36 @@ public class MenuMembresia extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void lbRegistrarMembresiaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbRegistrarMembresiaMouseClicked
+       MenuMembresiaRegistro membershipRegister  = new MenuMembresiaRegistro();
+       membershipRegister.setVisible(true);
+       this.dispose();
+    }//GEN-LAST:event_lbRegistrarMembresiaMouseClicked
+
+    private void lbMemembresiaEditarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbMemembresiaEditarMouseClicked
+     MenuMembresiaEditar membershipEdit  = new MenuMembresiaEditar();
+       membershipEdit.setVisible(true);
+       this.dispose();
+    }//GEN-LAST:event_lbMemembresiaEditarMouseClicked
+
+    private void lbMembresiaCancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbMembresiaCancelarMouseClicked
+        MenuMembresiaDesactivar membershipDeactive  = new MenuMembresiaDesactivar();
+       membershipDeactive.setVisible(true);
+       this.dispose();
+    }//GEN-LAST:event_lbMembresiaCancelarMouseClicked
+
+    private void lbMembresiarenovarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbMembresiarenovarMouseClicked
+       MenuMembresiaRenovar membershipRenew  = new MenuMembresiaRenovar();
+       membershipRenew.setVisible(true);
+       this.dispose();
+    }//GEN-LAST:event_lbMembresiarenovarMouseClicked
+
+    private void lbMembresiaDetallesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbMembresiaDetallesMouseClicked
+       MenuMembresiaDetalles membershipDetails  = new MenuMembresiaDetalles();
+       membershipDetails.setVisible(true);
+       this.dispose();
+    }//GEN-LAST:event_lbMembresiaDetallesMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -239,22 +294,22 @@ public class MenuMembresia extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JSeparator jSeparator6;
+    private javax.swing.JLabel lbMembresiaCancelar;
+    private javax.swing.JLabel lbMembresiaDetalles;
+    private javax.swing.JLabel lbMembresiarenovar;
+    private javax.swing.JLabel lbMemembresiaEditar;
+    private javax.swing.JLabel lbRegistrarMembresia;
     // End of variables declaration//GEN-END:variables
 }

@@ -16,7 +16,7 @@ import java.util.List;
  * @author Atlas_Tech
  */
 public class SuscripcionDAO {
-    private Connection connection;
+  /*private Connection connection;
     
     public SuscripcionDAO() {
         this.connection = Databases.getConection();
@@ -53,7 +53,7 @@ public class SuscripcionDAO {
     
     /*Obtiene todos los pagos de la base de datos
      * @return lista de todos los pagos */
-    public List<Pago> obtenerTodosPagos() {
+   /* public List<Pago> obtenerTodosPagos() {
         List<Pago> pagos = new ArrayList<>();
         String sql = "SELECT * FROM PAGO ORDER BY Id DESC";
         
@@ -76,7 +76,7 @@ public class SuscripcionDAO {
     /*Obtiene un pago por su ID
      * @param id identificador del pago
      * @return objeto Pago o null si no existe*/
-    public Pago obtenerPagoPorId(int id) {
+    /*public Pago obtenerPagoPorId(int id) {
         String sql = "SELECT * FROM PAGO WHERE Id = ?";
         
         try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
@@ -98,7 +98,7 @@ public class SuscripcionDAO {
     /*Actualiza un pago existente
      * @param pago objeto Pago con los datos actualizados
      * @return true si se actualizó correctamente, false en caso contrario*/
-    public boolean actualizarPago(Pago pago) {
+    /*public boolean actualizarPago(Pago pago) {
         String sql = "UPDATE PAGO SET Concepto = ?, Monto = ?, Metodo_Pago = ?, " +
                      "Estado = ?, Comprobante_URL = ? WHERE Id = ?";
         
@@ -127,7 +127,7 @@ public class SuscripcionDAO {
     /*Elimina un pago de la base de datos (usar con precaución)
      * @param id identificador del pago
      * @return true si se eliminó correctamente, false en caso contrario*/
-    public boolean eliminarPago(int id) {
+    /*public boolean eliminarPago(int id) {
         String sql = "DELETE FROM PAGO WHERE Id = ?";
         
         try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
@@ -152,7 +152,7 @@ public class SuscripcionDAO {
     /*Obtiene todos los pagos asociados a una suscripción
      * @param idSuscripcion identificador de la suscripción
      * @return lista de pagos de esa suscripción*/
-    public List<Pago> obtenerPagosPorSuscripcion(int idSuscripcion) {
+    /*public List<Pago> obtenerPagosPorSuscripcion(int idSuscripcion) {
         List<Pago> pagos = new ArrayList<>();
         String sql = "SELECT * FROM PAGO WHERE Id_Suscripcion = ? ORDER BY Id DESC";
         
@@ -175,7 +175,7 @@ public class SuscripcionDAO {
     /*Obtiene todos los pagos asociados a una reserva
      * @param idReserva identificador de la reserva
      * @return lista de pagos de esa reserva*/
-    public List<Pago> obtenerPagosPorReserva(int idReserva) {
+    /*public List<Pago> obtenerPagosPorReserva(int idReserva) {
         List<Pago> pagos = new ArrayList<>();
         String sql = "SELECT * FROM PAGO WHERE Id_Reserva = ? ORDER BY Id DESC";
         
@@ -198,7 +198,7 @@ public class SuscripcionDAO {
     /*Obtiene todos los pagos asociados a un torneo
      * @param idTorneo identificador del torneo
      * @return lista de pagos de ese torneo*/
-    public List<Pago> obtenerPagosPorTorneo(int idTorneo) {
+    /*public List<Pago> obtenerPagosPorTorneo(int idTorneo) {
         List<Pago> pagos = new ArrayList<>();
         String sql = "SELECT * FROM PAGO WHERE Id_Torneo = ? ORDER BY Id DESC";
         
@@ -220,7 +220,7 @@ public class SuscripcionDAO {
     
     /*Obtiene todos los pagos pendientes
      * @return lista de pagos con estado "pendiente"*/
-    public List<Pago> obtenerPagosPendientes() {
+    /*public List<Pago> obtenerPagosPendientes() {
         List<Pago> pagos = new ArrayList<>();
         String sql = "SELECT * FROM PAGO WHERE Estado = 'pendiente' ORDER BY Id DESC";
         
@@ -241,7 +241,7 @@ public class SuscripcionDAO {
     /*Obtiene todos los pagos por estado
      * @param estado estado del pago ("pendiente", "pagado", "rechazado", "cancelado")
      * @return lista de pagos con ese estado*/
-    public List<Pago> obtenerPagosPorEstado(String estado) {
+   /* public List<Pago> obtenerPagosPorEstado(String estado) {
         List<Pago> pagos = new ArrayList<>();
         String sql = "SELECT * FROM PAGO WHERE Estado = ? ORDER BY Id DESC";
         
@@ -264,7 +264,7 @@ public class SuscripcionDAO {
     /*Obtiene pagos por método de pago
      * @param metodoPago método de pago ("efectivo", "tarjeta", "transferencia", etc.)
      * @return lista de pagos con ese método*/
-    public List<Pago> obtenerPagosPorMetodo(String metodoPago) {
+    /*public List<Pago> obtenerPagosPorMetodo(String metodoPago) {
         List<Pago> pagos = new ArrayList<>();
         String sql = "SELECT * FROM PAGO WHERE Metodo_Pago = ? ORDER BY Id DESC";
         
@@ -287,7 +287,7 @@ public class SuscripcionDAO {
     /*Busca pagos por concepto (búsqueda parcial)
      * @param concepto texto a buscar en el concepto
      * @return lista de pagos que coinciden*/
-    public List<Pago> obtenerPagosPorConcepto(String concepto) {
+    /*public List<Pago> obtenerPagosPorConcepto(String concepto) {
         List<Pago> pagos = new ArrayList<>();
         String sql = "SELECT * FROM PAGO WHERE Concepto LIKE ? ORDER BY Id DESC";
         
@@ -312,21 +312,21 @@ public class SuscripcionDAO {
     /*Marca un pago como pagado
      * @param id identificador del pago
      * @return true si se actualizó correctamente*/
-    public boolean marcarComoPagado(int id) {
+   /* public boolean marcarComoPagado(int id) {
         return cambiarEstadoPago(id, "pagado");
     }
     
     /*Marca un pago como rechazado
      * @param id identificador del pago
      * @return true si se actualizó correctamente*/
-    public boolean marcarComoRechazado(int id) {
+    /*public boolean marcarComoRechazado(int id) {
         return cambiarEstadoPago(id, "rechazado");
     }
     
     /*Marca un pago como cancelado
      * @param id identificador del pago
      * @return true si se actualizó correctamente*/
-    public boolean marcarComoCancelado(int id) {
+    /*public boolean marcarComoCancelado(int id) {
         return cambiarEstadoPago(id, "cancelado");
     }
     
@@ -334,7 +334,7 @@ public class SuscripcionDAO {
      * @param id identificador del pago
      * @param nuevoEstado nuevo estado a asignar
      * @return true si se actualizó correctamente*/
-    private boolean cambiarEstadoPago(int id, String nuevoEstado) {
+    /*private boolean cambiarEstadoPago(int id, String nuevoEstado) {
         String sql = "UPDATE PAGO SET Estado = ? WHERE Id = ?";
         
         try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
@@ -361,7 +361,7 @@ public class SuscripcionDAO {
      * @param mes mes (1-12)
      * @param anio año
      * @return monto total de ingresos del mes*/
-    public double calcularIngresosMensuales(int mes, int anio) {
+    /*public double calcularIngresosMensuales(int mes, int anio) {
         String sql = "SELECT SUM(Monto) FROM PAGO " +
                      "WHERE Estado = 'pagado' " +
                      "AND MONTH(Fecha_Pago) = ? " +
@@ -387,7 +387,7 @@ public class SuscripcionDAO {
     /*Calcula los ingresos totales de un año específico
      * @param anio año
      * @return monto total de ingresos del año*/
-    public double calcularIngresosAnuales(int anio) {
+   /* public double calcularIngresosAnuales(int anio) {
         String sql = "SELECT SUM(Monto) FROM PAGO " +
                      "WHERE Estado = 'pagado' " +
                      "AND YEAR(Fecha_Pago) = ?";
@@ -410,7 +410,7 @@ public class SuscripcionDAO {
     
     /*Cuenta el total de pagos realizados
      * @return cantidad de pagos con estado "pagado"*/
-    public int contarPagosRealizados() {
+   /* public int contarPagosRealizados() {
         String sql = "SELECT COUNT(*) FROM PAGO WHERE Estado = 'pagado'";
         
         try (Statement stmt = connection.createStatement();
@@ -429,7 +429,7 @@ public class SuscripcionDAO {
     
     /*Cuenta el total de pagos pendientes
      * @return cantidad de pagos con estado "pendiente"*/
-    public int contarPagosPendientes() {
+   /* public int contarPagosPendientes() {
         String sql = "SELECT COUNT(*) FROM PAGO WHERE Estado = 'pendiente'";
         
         try (Statement stmt = connection.createStatement();
@@ -448,7 +448,7 @@ public class SuscripcionDAO {
     
     /*Obtiene el monto total de pagos pendientes
      * @return suma total de montos pendientes*/
-    public BigDecimal obtenerMontoPendiente() {
+    /*public BigDecimal obtenerMontoPendiente() {
         String sql = "SELECT SUM(Monto) FROM PAGO WHERE Estado = 'pendiente'";
         
         try (Statement stmt = connection.createStatement();
@@ -472,7 +472,7 @@ public class SuscripcionDAO {
      * @param rs ResultSet con los datos
      * @return objeto Pago mapeado
      * @throws SQLException si hay error al acceder a los datos*/
-    private Pago mapearResultSetAPago(ResultSet rs) throws SQLException {
+   /* private Pago mapearResultSetAPago(ResultSet rs) throws SQLException {
         Pago pago = new Pago();
         pago.setId(rs.getInt("Id"));
         
@@ -492,4 +492,5 @@ public class SuscripcionDAO {
         
         return pago;
     }
+*/
 }
