@@ -54,7 +54,6 @@ public class Bienvenida extends javax.swing.JFrame {
         jTextArea1.setRows(5);
         jTextArea1.setText("Nos alegra tenerte con nostros. Esta plataforma ha sido diseñada para \nofrecerte una experiencia cómoda, rápida y organizada, ya sea que desees \nrevisar tu información, gestionar tus reservas o mantener al día tu \nmembresía :)");
         jTextArea1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jTextArea1.setOpaque(false);
         jScrollPane1.setViewportView(jTextArea1);
 
         jLabel2.setFont(new java.awt.Font("Georgia", 3, 48)); // NOI18N

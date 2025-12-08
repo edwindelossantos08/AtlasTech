@@ -3,7 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.atlastech.gestionclubdeportivos.ui.menus;
-
+import com.atlastech.gestionclubdeportivos.models.Usuario;
+import com.atlastech.gestionclubdeportivos.dao.UsuarioDAO;
+import javax.swing.JOptionPane;
 /**
  *
  * @author loren
@@ -45,6 +47,8 @@ public class MenuSocioMiPerfilEditar extends javax.swing.JFrame {
         jTextField6 = new javax.swing.JTextField();
         jTextField7 = new javax.swing.JTextField();
         jTextField8 = new javax.swing.JTextField();
+        jPasswordField1 = new javax.swing.JPasswordField();
+        jLabel29 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -116,7 +120,7 @@ public class MenuSocioMiPerfilEditar extends javax.swing.JFrame {
         jLabel28.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel28.setForeground(new java.awt.Color(0, 0, 0));
         jLabel28.setText("Email:");
-        jPanel11.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 50, -1));
+        jPanel11.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 50, -1));
 
         jTextField6.setBackground(new java.awt.Color(255, 255, 255));
         jTextField6.setText("jTextField1");
@@ -132,6 +136,15 @@ public class MenuSocioMiPerfilEditar extends javax.swing.JFrame {
         jTextField8.setText("jTextField1");
         jTextField8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel11.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 210, 180, 20));
+
+        jPasswordField1.setBackground(new java.awt.Color(255, 255, 255));
+        jPasswordField1.setText("jPasswordField1");
+        jPanel11.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 240, 180, -1));
+
+        jLabel29.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel29.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel29.setText("Email:");
+        jPanel11.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 50, -1));
 
         jPanel10.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, -1, 320));
 
@@ -173,7 +186,32 @@ public class MenuSocioMiPerfilEditar extends javax.swing.JFrame {
     }//GEN-LAST:event_btnGoBackActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
+                                                    
+        String username = jTextField6.getText().trim();
+        String password = new String(jPasswordField1.getPassword()).trim();
+
+        // 2. Crear el DAO
+        UsuarioDAO usuarioDAO = new UsuarioDAO();
+
+        // 3. Llamar a autenticar
+        Usuario usuario = usuarioDAO.autenticar(username, password);
+
+        // 4. Verificar si existe
+        if (usuario != null) {
+            // Login correcto
+            JOptionPane.showMessageDialog(this, "Inicio de sesión exitoso");
+
+            // Abrir Dashboard Admin
+            DashboardAdmin adminPage = new DashboardAdmin();
+            adminPage.setVisible(true);
+
+            this.dispose();  // cerrar login
+
+        } else {
+            // Usuario incorrecto
+            JOptionPane.showMessageDialog(this, "Usuario o contraseña inválidos");
+        }
+                
     }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
@@ -211,9 +249,11 @@ public class MenuSocioMiPerfilEditar extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
+    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
