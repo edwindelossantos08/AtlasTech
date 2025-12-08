@@ -46,10 +46,10 @@ public class DashboardSocio extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jPanel18 = new javax.swing.JPanel();
         jLabel24 = new javax.swing.JLabel();
-        jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -173,18 +173,8 @@ public class DashboardSocio extends javax.swing.JFrame {
         jLabel24.setBackground(new java.awt.Color(255, 255, 255));
         jLabel24.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel24.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel24.setText("CAMBIAAAARACCESO RÁPIDO");
-        jPanel18.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 280, -1));
-
-        jButton5.setBackground(new java.awt.Color(255, 255, 255));
-        jButton5.setForeground(new java.awt.Color(64, 43, 100));
-        jButton5.setText("Nueva Reserva");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
-            }
-        });
-        jPanel18.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, -1, -1));
+        jLabel24.setText("ACCESO RÁPIDO");
+        jPanel18.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, 150, -1));
 
         jButton6.setBackground(new java.awt.Color(255, 255, 255));
         jButton6.setForeground(new java.awt.Color(64, 43, 100));
@@ -204,7 +194,7 @@ public class DashboardSocio extends javax.swing.JFrame {
                 jButton7ActionPerformed(evt);
             }
         });
-        jPanel18.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 70, -1, -1));
+        jPanel18.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 80, -1, -1));
 
         jButton8.setBackground(new java.awt.Color(255, 255, 255));
         jButton8.setForeground(new java.awt.Color(64, 43, 100));
@@ -216,7 +206,17 @@ public class DashboardSocio extends javax.swing.JFrame {
         });
         jPanel18.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 150, 120, -1));
 
-        Dashboard.add(jPanel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 240, 380, 220));
+        jButton5.setBackground(new java.awt.Color(255, 255, 255));
+        jButton5.setForeground(new java.awt.Color(64, 43, 100));
+        jButton5.setText("Nueva Reserva");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+        jPanel18.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, -1, -1));
+
+        Dashboard.add(jPanel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 240, 420, 220));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

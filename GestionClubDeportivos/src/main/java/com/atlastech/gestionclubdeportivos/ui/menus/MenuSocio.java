@@ -3,6 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.atlastech.gestionclubdeportivos.ui.menus;
+import com.atlastech.gestionclubdeportivos.dao.UsuarioDAO;
+import com.atlastech.gestionclubdeportivos.models.Usuario;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -56,10 +59,10 @@ public class MenuSocio extends javax.swing.JFrame {
         jSeparator1.setForeground(new java.awt.Color(204, 204, 204));
 
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel2.setText("Email o Usuario");
+        jLabel2.setText("Usuario");
 
         jTextField1.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField1.setText("ingrese su email");
+        jTextField1.setText("Ingrese su Usuario");
         jTextField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -200,9 +203,38 @@ public class MenuSocio extends javax.swing.JFrame {
     }//GEN-LAST:event_btnGoBackActionPerformed
 
     private void btnLoginInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginInActionPerformed
-       DashboardSocio SocioPage = new DashboardSocio();
-       SocioPage.setVisible(true);
-       this.dispose();
+        String username = jTextField1.getText().trim();
+        String password = new String(jPasswordField1.getPassword());
+
+        // Validar campos vacíos
+        if (username.isEmpty() || password.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Debe ingresar usuario y contraseña", 
+                                          "Campos vacíos", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        UsuarioDAO dao = new UsuarioDAO();
+        Usuario user = dao.autenticar(username, password);
+
+        if (user == null) {
+            JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrectos",
+                                          "Error de autenticación", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        // Validar que sea SOCIO
+        if (!user.isSocio()) {
+            JOptionPane.showMessageDialog(this, 
+                    "Este usuario no tiene permisos de Socio.",
+                    "Acceso denegado",
+                    JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+    // Login correcto → abrir pantalla socio
+    DashboardSocio socioPage = new DashboardSocio();
+    socioPage.setVisible(true);
+    this.dispose();
     }//GEN-LAST:event_btnLoginInActionPerformed
 
     /**

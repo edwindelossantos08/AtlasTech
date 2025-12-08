@@ -3,6 +3,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.atlastech.gestionclubdeportivos.ui.menus;
+import com.atlastech.gestionclubdeportivos.models.Usuario;
+import com.atlastech.gestionclubdeportivos.dao.UsuarioDAO;
+import javax.swing.JOptionPane;
+
 
 /**
  *
@@ -56,10 +60,10 @@ public class MenuAdmin extends javax.swing.JFrame {
         jSeparator6.setForeground(new java.awt.Color(204, 204, 204));
 
         jLabel17.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel17.setText("Email o Usuario");
+        jLabel17.setText("Usuario");
 
         jTextField6.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField6.setText("ingrese su email");
+        jTextField6.setText("Ingrese su usuario");
         jTextField6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jTextField6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -82,6 +86,11 @@ public class MenuAdmin extends javax.swing.JFrame {
         jPasswordField6.setBackground(new java.awt.Color(255, 255, 255));
         jPasswordField6.setText("jPasswordField1");
         jPasswordField6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPasswordField6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jPasswordField6ActionPerformed(evt);
+            }
+        });
 
         btnGoBack5.setBackground(new java.awt.Color(0, 0, 0));
         btnGoBack5.setForeground(new java.awt.Color(255, 255, 255));
@@ -161,7 +170,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         jPanel16Layout.setHorizontalGroup(
             jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel16Layout.createSequentialGroup()
-                .addGap(92, 92, 92)
+                .addGap(80, 80, 80)
                 .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, 579, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -192,10 +201,30 @@ public class MenuAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField6ActionPerformed
 
     private void btnLogInAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogInAdminActionPerformed
-        DashboardAdmin AdminPage = new DashboardAdmin();
-        AdminPage.setVisible(true);
-        this.dispose();
-        
+        String username = jTextField6.getText().trim();
+        String password = new String(jPasswordField6.getPassword()).trim();
+
+        // 2. Crear el DAO
+        UsuarioDAO usuarioDAO = new UsuarioDAO();
+
+        // 3. Llamar a autenticar
+        Usuario usuario = usuarioDAO.autenticar(username, password);
+
+        // 4. Verificar si existe
+        if (usuario != null) {
+            // Login correcto
+            JOptionPane.showMessageDialog(this, "Inicio de sesión exitoso");
+
+            // Abrir Dashboard Admin
+            DashboardAdmin adminPage = new DashboardAdmin();
+            adminPage.setVisible(true);
+
+            this.dispose();  // cerrar login
+
+        } else {
+            // Usuario incorrecto
+            JOptionPane.showMessageDialog(this, "Usuario o contraseña inválidos");
+        }
     }//GEN-LAST:event_btnLogInAdminActionPerformed
 
     private void btnGoBack5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGoBack5ActionPerformed
@@ -203,6 +232,10 @@ public class MenuAdmin extends javax.swing.JFrame {
     loginPrincipal.setVisible(true);
     this.dispose();
     }//GEN-LAST:event_btnGoBack5ActionPerformed
+
+    private void jPasswordField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPasswordField6ActionPerformed
 
     /**
      * @param args the command line arguments
