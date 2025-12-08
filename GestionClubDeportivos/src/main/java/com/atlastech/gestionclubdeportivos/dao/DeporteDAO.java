@@ -19,7 +19,7 @@ public class DeporteDAO {
     private Connection connection;
     
     public DeporteDAO() {
-        this.connection = (Connection) Databases.getInstance();
+        this.connection = Databases.getConection();
     }
     
     public boolean insertarDeporte(Deporte deporte) {
