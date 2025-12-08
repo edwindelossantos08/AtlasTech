@@ -145,12 +145,10 @@ public class MenuMembresiaEditar extends javax.swing.JFrame {
         jPanel11.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, 170, 30));
 
         jTextField2.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField2.setText("jTextField1");
         jTextField2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel11.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, 107, 20));
 
         jTextField4.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField4.setText("jTextField1");
         jTextField4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel11.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(135, 68, 107, 20));
 

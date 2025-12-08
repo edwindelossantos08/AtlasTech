@@ -189,7 +189,6 @@ private EntrenadorDAO entrenadorDAO;
         jPanel1.add(jLabel29, gridBagConstraints);
 
         txtNombre.setBackground(new java.awt.Color(255, 255, 255));
-        txtNombre.setText("jTextField1");
         txtNombre.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
@@ -202,7 +201,6 @@ private EntrenadorDAO entrenadorDAO;
         jPanel1.add(txtNombre, gridBagConstraints);
 
         txtApellido.setBackground(new java.awt.Color(255, 255, 255));
-        txtApellido.setText("jTextField1");
         txtApellido.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
@@ -215,7 +213,6 @@ private EntrenadorDAO entrenadorDAO;
         jPanel1.add(txtApellido, gridBagConstraints);
 
         txtCedula.setBackground(new java.awt.Color(255, 255, 255));
-        txtCedula.setText("jTextField1");
         txtCedula.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
@@ -228,7 +225,6 @@ private EntrenadorDAO entrenadorDAO;
         jPanel1.add(txtCedula, gridBagConstraints);
 
         txtTelefono.setBackground(new java.awt.Color(255, 255, 255));
-        txtTelefono.setText("jTextField1");
         txtTelefono.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
@@ -241,7 +237,6 @@ private EntrenadorDAO entrenadorDAO;
         jPanel1.add(txtTelefono, gridBagConstraints);
 
         txtDireccion.setBackground(new java.awt.Color(255, 255, 255));
-        txtDireccion.setText("jTextField1");
         txtDireccion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;

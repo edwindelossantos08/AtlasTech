@@ -128,12 +128,10 @@ public class MenuRegistrarSuscripcion extends javax.swing.JPanel {
 
         txtIDSocio.setBackground(new java.awt.Color(255, 255, 255));
         txtIDSocio.setForeground(new java.awt.Color(0, 0, 0));
-        txtIDSocio.setText("jTextField1");
         jPanel3.add(txtIDSocio, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 36, 210, 30));
 
         txtNombre.setBackground(new java.awt.Color(255, 255, 255));
         txtNombre.setForeground(new java.awt.Color(0, 0, 0));
-        txtNombre.setText("jTextField2");
         jPanel3.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, 210, 30));
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -143,8 +141,6 @@ public class MenuRegistrarSuscripcion extends javax.swing.JPanel {
         jPanel3.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 260, 220, -1));
         jPanel3.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, -1, -1));
         jPanel3.add(jDateChooser2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 170, -1, -1));
-
-        jTextField3.setText("jTextField3");
         jPanel3.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 200, -1, -1));
 
         jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -173,6 +169,7 @@ public class MenuRegistrarSuscripcion extends javax.swing.JPanel {
     String estado = (String) jComboBox2.getSelectedItem();
     java.util.Date fechaInicio = jDateChooser1.getDate();
     java.util.Date fechaFin = jDateChooser2.getDate();
+    
     
     if (idSocio.isEmpty() || nombre.isEmpty() || precioStr.isEmpty()) {
     javax.swing.JOptionPane.showMessageDialog(this, "Por favor, complete todos los campos.");

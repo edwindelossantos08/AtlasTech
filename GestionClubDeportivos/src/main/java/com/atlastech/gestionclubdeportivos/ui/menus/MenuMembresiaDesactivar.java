@@ -126,7 +126,6 @@ public class MenuMembresiaDesactivar extends javax.swing.JFrame {
         jPanel11.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 67, 94, -1));
 
         jTextField5.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField5.setText("jTextField1");
         jTextField5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel11.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(135, 68, 107, 20));
 

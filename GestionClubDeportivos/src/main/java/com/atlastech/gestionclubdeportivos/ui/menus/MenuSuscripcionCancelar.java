@@ -91,8 +91,6 @@ public class MenuSuscripcionCancelar extends javax.swing.JPanel {
 
         jPanel4.setBackground(new java.awt.Color(102, 204, 255));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jTextField1.setText("jTextField1");
         jPanel4.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 300, 30));
 
         btnBuscar.setBackground(new java.awt.Color(255, 255, 255));
@@ -158,7 +156,6 @@ public class MenuSuscripcionCancelar extends javax.swing.JPanel {
 
         jTextField2.setBackground(new java.awt.Color(255, 255, 255));
         jTextField2.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField2.setText("jTextField2");
         jPanel4.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 150, 200, -1));
 
         jTextField5.setBackground(new java.awt.Color(255, 255, 255));

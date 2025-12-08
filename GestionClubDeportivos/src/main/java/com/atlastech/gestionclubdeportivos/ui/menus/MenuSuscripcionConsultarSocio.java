@@ -92,7 +92,6 @@ public class MenuSuscripcionConsultarSocio extends javax.swing.JPanel {
 
         jTextField1.setBackground(new java.awt.Color(255, 255, 255));
         jTextField1.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField1.setText("jTextField1");
         jPanel4.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 300, 30));
 
         btnBuscar.setBackground(new java.awt.Color(255, 255, 255));
@@ -142,12 +141,10 @@ public class MenuSuscripcionConsultarSocio extends javax.swing.JPanel {
 
         jTextField2.setBackground(new java.awt.Color(255, 255, 255));
         jTextField2.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField2.setText("jTextField2");
         jPanel4.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 150, 200, -1));
 
         jTextField3.setBackground(new java.awt.Color(255, 255, 255));
         jTextField3.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField3.setText("jTextField3");
         jPanel4.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 180, 220, -1));
 
         jTextField5.setBackground(new java.awt.Color(255, 255, 255));

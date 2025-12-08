@@ -123,20 +123,22 @@ public class MenuMembresiaDetalles extends javax.swing.JFrame {
         jTextField2.setBackground(new java.awt.Color(255, 255, 255));
         jTextField2.setText("jTextField1");
         jTextField2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField2ActionPerformed(evt);
+            }
+        });
         jPanel11.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 200, 240, 20));
 
         jTextField4.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField4.setText("jTextField1");
         jTextField4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel11.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(135, 68, 107, 20));
 
         jTextField3.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField3.setText("jTextField1");
         jTextField3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel11.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, 240, 20));
 
         jTextField5.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField5.setText("jTextField1");
         jTextField5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel11.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, 240, 20));
 
@@ -202,6 +204,10 @@ public class MenuMembresiaDetalles extends javax.swing.JFrame {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField2ActionPerformed
 
     /**
      * @param args the command line arguments
