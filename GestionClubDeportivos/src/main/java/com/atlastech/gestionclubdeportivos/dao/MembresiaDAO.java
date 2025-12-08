@@ -18,20 +18,21 @@ public class MembresiaDAO {
     private Connection connection;
     
     public MembresiaDAO() {
-        this.connection = (Connection) Databases.getInstance();
+        this.connection = Databases.getConection();
     }
     
     // CRUD BÁSICO
     
     /* Inserta una nueva membresía */
     public boolean insertarMembresia(Membresia membresia) {
-        String sql = "INSERT INTO MEMBRESIA (Tipo, Precio, Duracion_Dias) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO MEMBRESIA (Tipo, Precio, Duracion_Dias, Descripcion) VALUES (?, ?, ?, ?)";
         
         try (PreparedStatement pstmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
             
             pstmt.setString(1, membresia.getTipo());
             pstmt.setBigDecimal(2, membresia.getPrecio());
             pstmt.setInt(3, membresia.getDuracionDias());
+            pstmt.setString(4, membresia.getDescripcion());
             
             int affectedRows = pstmt.executeUpdate();
             
@@ -95,13 +96,14 @@ public class MembresiaDAO {
     
     /* Actualiza una membresía */
     public boolean actualizarMembresia(Membresia membresia) {
-        String sql = "UPDATE MEMBRESIA SET Tipo = ?, Precio = ?, Duracion_Dias = ? WHERE Id = ?";
+        String sql = "UPDATE MEMBRESIA SET Tipo = ?, Precio = ?, Duracion_Dias = ?, Descripcion = ?, WHERE Id = ?";
         
         try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
             pstmt.setString(1, membresia.getTipo());
             pstmt.setBigDecimal(2, membresia.getPrecio());
             pstmt.setInt(3, membresia.getDuracionDias());
-            pstmt.setInt(4, membresia.getId());
+            pstmt.setString(4, membresia.getDescripcion());
+            pstmt.setInt(5, membresia.getId());
             
             int affectedRows = pstmt.executeUpdate();
             
@@ -253,6 +255,7 @@ public class MembresiaDAO {
         membresia.setTipo(rs.getString("Tipo"));
         membresia.setPrecio(rs.getBigDecimal("Precio"));
         membresia.setDuracionDias(rs.getInt("Duracion_Dias"));
+        membresia.setDescripcion(rs.getString("Descripcion"));
         return membresia;
     }
 }

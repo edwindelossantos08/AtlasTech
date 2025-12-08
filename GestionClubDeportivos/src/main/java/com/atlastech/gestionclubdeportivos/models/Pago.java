@@ -1,6 +1,5 @@
 
 package com.atlastech.gestionclubdeportivos.models;
-
 import java.math.BigDecimal;
 
 /**

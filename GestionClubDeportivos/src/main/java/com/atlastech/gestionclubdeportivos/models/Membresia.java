@@ -12,6 +12,7 @@ public class Membresia {
     private String tipo;
     private BigDecimal precio;
     private int duracionDias;
+    private String descripcion;
     
     //Constructor vacio
     public Membresia() {}
@@ -58,10 +59,18 @@ public class Membresia {
     public int getDuracionDias() {return duracionDias; }
     public void setDuracionDias(int duracionDias) {this.duracionDias = duracionDias; }
     
+    public String getDescripcion() { return descripcion; }
+    public void setDescripcion(String descripcion) { this.descripcion = descripcion; }
+
     @Override
     public String toString() {
-        return String.format("Membresia{id=%d, tipo='%s', precio=$%.2f, duracion=%d dias}",
-                id, tipo, precio, duracionDias);
+        return "Membresia{" + 
+                "id=" + id + 
+                ", tipo='" + tipo + '\'' +
+                ", precio=" + precio +
+                ", duracionDias=" + duracionDias +
+                ", descripcion='" + descripcion + '\'' +
+                '}';
     }
     
 }

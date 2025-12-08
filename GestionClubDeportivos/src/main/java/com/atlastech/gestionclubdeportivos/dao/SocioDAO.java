@@ -19,7 +19,7 @@ public class SocioDAO {
      private Connection connection;
     
     public SocioDAO() {
-        this.connection = (Connection) Databases.getInstance();
+        this.connection = Databases.getConection();
     }
 
     /* Inserta un nuevo socio en la base de datos */

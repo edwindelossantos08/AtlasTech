@@ -7,43 +7,56 @@ import java.time.LocalDateTime;
  * @author Alexander
  */
 public class Usuario {
-     private int id;
-    private String nombreUsuario;
-    private String contraseña;
-    private String tipoUsuario; 
-    private Integer idSocio;
-    private boolean estado;
-    private LocalDateTime fechaCreacion;
-    private LocalDateTime ultimoAcceso;
+    private int id;
+    private String nombreUsuario;  // Username
+    private String email;          // Email
+    private String contraseña;     // Contrasena
+    private String tipoUsuario;    // TipoUsuario
+    private Integer idSocio;       // Id_Socio
+    private boolean estado;        // Estado
+    private LocalDateTime fechaCreacion; // Fecha_Creacion
+    private LocalDateTime ultimoAcceso;  // Ultimo_Acceso
 
+    // =========================================
+    // CONSTRUCTORES
+    // =========================================
     public Usuario() {
         this.fechaCreacion = LocalDateTime.now();
-        this.estado = true;
+        this.estado = true; // activo por defecto
     }
 
-    public Usuario(String nombreUsuario, String contraseña, String tipoUsuario, Integer idSocio) {
+    public Usuario(String nombreUsuario, String email, String contraseña, String tipoUsuario, Integer idSocio) {
         this();
         this.nombreUsuario = nombreUsuario;
+        this.email = email;
         this.contraseña = contraseña;
         this.tipoUsuario = tipoUsuario;
         this.idSocio = idSocio;
     }
 
-    // Métodos de negocio
+    // =========================================
+    // MÉTODOS DE NEGOCIO
+    // =========================================
     public boolean isAdministrador() {
-        return "administrador".equalsIgnoreCase(tipoUsuario);
+        return "admin".equalsIgnoreCase(tipoUsuario)
+            || "administrador".equalsIgnoreCase(tipoUsuario);
     }
 
     public boolean isSocio() {
         return "socio".equalsIgnoreCase(tipoUsuario);
     }
 
-    // Getters y Setters
+    // =========================================
+    // GETTERS Y SETTERS
+    // =========================================
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
 
     public String getNombreUsuario() { return nombreUsuario; }
     public void setNombreUsuario(String nombreUsuario) { this.nombreUsuario = nombreUsuario; }
+
+    public String getEmail() { return email; }
+    public void setEmail(String email) { this.email = email; }
 
     public String getContraseña() { return contraseña; }
     public void setContraseña(String contraseña) { this.contraseña = contraseña; }
@@ -65,8 +78,9 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return String.format("Usuario{id=%d, usuario='%s', tipo='%s'}",
-                id, nombreUsuario, tipoUsuario);
+        return String.format(
+                "Usuario{id=%d, usuario='%s', email='%s', tipo='%s', estado=%s}",
+                id, nombreUsuario, email, tipoUsuario, estado ? "Activo" : "Inactivo"
+        );
     }
-    
 }

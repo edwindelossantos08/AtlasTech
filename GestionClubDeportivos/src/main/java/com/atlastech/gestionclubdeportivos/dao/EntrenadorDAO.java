@@ -19,7 +19,7 @@ public class EntrenadorDAO {
     private Connection connection;
     
     public EntrenadorDAO() {
-        this.connection = (Connection) Databases.getInstance();
+        this.connection = Databases.getConection();
     }
     
     public boolean insertarEntrenador(Entrenador entrenador) {

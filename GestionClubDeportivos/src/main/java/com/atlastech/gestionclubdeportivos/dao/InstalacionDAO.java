@@ -20,7 +20,7 @@ public class InstalacionDAO {
     private Connection connection;
     
     public InstalacionDAO() {
-        this.connection = (Connection) Databases.getInstance();
+        this.connection = Databases.getConection();
     }
      
     /* Inserta una nueva instalación */

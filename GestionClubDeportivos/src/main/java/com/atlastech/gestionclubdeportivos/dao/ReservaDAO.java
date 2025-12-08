@@ -21,7 +21,7 @@ public class ReservaDAO {
        private final Connection connection;
     
     public ReservaDAO() {
-        this.connection = (Connection) Databases.getInstance();
+        this.connection = Databases.getConection();
     }
     
     

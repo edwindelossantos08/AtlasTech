@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.atlastech.gestionclubdeportivos.dao;
-
 import com.atlastech.gestionclubdeportivos.databases.Databases;
 import com.atlastech.gestionclubdeportivos.models.Pago;
 import java.math.BigDecimal;

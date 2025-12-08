@@ -70,10 +70,11 @@ public class Instalacion {
     } 
 
     public String getEstado() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return estado;
     }
 
-    public void setEstado(String string) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
+
 }
