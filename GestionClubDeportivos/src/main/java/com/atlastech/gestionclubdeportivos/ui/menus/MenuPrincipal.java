@@ -31,14 +31,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
         panelBienvenida = new javax.swing.JPanel();
         btnIniciarSes = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
@@ -62,50 +54,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 btnIniciarSesActionPerformed(evt);
             }
         });
-        panelBienvenida.add(btnIniciarSes, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 400, -1, -1));
+        panelBienvenida.add(btnIniciarSes, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 320, -1, -1));
 
-        jLabel7.setFont(new java.awt.Font("Cooper Black", 0, 24)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Georgia", 3, 24)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(15, 43, 99));
         jLabel7.setText("¡Bienvenido Otra vez!");
-        panelBienvenida.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, -1));
-
-        jLabel3.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(15, 43, 99));
-        jLabel3.setText("Nos alegra tenerte con nosotros. ");
-        panelBienvenida.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, -1, -1));
-
-        jLabel4.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(15, 43, 99));
-        jLabel4.setText("Esta plataforma ha sido diseñada");
-        panelBienvenida.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, -1, -1));
-
-        jLabel5.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(15, 43, 99));
-        jLabel5.setText("para ofrecerte una experiencia cómoda,");
-        panelBienvenida.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, -1, -1));
-
-        jLabel6.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(15, 43, 99));
-        jLabel6.setText("rápida y organizada, ya sea que");
-        panelBienvenida.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, -1, -1));
-
-        jLabel8.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(15, 43, 99));
-        jLabel8.setText("desees revisar tu información,");
-        panelBienvenida.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, -1, -1));
-
-        jLabel9.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(15, 43, 99));
-        jLabel9.setText("gestionar tus reservas o");
-        panelBienvenida.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, -1, -1));
-
-        jLabel10.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(15, 43, 99));
-        jLabel10.setText("mantener al día tu membresía.");
-        panelBienvenida.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 350, -1, -1));
+        panelBienvenida.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 310, -1));
 
         PanelContenedor.add(panelBienvenida, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 590));
-        PanelContenedor.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 130, -1, -1));
 
         jPanel1.setBackground(new java.awt.Color(15, 43, 99));
 
@@ -218,18 +174,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel PanelContenedor;
     private javax.swing.JButton btnIniciarSes;
     private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JPanel panelBienvenida;

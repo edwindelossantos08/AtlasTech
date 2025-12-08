@@ -182,8 +182,8 @@ public class MenuActividadAsignaciones extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
-        MenuActividadAsignaciones InicioAsignaciones = new MenuActividadAsignaciones();
-        InicioAsignaciones.setVisible(true);
+        MenuActividad principal = new MenuActividad();
+        principal.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnVolverActionPerformed
 

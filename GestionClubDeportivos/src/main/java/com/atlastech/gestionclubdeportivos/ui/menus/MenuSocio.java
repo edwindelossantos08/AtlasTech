@@ -36,7 +36,7 @@ public class MenuSocio extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnLoginIn = new javax.swing.JButton();
         jPasswordField1 = new javax.swing.JPasswordField();
         btnGoBack = new javax.swing.JButton();
 
@@ -70,12 +70,12 @@ public class MenuSocio extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Contraseña");
 
-        jButton1.setBackground(new java.awt.Color(0, 0, 0));
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Log In");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnLoginIn.setBackground(new java.awt.Color(0, 0, 0));
+        btnLoginIn.setForeground(new java.awt.Color(255, 255, 255));
+        btnLoginIn.setText("Log In");
+        btnLoginIn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnLoginInActionPerformed(evt);
             }
         });
 
@@ -102,7 +102,7 @@ public class MenuSocio extends javax.swing.JFrame {
                         .addGap(128, 128, 128)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jButton1)
+                                .addComponent(btnLoginIn)
                                 .addGap(78, 78, 78)
                                 .addComponent(btnGoBack, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -134,7 +134,7 @@ public class MenuSocio extends javax.swing.JFrame {
                 .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
+                    .addComponent(btnLoginIn)
                     .addComponent(btnGoBack, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(45, Short.MAX_VALUE))
         );
@@ -191,17 +191,19 @@ public class MenuSocio extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
-    private void btnLoginSocioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginSocioActionPerformed
-       DashboardAdmin AdminPage = new DashboardAdmin();
-       AdminPage.setVisible(true);
-       this.dispose();
-    }//GEN-LAST:event_btnLoginSocioActionPerformed
+   
 
     private void btnGoBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGoBackActionPerformed
     MenuLogin loginPrincipal = new MenuLogin();
     loginPrincipal.setVisible(true);
     this.dispose();
     }//GEN-LAST:event_btnGoBackActionPerformed
+
+    private void btnLoginInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginInActionPerformed
+       DashboardSocio SocioPage = new DashboardSocio();
+       SocioPage.setVisible(true);
+       this.dispose();
+    }//GEN-LAST:event_btnLoginInActionPerformed
 
     /**
      * @param args the command line arguments
@@ -230,7 +232,7 @@ public class MenuSocio extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGoBack;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnLoginIn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

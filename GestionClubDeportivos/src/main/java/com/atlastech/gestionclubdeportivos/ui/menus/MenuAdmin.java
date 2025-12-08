@@ -36,7 +36,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         jTextField6 = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
-        jButton6 = new javax.swing.JButton();
+        btnLogInAdmin = new javax.swing.JButton();
         jPasswordField6 = new javax.swing.JPasswordField();
         btnGoBack5 = new javax.swing.JButton();
 
@@ -70,12 +70,12 @@ public class MenuAdmin extends javax.swing.JFrame {
         jLabel18.setForeground(new java.awt.Color(0, 0, 0));
         jLabel18.setText("Contraseña");
 
-        jButton6.setBackground(new java.awt.Color(0, 0, 0));
-        jButton6.setForeground(new java.awt.Color(255, 255, 255));
-        jButton6.setText("Log In");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        btnLogInAdmin.setBackground(new java.awt.Color(0, 0, 0));
+        btnLogInAdmin.setForeground(new java.awt.Color(255, 255, 255));
+        btnLogInAdmin.setText("Log In");
+        btnLogInAdmin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                btnLogInAdminActionPerformed(evt);
             }
         });
 
@@ -105,7 +105,7 @@ public class MenuAdmin extends javax.swing.JFrame {
                             .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel18Layout.createSequentialGroup()
-                                    .addComponent(jButton6)
+                                    .addComponent(btnLogInAdmin)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(btnGoBack5, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addComponent(jPasswordField6, javax.swing.GroupLayout.Alignment.LEADING)
@@ -134,7 +134,7 @@ public class MenuAdmin extends javax.swing.JFrame {
                 .addComponent(jPasswordField6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25)
                 .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton6)
+                    .addComponent(btnLogInAdmin)
                     .addComponent(btnGoBack5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(45, Short.MAX_VALUE))
         );
@@ -191,12 +191,12 @@ public class MenuAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField6ActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void btnLogInAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogInAdminActionPerformed
         DashboardAdmin AdminPage = new DashboardAdmin();
         AdminPage.setVisible(true);
         this.dispose();
         
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_btnLogInAdminActionPerformed
 
     private void btnGoBack5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGoBack5ActionPerformed
     MenuLogin loginPrincipal = new MenuLogin();
@@ -231,7 +231,7 @@ public class MenuAdmin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGoBack5;
-    private javax.swing.JButton jButton6;
+    private javax.swing.JButton btnLogInAdmin;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;

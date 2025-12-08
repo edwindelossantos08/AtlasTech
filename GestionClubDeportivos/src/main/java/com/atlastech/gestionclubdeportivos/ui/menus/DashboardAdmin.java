@@ -32,49 +32,25 @@ public class DashboardAdmin extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         lbHome = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         lbReportes = new javax.swing.JLabel();
-        jPanel12 = new javax.swing.JPanel();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel31 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
-        jLabel11 = new javax.swing.JLabel();
-        lbSocio = new javax.swing.JLabel();
+        lbSocio1 = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
         lbMembresia = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         lbPago = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
         jPanel10 = new javax.swing.JPanel();
         lbReserva = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
         jPanel11 = new javax.swing.JPanel();
         lbInstalaciones = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
         jPanel13 = new javax.swing.JPanel();
-        lbTorneos = new javax.swing.JLabel();
-        jPanel14 = new javax.swing.JPanel();
-        jLabel21 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
-        jLabel30 = new javax.swing.JLabel();
+        lbDeportes = new javax.swing.JLabel();
         lbSalir = new javax.swing.JLabel();
-        lbSettings = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         lbTitulo = new javax.swing.JLabel();
-        jLabel32 = new javax.swing.JLabel();
-        jLabel33 = new javax.swing.JLabel();
-        jPanel19 = new javax.swing.JPanel();
-        jLabel38 = new javax.swing.JLabel();
-        lbHome1 = new javax.swing.JLabel();
-        jLabel39 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jPanel9 = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
         jPanel15 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jTextField3 = new javax.swing.JTextField();
@@ -86,14 +62,10 @@ public class DashboardAdmin extends javax.swing.JFrame {
         jTextField5 = new javax.swing.JTextField();
         jPanel18 = new javax.swing.JPanel();
         jLabel24 = new javax.swing.JLabel();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jLabel34 = new javax.swing.JLabel();
-        jLabel35 = new javax.swing.JLabel();
-        jLabel36 = new javax.swing.JLabel();
-        jLabel37 = new javax.swing.JLabel();
+        btnReservaNueva = new javax.swing.JButton();
+        btnNuevoSocio = new javax.swing.JButton();
+        btnRegistrarPago = new javax.swing.JButton();
+        btnNuevaMembresia = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setName("DasboardF"); // NOI18N
@@ -111,11 +83,14 @@ public class DashboardAdmin extends javax.swing.JFrame {
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lbHome.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lbHome.setForeground(new java.awt.Color(255, 255, 255));
         lbHome.setText("Home");
+        lbHome.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbHomeMouseClicked(evt);
+            }
+        });
         jPanel4.add(lbHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 70, 40));
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/Iconos/house_32x32.png"))); // NOI18N
-        jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, -1, -1));
 
         jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 320, 50));
 
@@ -126,26 +101,9 @@ public class DashboardAdmin extends javax.swing.JFrame {
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lbReportes.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lbReportes.setForeground(new java.awt.Color(255, 255, 255));
         lbReportes.setText("Reportes");
         jPanel5.add(lbReportes, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 0, 150, 50));
-
-        jPanel12.setBackground(new java.awt.Color(85, 55, 118));
-        jPanel12.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jPanel12.setMaximumSize(new java.awt.Dimension(154, 24));
-        jPanel12.setPreferredSize(new java.awt.Dimension(320, 50));
-        jPanel12.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel17.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel17.setText("Pagos");
-        jPanel12.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, 150, 50));
-
-        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/ui/menus/Iconos/Edit Pencil.png"))); // NOI18N
-        jPanel12.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, -1, 50));
-
-        jPanel5.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 390, 320, 50));
-
-        jLabel31.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/Iconos/document_32x32.png"))); // NOI18N
-        jPanel5.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, -1, -1));
 
         jPanel2.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 460, 320, 50));
 
@@ -155,12 +113,15 @@ public class DashboardAdmin extends javax.swing.JFrame {
         jPanel7.setPreferredSize(new java.awt.Dimension(320, 50));
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/Iconos/picture_32x32.png"))); // NOI18N
-        jPanel7.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, -1, -1));
-
-        lbSocio.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lbSocio.setText("Socios");
-        jPanel7.add(lbSocio, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 70, 30));
+        lbSocio1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lbSocio1.setForeground(new java.awt.Color(255, 255, 255));
+        lbSocio1.setText("Socios");
+        lbSocio1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbSocio1MouseClicked(evt);
+            }
+        });
+        jPanel7.add(lbSocio1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 70, 30));
 
         jPanel2.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, 320, 50));
 
@@ -171,11 +132,14 @@ public class DashboardAdmin extends javax.swing.JFrame {
         jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lbMembresia.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lbMembresia.setForeground(new java.awt.Color(255, 255, 255));
         lbMembresia.setText("Membresía");
+        lbMembresia.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbMembresiaMouseClicked(evt);
+            }
+        });
         jPanel8.add(lbMembresia, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 0, 150, 50));
-
-        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/Iconos/layout_32x32.png"))); // NOI18N
-        jPanel8.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, -1, -1));
 
         jPanel2.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 320, 50));
 
@@ -186,11 +150,14 @@ public class DashboardAdmin extends javax.swing.JFrame {
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lbPago.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lbPago.setForeground(new java.awt.Color(255, 255, 255));
         lbPago.setText("Pagos");
+        lbPago.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbPagoMouseClicked(evt);
+            }
+        });
         jPanel6.add(lbPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 0, 150, 50));
-
-        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/Iconos/card_32x32.png"))); // NOI18N
-        jPanel6.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, -1, -1));
 
         jPanel2.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 320, 50));
 
@@ -201,11 +168,14 @@ public class DashboardAdmin extends javax.swing.JFrame {
         jPanel10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lbReserva.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lbReserva.setForeground(new java.awt.Color(255, 255, 255));
         lbReserva.setText("Reservas");
+        lbReserva.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbReservaMouseClicked(evt);
+            }
+        });
         jPanel10.add(lbReserva, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 0, 150, 50));
-
-        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/Iconos/cal_32x32.png"))); // NOI18N
-        jPanel10.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, -1, -1));
 
         jPanel2.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 310, 320, 50));
 
@@ -216,11 +186,14 @@ public class DashboardAdmin extends javax.swing.JFrame {
         jPanel11.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lbInstalaciones.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lbInstalaciones.setForeground(new java.awt.Color(255, 255, 255));
         lbInstalaciones.setText("Instalaciones");
+        lbInstalaciones.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbInstalacionesMouseClicked(evt);
+            }
+        });
         jPanel11.add(lbInstalaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 0, 150, 50));
-
-        jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/Iconos/buildings_32x32.png"))); // NOI18N
-        jPanel11.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, -1, -1));
 
         jPanel2.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, 320, 50));
 
@@ -230,37 +203,27 @@ public class DashboardAdmin extends javax.swing.JFrame {
         jPanel13.setPreferredSize(new java.awt.Dimension(320, 50));
         jPanel13.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lbTorneos.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lbTorneos.setText("Deporte");
-        jPanel13.add(lbTorneos, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 0, 150, 50));
-
-        jPanel14.setBackground(new java.awt.Color(85, 55, 118));
-        jPanel14.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jPanel14.setMaximumSize(new java.awt.Dimension(154, 24));
-        jPanel14.setPreferredSize(new java.awt.Dimension(320, 50));
-        jPanel14.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel21.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel21.setText("Pagos");
-        jPanel14.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, 150, 50));
-
-        jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/ui/menus/Iconos/Edit Pencil.png"))); // NOI18N
-        jPanel14.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, -1, 50));
-
-        jPanel13.add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 390, 320, 50));
-
-        jLabel30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/Iconos/tab_32x32.png"))); // NOI18N
-        jPanel13.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, -1, -1));
+        lbDeportes.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lbDeportes.setForeground(new java.awt.Color(255, 255, 255));
+        lbDeportes.setText("Deportes");
+        lbDeportes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbDeportesMouseClicked(evt);
+            }
+        });
+        jPanel13.add(lbDeportes, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 0, 150, 50));
 
         jPanel2.add(jPanel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 410, 320, 50));
 
         lbSalir.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lbSalir.setForeground(new java.awt.Color(255, 255, 255));
         lbSalir.setText("Salir ");
-        jPanel2.add(lbSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 590, -1, -1));
-
-        lbSettings.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lbSettings.setText("Settings");
-        jPanel2.add(lbSettings, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 590, 60, -1));
+        lbSalir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbSalirMouseClicked(evt);
+            }
+        });
+        jPanel2.add(lbSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 590, -1, -1));
 
         jSeparator1.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator1.setOpaque(true);
@@ -271,28 +234,6 @@ public class DashboardAdmin extends javax.swing.JFrame {
         lbTitulo.setText("AtlasTech");
         jPanel2.add(lbTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 90, 40));
 
-        jLabel32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/Iconos/gear_wheel_32x32.png"))); // NOI18N
-        jPanel2.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 580, -1, -1));
-
-        jLabel33.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/Iconos/door_32x32.png"))); // NOI18N
-        jPanel2.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 580, -1, -1));
-
-        jPanel19.setBackground(new java.awt.Color(29, 52, 145));
-        jPanel19.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jPanel19.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel38.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/ui/menus/Iconos/Edit Pencil.png"))); // NOI18N
-        jPanel19.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, -1, 50));
-
-        lbHome1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lbHome1.setText("Home");
-        jPanel19.add(lbHome1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 70, 40));
-
-        jLabel39.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/ui/menus/Iconos/house_32x32.png"))); // NOI18N
-        jPanel19.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, -1, -1));
-
-        jPanel2.add(jPanel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 320, 50));
-
         Dashboard.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 320, 660));
 
         jPanel1.setBackground(new java.awt.Color(29, 52, 145));
@@ -300,29 +241,10 @@ public class DashboardAdmin extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Inicio");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 32, 69, -1));
+        jLabel1.setText("Inicio Admin");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 32, 150, -1));
 
         Dashboard.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 60, 750, 130));
-
-        jPanel9.setBackground(new java.awt.Color(29, 52, 145));
-        jPanel9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Membresía");
-        jPanel9.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 90, 40));
-
-        jTextField6.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField6.setText("#MiembrosActivos");
-        jTextField6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField6ActionPerformed(evt);
-            }
-        });
-        jPanel9.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 100, 70));
-
-        Dashboard.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 210, 140, 140));
 
         jPanel15.setBackground(new java.awt.Color(29, 52, 145));
         jPanel15.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -390,44 +312,42 @@ public class DashboardAdmin extends javax.swing.JFrame {
         jLabel24.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel24.setForeground(new java.awt.Color(255, 255, 255));
         jLabel24.setText("ACCESO RÁPIDO");
-        jPanel18.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 160, -1));
+        jPanel18.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, 160, -1));
 
-        jButton5.setBackground(new java.awt.Color(255, 255, 255));
-        jButton5.setForeground(new java.awt.Color(64, 43, 100));
-        jButton5.setText("Nueva Reserva");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        btnReservaNueva.setBackground(new java.awt.Color(255, 255, 255));
+        btnReservaNueva.setForeground(new java.awt.Color(64, 43, 100));
+        btnReservaNueva.setText("Nueva Reserva");
+        btnReservaNueva.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                btnReservaNuevaActionPerformed(evt);
             }
         });
-        jPanel18.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, -1, -1));
+        jPanel18.add(btnReservaNueva, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, -1, -1));
 
-        jButton6.setBackground(new java.awt.Color(255, 255, 255));
-        jButton6.setForeground(new java.awt.Color(64, 43, 100));
-        jButton6.setText("Nuevo Socio");
-        jPanel18.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, 110, -1));
+        btnNuevoSocio.setBackground(new java.awt.Color(255, 255, 255));
+        btnNuevoSocio.setForeground(new java.awt.Color(64, 43, 100));
+        btnNuevoSocio.setText("Nuevo Socio");
+        jPanel18.add(btnNuevoSocio, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, 110, -1));
 
-        jButton7.setBackground(new java.awt.Color(255, 255, 255));
-        jButton7.setForeground(new java.awt.Color(64, 43, 100));
-        jButton7.setText("Registrar Pago");
-        jPanel18.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 70, -1, -1));
+        btnRegistrarPago.setBackground(new java.awt.Color(255, 255, 255));
+        btnRegistrarPago.setForeground(new java.awt.Color(64, 43, 100));
+        btnRegistrarPago.setText("Registrar Pago");
+        btnRegistrarPago.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarPagoActionPerformed(evt);
+            }
+        });
+        jPanel18.add(btnRegistrarPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 70, -1, -1));
 
-        jButton8.setBackground(new java.awt.Color(255, 255, 255));
-        jButton8.setForeground(new java.awt.Color(64, 43, 100));
-        jButton8.setText("Nueva Membresia");
-        jPanel18.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 150, 130, -1));
-
-        jLabel34.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/Iconos/user_32x32.png"))); // NOI18N
-        jPanel18.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
-
-        jLabel35.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/Iconos/add_32x32.png"))); // NOI18N
-        jPanel18.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
-
-        jLabel36.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/Iconos/cardfile_32x32.png"))); // NOI18N
-        jPanel18.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 60, -1, -1));
-
-        jLabel37.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/Iconos/address_book_32x32.png"))); // NOI18N
-        jPanel18.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 150, -1, -1));
+        btnNuevaMembresia.setBackground(new java.awt.Color(255, 255, 255));
+        btnNuevaMembresia.setForeground(new java.awt.Color(64, 43, 100));
+        btnNuevaMembresia.setText("Nueva Membresia");
+        btnNuevaMembresia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNuevaMembresiaActionPerformed(evt);
+            }
+        });
+        jPanel18.add(btnNuevaMembresia, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 150, 130, -1));
 
         Dashboard.add(jPanel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 380, 380, 220));
 
@@ -448,13 +368,71 @@ public class DashboardAdmin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField5ActionPerformed
 
-    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField6ActionPerformed
+    private void btnReservaNuevaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservaNuevaActionPerformed
+        MenuReservaNueva NewReserva = new MenuReservaNueva();
+        NewReserva.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnReservaNuevaActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+    private void lbHomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbHomeMouseClicked
+        DashboardAdmin Home = new DashboardAdmin();
+        Home.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_lbHomeMouseClicked
+
+    private void lbMembresiaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbMembresiaMouseClicked
+        MenuMembresia membership = new MenuMembresia();
+        membership.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_lbMembresiaMouseClicked
+
+    private void lbPagoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbPagoMouseClicked
+        MenuPagoSummary PagoInicio = new MenuPagoSummary();
+        PagoInicio.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_lbPagoMouseClicked
+
+    private void lbReservaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbReservaMouseClicked
+        MenuReserva ReservaInicio = new MenuReserva();
+        ReservaInicio.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_lbReservaMouseClicked
+
+    private void lbInstalacionesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbInstalacionesMouseClicked
+        MenuInstalacion InstalacionesInicio = new MenuInstalacion();
+        InstalacionesInicio.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_lbInstalacionesMouseClicked
+
+    private void lbDeportesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbDeportesMouseClicked
+        MenuDeporte DeporteInicio = new MenuDeporte();
+        DeporteInicio.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_lbDeportesMouseClicked
+
+    private void lbSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbSalirMouseClicked
+        MenuPrincipal Salir =  new MenuPrincipal();
+        Salir.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_lbSalirMouseClicked
+
+    private void lbSocio1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbSocio1MouseClicked
+        MenuSuscripcion Inicio = new MenuSuscripcion();
+        Inicio.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_lbSocio1MouseClicked
+
+    private void btnNuevaMembresiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevaMembresiaActionPerformed
+       MenuMembresiaRegistro membershipRegister  = new MenuMembresiaRegistro();
+       membershipRegister.setVisible(true);
+       this.dispose();
+    }//GEN-LAST:event_btnNuevaMembresiaActionPerformed
+
+    private void btnRegistrarPagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarPagoActionPerformed
+        MenuPago Inicio = new MenuPago();
+        Inicio.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnRegistrarPagoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -483,70 +461,42 @@ public class DashboardAdmin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Dashboard;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
+    private javax.swing.JButton btnNuevaMembresia;
+    private javax.swing.JButton btnNuevoSocio;
+    private javax.swing.JButton btnRegistrarPago;
+    private javax.swing.JButton btnReservaNueva;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel32;
-    private javax.swing.JLabel jLabel33;
-    private javax.swing.JLabel jLabel34;
-    private javax.swing.JLabel jLabel35;
-    private javax.swing.JLabel jLabel36;
-    private javax.swing.JLabel jLabel37;
-    private javax.swing.JLabel jLabel38;
-    private javax.swing.JLabel jLabel39;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
-    private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
-    private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel17;
     private javax.swing.JPanel jPanel18;
-    private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
-    private javax.swing.JPanel jPanel9;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
+    private javax.swing.JLabel lbDeportes;
     private javax.swing.JLabel lbHome;
-    private javax.swing.JLabel lbHome1;
     private javax.swing.JLabel lbInstalaciones;
     private javax.swing.JLabel lbMembresia;
     private javax.swing.JLabel lbPago;
     private javax.swing.JLabel lbReportes;
     private javax.swing.JLabel lbReserva;
     private javax.swing.JLabel lbSalir;
-    private javax.swing.JLabel lbSettings;
-    private javax.swing.JLabel lbSocio;
+    private javax.swing.JLabel lbSocio1;
     private javax.swing.JLabel lbTitulo;
-    private javax.swing.JLabel lbTorneos;
     // End of variables declaration//GEN-END:variables
 }

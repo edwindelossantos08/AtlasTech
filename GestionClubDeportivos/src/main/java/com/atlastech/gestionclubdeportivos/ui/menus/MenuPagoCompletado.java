@@ -208,7 +208,9 @@ public class MenuPagoCompletado extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnVolverInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVolverInicioActionPerformed
-        // TODO add your handling code here:
+        DashboardAdmin inicio = new DashboardAdmin();
+        inicio.setVisible(true);
+        this.dispose();
         
     }//GEN-LAST:event_BtnVolverInicioActionPerformed
 

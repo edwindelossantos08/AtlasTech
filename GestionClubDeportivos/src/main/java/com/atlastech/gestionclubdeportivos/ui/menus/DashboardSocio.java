@@ -31,29 +31,17 @@ public class DashboardSocio extends javax.swing.JFrame {
         Dashboard = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
-        lbHome = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        lbHome1 = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
         lbMembresia = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         lbPago = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
         jPanel10 = new javax.swing.JPanel();
         lbReserva = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
         lbSalir = new javax.swing.JLabel();
-        lbSettings = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         lbTitulo = new javax.swing.JLabel();
-        jLabel32 = new javax.swing.JLabel();
-        jLabel33 = new javax.swing.JLabel();
-        jPanel19 = new javax.swing.JPanel();
-        jLabel38 = new javax.swing.JLabel();
-        lbHome1 = new javax.swing.JLabel();
-        jLabel39 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        lbMembresia1 = new javax.swing.JLabel();
+        lbPerfil = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel18 = new javax.swing.JPanel();
@@ -62,10 +50,6 @@ public class DashboardSocio extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
-        jLabel34 = new javax.swing.JLabel();
-        jLabel35 = new javax.swing.JLabel();
-        jLabel36 = new javax.swing.JLabel();
-        jLabel37 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -73,6 +57,7 @@ public class DashboardSocio extends javax.swing.JFrame {
         Dashboard.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(15, 43, 99));
+        jPanel2.setForeground(new java.awt.Color(255, 255, 255));
         jPanel2.setPreferredSize(new java.awt.Dimension(270, 530));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -80,12 +65,10 @@ public class DashboardSocio extends javax.swing.JFrame {
         jPanel4.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lbHome.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lbHome.setText("Home");
-        jPanel4.add(lbHome, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 70, 40));
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/ui/menus/Iconos/house_32x32.png"))); // NOI18N
-        jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, -1, -1));
+        lbHome1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lbHome1.setForeground(new java.awt.Color(255, 255, 255));
+        lbHome1.setText("Home");
+        jPanel4.add(lbHome1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 70, 40));
 
         jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 320, 50));
 
@@ -96,11 +79,14 @@ public class DashboardSocio extends javax.swing.JFrame {
         jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lbMembresia.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lbMembresia.setForeground(new java.awt.Color(255, 255, 255));
         lbMembresia.setText("Membresía");
+        lbMembresia.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbMembresiaMouseClicked(evt);
+            }
+        });
         jPanel8.add(lbMembresia, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 0, 150, 50));
-
-        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/ui/menus/Iconos/layout_32x32.png"))); // NOI18N
-        jPanel8.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, -1, -1));
 
         jPanel2.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 320, 50));
 
@@ -111,11 +97,14 @@ public class DashboardSocio extends javax.swing.JFrame {
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lbPago.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lbPago.setForeground(new java.awt.Color(255, 255, 255));
         lbPago.setText("Pagos");
+        lbPago.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbPagoMouseClicked(evt);
+            }
+        });
         jPanel6.add(lbPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 0, 150, 50));
-
-        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/ui/menus/Iconos/card_32x32.png"))); // NOI18N
-        jPanel6.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, -1, -1));
 
         jPanel2.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 320, 50));
 
@@ -126,21 +115,26 @@ public class DashboardSocio extends javax.swing.JFrame {
         jPanel10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lbReserva.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lbReserva.setForeground(new java.awt.Color(255, 255, 255));
         lbReserva.setText("Reservas");
+        lbReserva.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbReservaMouseClicked(evt);
+            }
+        });
         jPanel10.add(lbReserva, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 0, 150, 50));
-
-        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/ui/menus/Iconos/cal_32x32.png"))); // NOI18N
-        jPanel10.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, -1, -1));
 
         jPanel2.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 310, 320, 50));
 
         lbSalir.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lbSalir.setForeground(new java.awt.Color(255, 255, 255));
         lbSalir.setText("Salir ");
-        jPanel2.add(lbSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 580, -1, -1));
-
-        lbSettings.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lbSettings.setText("Settings");
-        jPanel2.add(lbSettings, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 580, 60, -1));
+        lbSalir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbSalirMouseClicked(evt);
+            }
+        });
+        jPanel2.add(lbSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 600, -1, -1));
 
         jSeparator1.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator1.setOpaque(true);
@@ -151,34 +145,15 @@ public class DashboardSocio extends javax.swing.JFrame {
         lbTitulo.setText("AtlasTech");
         jPanel2.add(lbTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 90, 30));
 
-        jLabel32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/ui/menus/Iconos/gear_wheel_32x32.png"))); // NOI18N
-        jPanel2.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 570, -1, -1));
-
-        jLabel33.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/ui/menus/Iconos/door_32x32.png"))); // NOI18N
-        jPanel2.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 570, -1, -1));
-
-        jPanel19.setBackground(new java.awt.Color(29, 52, 145));
-        jPanel19.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jPanel19.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel38.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/ui/menus/Iconos/Edit Pencil.png"))); // NOI18N
-        jPanel19.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, -1, 50));
-
-        lbHome1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lbHome1.setText("Home");
-        jPanel19.add(lbHome1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 70, 40));
-
-        jLabel39.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/ui/menus/Iconos/house_32x32.png"))); // NOI18N
-        jPanel19.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, -1, -1));
-
-        jPanel2.add(jPanel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 320, 50));
-
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/ui/menus/Iconos/picture_32x32.png"))); // NOI18N
-        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, -1, -1));
-
-        lbMembresia1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lbMembresia1.setText("Mi Perfil");
-        jPanel2.add(lbMembresia1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 170, 150, 50));
+        lbPerfil.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lbPerfil.setForeground(new java.awt.Color(255, 255, 255));
+        lbPerfil.setText("Mi Perfil");
+        lbPerfil.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbPerfilMouseClicked(evt);
+            }
+        });
+        jPanel2.add(lbPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 170, 150, 50));
 
         Dashboard.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 320, 660));
 
@@ -187,8 +162,8 @@ public class DashboardSocio extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Inicio");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 32, 69, -1));
+        jLabel1.setText("Inicio Socio");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 32, 150, -1));
 
         Dashboard.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 60, 750, 130));
 
@@ -198,8 +173,8 @@ public class DashboardSocio extends javax.swing.JFrame {
         jLabel24.setBackground(new java.awt.Color(255, 255, 255));
         jLabel24.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel24.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel24.setText("ACCESO RÁPIDO");
-        jPanel18.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 160, -1));
+        jLabel24.setText("CAMBIAAAARACCESO RÁPIDO");
+        jPanel18.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 280, -1));
 
         jButton5.setBackground(new java.awt.Color(255, 255, 255));
         jButton5.setForeground(new java.awt.Color(64, 43, 100));
@@ -240,18 +215,6 @@ public class DashboardSocio extends javax.swing.JFrame {
             }
         });
         jPanel18.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 150, 120, -1));
-
-        jLabel34.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/ui/menus/Iconos/user_32x32.png"))); // NOI18N
-        jPanel18.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
-
-        jLabel35.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/ui/menus/Iconos/add_32x32.png"))); // NOI18N
-        jPanel18.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
-
-        jLabel36.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/ui/menus/Iconos/cardfile_32x32.png"))); // NOI18N
-        jPanel18.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, -1, -1));
-
-        jLabel37.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/atlastech/gestionclubdeportivos/ui/menus/Iconos/address_book_32x32.png"))); // NOI18N
-        jPanel18.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 150, -1, -1));
 
         Dashboard.add(jPanel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 240, 380, 220));
 
@@ -295,6 +258,37 @@ public class DashboardSocio extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton8ActionPerformed
 
+    private void lbSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbSalirMouseClicked
+        MenuPrincipal Salir =  new MenuPrincipal();
+        Salir.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_lbSalirMouseClicked
+
+    private void lbPerfilMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbPerfilMouseClicked
+        MenuSocioMiPerfil PerfilSocio = new MenuSocioMiPerfil();
+        PerfilSocio.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_lbPerfilMouseClicked
+
+    private void lbMembresiaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbMembresiaMouseClicked
+        MenuSocioMembresia MembresiaSocio = new MenuSocioMembresia();
+        MembresiaSocio.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_lbMembresiaMouseClicked
+
+    private void lbPagoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbPagoMouseClicked
+        MenuSocioPagos PagosSocio = new MenuSocioPagos();
+        PagosSocio.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_lbPagoMouseClicked
+
+    private void lbReservaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbReservaMouseClicked
+        MenuSocioReservas ReservasSocio = new MenuSocioReservas();
+        ReservasSocio.setVisible(true);
+        this.dispose();
+        
+    }//GEN-LAST:event_lbReservaMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -327,37 +321,21 @@ public class DashboardSocio extends javax.swing.JFrame {
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel32;
-    private javax.swing.JLabel jLabel33;
-    private javax.swing.JLabel jLabel34;
-    private javax.swing.JLabel jLabel35;
-    private javax.swing.JLabel jLabel36;
-    private javax.swing.JLabel jLabel37;
-    private javax.swing.JLabel jLabel38;
-    private javax.swing.JLabel jLabel39;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel18;
-    private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JLabel lbHome;
     private javax.swing.JLabel lbHome1;
     private javax.swing.JLabel lbMembresia;
-    private javax.swing.JLabel lbMembresia1;
     private javax.swing.JLabel lbPago;
+    private javax.swing.JLabel lbPerfil;
     private javax.swing.JLabel lbReserva;
     private javax.swing.JLabel lbSalir;
-    private javax.swing.JLabel lbSettings;
     private javax.swing.JLabel lbTitulo;
     // End of variables declaration//GEN-END:variables
 }

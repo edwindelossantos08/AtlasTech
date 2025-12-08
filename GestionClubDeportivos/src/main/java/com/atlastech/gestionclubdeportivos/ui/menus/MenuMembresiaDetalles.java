@@ -112,7 +112,7 @@ public class MenuMembresiaDetalles extends javax.swing.JFrame {
 
         btnCancelar.setBackground(new java.awt.Color(0, 0, 0));
         btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
-        btnCancelar.setText("Cancelar");
+        btnCancelar.setText("Volver");
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelarActionPerformed(evt);

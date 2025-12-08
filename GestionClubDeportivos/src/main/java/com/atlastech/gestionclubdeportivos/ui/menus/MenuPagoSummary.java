@@ -43,6 +43,8 @@ public class MenuPagoSummary extends javax.swing.JFrame {
         jComboBox2 = new javax.swing.JComboBox<>();
         jTextField2 = new javax.swing.JTextField();
         btnVolver = new javax.swing.JButton();
+        lbConceptpago1 = new javax.swing.JLabel();
+        jTextField3 = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -110,6 +112,14 @@ public class MenuPagoSummary extends javax.swing.JFrame {
             }
         });
 
+        lbConceptpago1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lbConceptpago1.setForeground(new java.awt.Color(0, 0, 0));
+        lbConceptpago1.setText("Id Socio:");
+
+        jTextField3.setBackground(new java.awt.Color(255, 255, 255));
+        jTextField3.setText("jTextField2");
+        jTextField3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
         javax.swing.GroupLayout FondoBlancoLayout = new javax.swing.GroupLayout(FondoBlanco);
         FondoBlanco.setLayout(FondoBlancoLayout);
         FondoBlancoLayout.setHorizontalGroup(
@@ -139,7 +149,11 @@ public class MenuPagoSummary extends javax.swing.JFrame {
                                     .addGroup(FondoBlancoLayout.createSequentialGroup()
                                         .addComponent(lbConceptpago)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, FondoBlancoLayout.createSequentialGroup()
+                                    .addComponent(lbConceptpago1)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(jTextField3))))
                         .addGap(46, 46, 46)
                         .addComponent(btnConfirmar)))
                 .addContainerGap(15, Short.MAX_VALUE))
@@ -151,7 +165,14 @@ public class MenuPagoSummary extends javax.swing.JFrame {
                 .addComponent(lbResumenPago)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
+                .addGroup(FondoBlancoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(FondoBlancoLayout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(lbConceptpago1))
+                    .addGroup(FondoBlancoLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(FondoBlancoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbConceptpago)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -191,7 +212,7 @@ public class MenuPagoSummary extends javax.swing.JFrame {
         FondoGrisLayout.setVerticalGroup(
             FondoGrisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FondoGrisLayout.createSequentialGroup()
-                .addContainerGap(30, Short.MAX_VALUE)
+                .addContainerGap(26, Short.MAX_VALUE)
                 .addComponent(jLabel5)
                 .addGap(18, 18, 18)
                 .addComponent(FondoBlanco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -288,7 +309,9 @@ public class MenuPagoSummary extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
     private javax.swing.JLabel lbConceptpago;
+    private javax.swing.JLabel lbConceptpago1;
     private javax.swing.JLabel lbEstadoPago;
     private javax.swing.JLabel lbMetodoPago;
     private javax.swing.JLabel lbMonto;
