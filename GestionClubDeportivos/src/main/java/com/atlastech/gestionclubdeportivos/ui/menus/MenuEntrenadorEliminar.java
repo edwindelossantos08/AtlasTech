@@ -93,7 +93,6 @@ public class MenuEntrenadorEliminar extends javax.swing.JPanel {
         jPanel1.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, -1, -1));
 
         txtNombre.setBackground(new java.awt.Color(255, 255, 255));
-        txtNombre.setText("jTextField1");
         txtNombre.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, 210, 20));
 
@@ -103,7 +102,6 @@ public class MenuEntrenadorEliminar extends javax.swing.JPanel {
         jPanel1.add(txtEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 360, 210, 20));
 
         txtDeporte.setBackground(new java.awt.Color(255, 255, 255));
-        txtDeporte.setText("jTextField1");
         txtDeporte.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel1.add(txtDeporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 300, 210, 20));
 
@@ -121,7 +119,6 @@ public class MenuEntrenadorEliminar extends javax.swing.JPanel {
         jPanel1.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, -1, -1));
 
         txtTelefono.setBackground(new java.awt.Color(255, 255, 255));
-        txtTelefono.setText("jTextField1");
         txtTelefono.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel1.add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 330, 210, 20));
 

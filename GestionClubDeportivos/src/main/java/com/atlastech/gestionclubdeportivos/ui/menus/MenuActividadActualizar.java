@@ -52,8 +52,6 @@ public class MenuActividadActualizar extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jComboBox3 = new javax.swing.JComboBox<>();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
         jPanel2.setBackground(new java.awt.Color(15, 43, 99));
 
         jPanel10.setBackground(new java.awt.Color(230, 230, 230));
@@ -85,8 +83,12 @@ public class MenuActividadActualizar extends javax.swing.JFrame {
         jPanel11.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 160, -1));
 
         jTextField1.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField1.setText("jTextField1");
         jTextField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
         jPanel11.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, 170, 40));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -135,12 +137,10 @@ public class MenuActividadActualizar extends javax.swing.JFrame {
         jPanel11.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 70, 110, -1));
 
         jTextField2.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField2.setText("jTextField1");
         jTextField2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel11.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 190, 220, 20));
 
         jTextField3.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField3.setText("jTextField1");
         jTextField3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel11.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 220, 170, 20));
 
@@ -150,12 +150,10 @@ public class MenuActividadActualizar extends javax.swing.JFrame {
         jPanel11.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 44, -1));
 
         jTextField4.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField4.setText("jTextField1");
         jTextField4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel11.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 200, 20));
 
         jTextField6.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField6.setText("jTextField1");
         jTextField6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel11.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, 210, 20));
 
@@ -212,8 +210,6 @@ public class MenuActividadActualizar extends javax.swing.JFrame {
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
-
-        pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -225,6 +221,10 @@ public class MenuActividadActualizar extends javax.swing.JFrame {
         Principal.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnVolverActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
     /**
      * @param args the command line arguments
