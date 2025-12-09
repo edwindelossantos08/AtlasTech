@@ -4,20 +4,34 @@
  */
 package com.atlastech.gestionclubdeportivos.ui.menus;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+
 /**
  *
  * @author loren
  */
 public class DashboardSocio extends javax.swing.JFrame {
     
+    
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(DashboardSocio.class.getName());
 
+    private int idSocioActual;
     /**
      * Creates new form DashboardSocio
      */
-    public DashboardSocio() {
+    public DashboardSocio(int idSocio) {
+        this.idSocioActual = idSocio;
         initComponents();
+        configurarEventos();
     }
+    
+    private void configurarEventos(){
+        logger.info("Eventos configurados para el socio ID: " + idSocioActual);
+    }
+        
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -46,10 +60,10 @@ public class DashboardSocio extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jPanel18 = new javax.swing.JPanel();
         jLabel24 = new javax.swing.JLabel();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        btnMiPerfil = new javax.swing.JButton();
+        btnMisReservas = new javax.swing.JButton();
+        btnMiMembresia = new javax.swing.JButton();
+        btnNuevaReserva = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -176,45 +190,45 @@ public class DashboardSocio extends javax.swing.JFrame {
         jLabel24.setText("ACCESO RÁPIDO");
         jPanel18.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, 150, -1));
 
-        jButton6.setBackground(new java.awt.Color(255, 255, 255));
-        jButton6.setForeground(new java.awt.Color(64, 43, 100));
-        jButton6.setText("Mi Perfil");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        btnMiPerfil.setBackground(new java.awt.Color(255, 255, 255));
+        btnMiPerfil.setForeground(new java.awt.Color(64, 43, 100));
+        btnMiPerfil.setText("Mi Perfil");
+        btnMiPerfil.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                btnMiPerfilActionPerformed(evt);
             }
         });
-        jPanel18.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, 110, -1));
+        jPanel18.add(btnMiPerfil, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, 110, -1));
 
-        jButton7.setBackground(new java.awt.Color(255, 255, 255));
-        jButton7.setForeground(new java.awt.Color(64, 43, 100));
-        jButton7.setText("Mis Reservas");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        btnMisReservas.setBackground(new java.awt.Color(255, 255, 255));
+        btnMisReservas.setForeground(new java.awt.Color(64, 43, 100));
+        btnMisReservas.setText("Mis Reservas");
+        btnMisReservas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                btnMisReservasActionPerformed(evt);
             }
         });
-        jPanel18.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 80, -1, -1));
+        jPanel18.add(btnMisReservas, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 80, -1, -1));
 
-        jButton8.setBackground(new java.awt.Color(255, 255, 255));
-        jButton8.setForeground(new java.awt.Color(64, 43, 100));
-        jButton8.setText("Mi Membresia");
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
+        btnMiMembresia.setBackground(new java.awt.Color(255, 255, 255));
+        btnMiMembresia.setForeground(new java.awt.Color(64, 43, 100));
+        btnMiMembresia.setText("Mi Membresia");
+        btnMiMembresia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
+                btnMiMembresiaActionPerformed(evt);
             }
         });
-        jPanel18.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 150, 120, -1));
+        jPanel18.add(btnMiMembresia, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 150, 120, -1));
 
-        jButton5.setBackground(new java.awt.Color(255, 255, 255));
-        jButton5.setForeground(new java.awt.Color(64, 43, 100));
-        jButton5.setText("Nueva Reserva");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        btnNuevaReserva.setBackground(new java.awt.Color(255, 255, 255));
+        btnNuevaReserva.setForeground(new java.awt.Color(64, 43, 100));
+        btnNuevaReserva.setText("Nueva Reserva");
+        btnNuevaReserva.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                btnNuevaReservaActionPerformed(evt);
             }
         });
-        jPanel18.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, -1, -1));
+        jPanel18.add(btnNuevaReserva, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, -1, -1));
 
         Dashboard.add(jPanel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 240, 420, 220));
 
@@ -273,21 +287,69 @@ public class DashboardSocio extends javax.swing.JFrame {
         
     }//GEN-LAST:event_lbReservaMouseClicked
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+    private void btnNuevaReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevaReservaActionPerformed
+        try{
+            logger.info("Abriendo Formulario de Nueva Reserva para socio: " + idSocioActual);
+            MenuReserva nuevaReserva = new MenuReserva();
+            nuevaReserva.setVisible(true);
+            nuevaReserva.setLocationRelativeTo(this);
+            this.dispose();
+        } catch (Exception e) {
+            logger.log(java.util.logging.Level.SEVERE, "Error al abrir Nueva Reserva", e);
+            javax.swing.JOptionPane.showMessageDialog(this,
+                    "Error al abrir el formulario de reserva: " + e.getMessage(),
+                    "Error",
+                    javax.swing.JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnNuevaReservaActionPerformed
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton8ActionPerformed
+    private void btnMiMembresiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMiMembresiaActionPerformed
+       try{
+            logger.info("Abriendo Mi Membresia socio: " + idSocioActual);
+            MenuSocioMembresia membresia = new MenuSocioMembresia();
+            membresia.setVisible(true);
+            membresia.setLocationRelativeTo(this);
+            this.dispose();
+        }catch (Exception e) {
+            logger.log(java.util.logging.Level.SEVERE, "Error al abrir Mi Membresia", e);
+            javax.swing.JOptionPane.showMessageDialog(this,
+                    "Error al abrir la membresia: " + e.getMessage(),
+                    "Error",
+                    javax.swing.JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnMiMembresiaActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton7ActionPerformed
+    private void btnMisReservasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMisReservasActionPerformed
+       try{
+            logger.info("Abriendo Mis Reservas para socio: " + idSocioActual);
+            MenuSocioReservasMisReservas reservas = new MenuSocioReservasMisReservas();
+            reservas.setVisible(true);
+            reservas.setLocationRelativeTo(this);
+            this.dispose();
+        }catch (Exception e) {
+            logger.log(java.util.logging.Level.SEVERE, "Error al abrir Mis Reservas", e);
+            javax.swing.JOptionPane.showMessageDialog(this,
+                    "Error al abrir las reservas: " + e.getMessage(),
+                    "Error",
+                    javax.swing.JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnMisReservasActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
+    private void btnMiPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMiPerfilActionPerformed
+       try{
+            logger.info("Abriendo Mi Perfil de socio: " + idSocioActual);
+            MenuSocioMiPerfil miPerfil = new MenuSocioMiPerfil();
+            miPerfil.setVisible(true);
+            miPerfil.setLocationRelativeTo(this);
+            this.dispose();
+        }catch (Exception e) {
+            logger.log(java.util.logging.Level.SEVERE, "Error al abrir Mi Perfil", e);
+            javax.swing.JOptionPane.showMessageDialog(this,
+                    "Error al abrir mi perfil: " + e.getMessage(),
+                    "Error",
+                    javax.swing.JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnMiPerfilActionPerformed
 
     /**
      * @param args the command line arguments
@@ -311,15 +373,14 @@ public class DashboardSocio extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new DashboardSocio().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Dashboard;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
+    private javax.swing.JButton btnMiMembresia;
+    private javax.swing.JButton btnMiPerfil;
+    private javax.swing.JButton btnMisReservas;
+    private javax.swing.JButton btnNuevaReserva;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JPanel jPanel1;
@@ -338,4 +399,11 @@ public class DashboardSocio extends javax.swing.JFrame {
     private javax.swing.JLabel lbSalir;
     private javax.swing.JLabel lbTitulo;
     // End of variables declaration//GEN-END:variables
+
+  
+    
+
+    private void abrirNuevaReserva() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

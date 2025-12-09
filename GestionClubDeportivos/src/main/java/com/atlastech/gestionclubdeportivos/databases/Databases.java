@@ -44,7 +44,7 @@ public class Databases {
     // Configuración de la base de datos
     private final String URL = "jdbc:mysql://localhost:3306/prueba";
     private final String USER = "root";
-    private final String PASSWORD = "14162021jj";
+    private final String PASSWORD = "root18";
 
     // Constructor privado (Singleton)
     private Databases() {

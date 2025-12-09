@@ -232,7 +232,7 @@ public class MenuSocio extends javax.swing.JFrame {
         }
 
     // Login correcto → abrir pantalla socio
-    DashboardSocio socioPage = new DashboardSocio();
+    DashboardSocio socioPage = new DashboardSocio(1);
     socioPage.setVisible(true);
     this.dispose();
     }//GEN-LAST:event_btnLoginInActionPerformed
