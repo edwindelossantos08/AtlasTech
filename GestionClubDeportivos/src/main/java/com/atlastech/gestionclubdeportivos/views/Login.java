@@ -65,7 +65,7 @@ public class Login extends JFrame {
         formPanel.add(lblTitulo);
         
         // Subtítulo
-        JLabel lblSubtitulo = new JLabel("Club Deportivo AtlasTech");
+        JLabel lblSubtitulo = new JLabel(" Club Deportivo AtlasTech");
         lblSubtitulo.setFont(new Font("Arial", Font.PLAIN, 14));
         lblSubtitulo.setForeground(Color.GRAY);
         lblSubtitulo.setBounds(80, 55, 200, 20);

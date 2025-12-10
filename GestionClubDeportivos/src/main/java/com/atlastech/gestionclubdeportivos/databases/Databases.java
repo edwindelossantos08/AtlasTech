@@ -42,7 +42,7 @@ public class Databases {
     private static Databases instance;
 
     // Configuración de la base de datos
-    private final String URL = "jdbc:mysql://localhost:3306/SportClubManager";
+    private final String URL = "jdbc:mysql://localhost:3306/ManagerSportClub";
     private final String USER = "root";
     private final String PASSWORD = "08081603";
 
