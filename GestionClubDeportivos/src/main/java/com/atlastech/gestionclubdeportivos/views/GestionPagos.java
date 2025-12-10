@@ -28,6 +28,10 @@ public class GestionPagos extends JFrame {
         cargarTabla();
         setLocationRelativeTo(parent);
     }
+
+    GestionPagos() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
     private void initComponents() {
         setTitle("Gestión de Pagos");

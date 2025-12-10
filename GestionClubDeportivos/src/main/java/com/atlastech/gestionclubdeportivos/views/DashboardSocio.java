@@ -265,8 +265,13 @@ public class DashboardSocio extends JFrame {
     }
     
     private void verMisPagos() {
-        JOptionPane.showMessageDialog(this, "Funcionalidad en desarrollo", 
-            "Información", JOptionPane.INFORMATION_MESSAGE);
+        if(socioActual == null) {
+            JOptionPane.showMessageDialog(this, "No se encontro informacion del socio",
+                    "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        GestionPagos gestionPagos = new GestionPagos();
+        gestionPagos.setVisible(true);
     }
     
     private void verMiPerfil() {
@@ -330,4 +335,7 @@ public class DashboardSocio extends JFrame {
             this.dispose();
         }
     }
+    
+   
+    
 }

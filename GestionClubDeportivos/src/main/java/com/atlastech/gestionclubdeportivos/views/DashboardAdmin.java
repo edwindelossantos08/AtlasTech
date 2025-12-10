@@ -251,7 +251,7 @@ public class DashboardAdmin extends JFrame {
     
     private void logout() {
         int confirm = JOptionPane.showConfirmDialog(this,
-            "¿Está seguro que desea cerrar sesión?",
+            "¿Está seguro que desea cerrar sesión??",
             "Confirmar Salida",
             JOptionPane.YES_NO_OPTION);
         
@@ -260,4 +260,5 @@ public class DashboardAdmin extends JFrame {
             this.dispose();
         }
     }
+    
 }
