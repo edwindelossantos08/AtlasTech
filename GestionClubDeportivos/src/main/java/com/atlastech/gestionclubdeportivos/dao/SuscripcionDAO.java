@@ -15,16 +15,20 @@ import java.util.List;
  *
  * @author Atlas_Tech
  */
+// Clase DAO para manejar operaciones CRUD relacionadas a la tabla SUSCRIPCION.
+// Permite registrar, consultar, verificar y eliminar suscripciones.
 public class SuscripcionDAO {
+    // Conexión activa a la base de datos
     private final Connection connection;
 
+    // Constructor: obtiene la conexión desde Databases
     public SuscripcionDAO() {
         this.connection = Databases.getConection();
     }
 
-    // =====================================================
-    // INSERTAR
-    // =====================================================
+    // Registra una nueva suscripción en la base de datos.
+    // @param suscripcion Objeto con los datos de la suscripción.
+    // @return true si fue registrada correctamente, false en caso contrario.
     public boolean registrarSuscripcion(Suscripcion suscripcion) {
 
         String sql = "INSERT INTO SUSCRIPCION (Id_Socio, Id_Membresia, Renovacion_Automatica) " +
@@ -51,9 +55,8 @@ public class SuscripcionDAO {
         return false;
     }
 
-    // =====================================================
-    // OBTENER TODAS
-    // =====================================================
+    // Obtiene todas las suscripciones registradas.
+    // @return Lista con objetos Suscripcion.
     public List<Suscripcion> obtenerTodas() {
 
         List<Suscripcion> lista = new ArrayList<>();
@@ -80,9 +83,9 @@ public class SuscripcionDAO {
         return lista;
     }
 
-    // =====================================================
-    // OBTENER POR ID
-    // =====================================================
+    // Obtiene una suscripción específica por su ID.
+    // @param id Identificador de la suscripción.
+    // @return Objeto Suscripcion si existe, null si no se encuentra.
 public Suscripcion obtenerPorId(int id) {
 
     String sql = "SELECT * FROM SUSCRIPCION WHERE Id = ?";
@@ -100,17 +103,13 @@ public Suscripcion obtenerPorId(int id) {
             s.setIdMembresia(rs.getInt("Id_Membresia"));
             s.setRenovacionAutomatica(rs.getBoolean("Renovacion_Automatica"));
 
-            // ================================
             // Cargar Fecha_Inicio
-            // ================================
             Date fechaInicioSQL = rs.getDate("Fecha_Inicio");
             if (fechaInicioSQL != null) {
                 s.setFechaInicio(fechaInicioSQL.toLocalDate());
             }
 
-            // ================================
             // Cargar Duracion_Meses
-            // ================================
             Integer duracionMeses = rs.getObject("Duracion_Meses", Integer.class);
             s.setDuracionMeses(duracionMeses);
 
@@ -125,10 +124,10 @@ public Suscripcion obtenerPorId(int id) {
 }
 
     
-    // =====================================================
-    // VERIFICAR LA SUSCRIPCION VIGENTE
-    // =====================================================
-    
+
+    // Verifica si un socio actualmente tiene una suscripción activa.
+    // @param idSocio Identificador del socio.
+    // @return true si tiene suscripción vigente, false si no.
     public boolean verificarSuscripcionVigente(int idSocio) {
     String sql = "SELECT COUNT(*) "
                + "FROM SUSCRIPCION "
@@ -151,10 +150,10 @@ public Suscripcion obtenerPorId(int id) {
 
     return false;
 }
-    // =====================================================
-    // OBTENER SUSCRIPCION POR ID
-    // =====================================================
     
+   // Verifica si existe una suscripción utilizando su ID.
+    // @param idSuscripcion Identificador de la suscripción.
+    // @return true si existe, false si no.
     public boolean existeSuscripcion(int idSuscripcion) {
     String sql = "SELECT COUNT(*) FROM SUSCRIPCION WHERE Id_Suscripcion = ?";
     
@@ -173,9 +172,9 @@ public Suscripcion obtenerPorId(int id) {
 }
 
 
-    // =====================================================
-    // ELIMINAR
-    // =====================================================
+    // Elimina una suscripción por su ID.
+    // @param id Identificador de la suscripción.
+    // @return true si fue eliminada correctamente, false en caso contrario.
     public boolean eliminar(int id) {
 
         String sql = "DELETE FROM SUSCRIPCION WHERE Id = ?";

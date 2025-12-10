@@ -8,20 +8,29 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author AtlasTech
- */
+ // DAO (Data Access Object) para la entidad {@link Usuario}.
+ 
+ // Esta clase se encarga de gestionar todas las operaciones relacionadas con
+ // Usuario en la base de datos, tales como insertar, actualizar, eliminar,
+ // autenticar y obtener registros.
+ //
+ // Utiliza JDBC como tecnología de persistencia.
+ 
+ // @author AtlasTech
+ 
 public class UsuarioDAO {
+    // Conexión activa hacia la base de datos. 
 private Connection connection;
 
+//Constructor encargado de obtener la conexión a la base de datos.
     public UsuarioDAO() {
         this.connection = Databases.getConection();
     }
 
-    // ============================================================
-    // INSERTAR
-    // ============================================================
+    // Inserta un nuevo usuario en la base de datos.
+     
+     //@param usuario Objeto {@link Usuario} con los datos a guardar.
+     //@return true si la operación fue exitosa; false en caso contrario.
     public boolean insertar(Usuario usuario) {
 
         String sql = "INSERT INTO USUARIO (Username, Email, Contrasena, TipoUsuario, Id_Socio, Estado) "
@@ -57,9 +66,10 @@ private Connection connection;
         return false;
     }
 
-    // ============================================================
-    // AUTENTICAR
-    // ============================================================
+   // Autentica un usuario validando username y contraseña.
+    // @param username Nombre de usuario
+    // @param contraseña Contraseña
+    // @return Usuario si existe, null si no coincide
     public Usuario autenticar(String username, String contraseña) {
 
         String sql = "SELECT * FROM USUARIO WHERE Username = ? AND Contrasena = ? AND Estado = 1";
@@ -84,9 +94,8 @@ private Connection connection;
         return null;
     }
 
-    // ============================================================
-    // OBTENER TODOS
-    // ============================================================
+    // Obtiene la lista de todos los usuarios registrados.
+    // @return Lista con objetos Usuario
     public List<Usuario> obtenerTodos() {
 
         List<Usuario> lista = new ArrayList<>();
@@ -105,9 +114,10 @@ private Connection connection;
         return lista;
     }
 
-    // ============================================================
-    // OBTENER POR ID
-    // ============================================================
+    
+    // Busca un usuario utilizando su ID.
+    // @param id Identificador del usuario
+    // @return Usuario si existe, null si no se encontró
     public Usuario obtenerPorId(int id) {
 
         String sql = "SELECT * FROM USUARIO WHERE Id = ?";
@@ -126,9 +136,9 @@ private Connection connection;
         return null;
     }
 
-    // ============================================================
-    // ACTUALIZAR
-    // ============================================================
+    // Actualiza un usuario existente.
+    // @param usuario Datos actualizados
+    // @return true si se actualizó correctamente, false si falló
     public boolean actualizar(Usuario usuario) {
 
         String sql = "UPDATE USUARIO SET Username=?, Email=?, Contrasena=?, TipoUsuario=?, Id_Socio=?, Estado=? "
@@ -159,9 +169,9 @@ private Connection connection;
         return false;
     }
 
-    // ============================================================
-    // ELIMINAR
-    // ============================================================
+    // Elimina un usuario utilizando su ID.
+    // @param id Identificador del usuario
+    // @return true si se eliminó correctamente, false si no
     public boolean eliminar(int id) {
 
         String sql = "DELETE FROM USUARIO WHERE Id = ?";
@@ -178,9 +188,9 @@ private Connection connection;
         return false;
     }
 
-    // ============================================================
-    // VERIFICAR SI EXISTE USERNAME
-    // ============================================================
+    // Verifica si un username ya está registrado.
+    // @param username Nombre de usuario
+    // @return true si ya existe, false si está disponible
     public boolean existeNombreUsuario(String username) {
 
         String sql = "SELECT COUNT(*) FROM USUARIO WHERE Username = ?";
@@ -199,9 +209,8 @@ private Connection connection;
         return false;
     }
 
-    // ============================================================
-    // ACTUALIZAR ÚLTIMO ACCESO
-    // ============================================================
+    // Actualiza la fecha y hora del último acceso del usuario.
+    // @param idUsuario ID del usuario autenticado
     private void actualizarUltimoAcceso(int idUsuario) {
 
         String sql = "UPDATE USUARIO SET Ultimo_Acceso = NOW() WHERE Id = ?";
@@ -215,10 +224,11 @@ private Connection connection;
             System.err.println("Error al actualizar último acceso: " + e.getMessage());
         }
     }
-
-    // ============================================================
-    // MAPEO DE RESULTSET → OBJETO
-    // ============================================================
+    
+    // Convierte una fila de resultado (ResultSet) en un objeto Usuario.
+    // @param rs ResultSet con los datos
+    // @return Usuario construido
+    // @throws SQLException si ocurre un error leyendo los datos
     private Usuario mapearUsuario(ResultSet rs) throws SQLException {
 
         Usuario u = new Usuario();

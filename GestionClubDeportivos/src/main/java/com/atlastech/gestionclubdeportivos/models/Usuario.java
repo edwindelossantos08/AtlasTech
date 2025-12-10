@@ -17,9 +17,8 @@ public class Usuario {
     private LocalDateTime fechaCreacion; // Fecha_Creacion
     private LocalDateTime ultimoAcceso;  // Ultimo_Acceso
 
-    // =========================================
+
     // CONSTRUCTORES
-    // =========================================
     public Usuario() {
         this.fechaCreacion = LocalDateTime.now();
         this.estado = true; // activo por defecto
@@ -34,9 +33,8 @@ public class Usuario {
         this.idSocio = idSocio;
     }
 
-    // =========================================
+    
     // MÉTODOS DE NEGOCIO
-    // =========================================
     public boolean isAdministrador() {
         return "admin".equalsIgnoreCase(tipoUsuario)
             || "administrador".equalsIgnoreCase(tipoUsuario);
@@ -46,9 +44,8 @@ public class Usuario {
         return "socio".equalsIgnoreCase(tipoUsuario);
     }
 
-    // =========================================
+    
     // GETTERS Y SETTERS
-    // =========================================
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
 

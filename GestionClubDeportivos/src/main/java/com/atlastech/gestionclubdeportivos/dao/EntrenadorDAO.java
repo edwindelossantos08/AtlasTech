@@ -16,12 +16,17 @@ import java.util.List;
  */
 
 public class EntrenadorDAO {
+    
+    // Atributo conexión usada para la base de datos
     private Connection connection;
     
+    // Constructor que inicializa la conexión desde Databases
     public EntrenadorDAO() {
         this.connection = Databases.getConection();
     }
     
+    // Inserta un entrenador en la BD
+    // Retorna true si fue exitoso, false si ocurre error
     public boolean insertarEntrenador(Entrenador entrenador) {
         String sql = "INSERT INTO ENTRENADOR (Nombres, Apellidos, Email, Telefono, " +
                      "Especialidad, Fecha_Contratacion, Estado) VALUES (?, ?, ?, ?, ?, ?, ?)";
@@ -36,6 +41,8 @@ public class EntrenadorDAO {
             
             int affectedRows = pstmt.executeUpdate();
             if (affectedRows > 0) {
+                
+                // Recupera el ID generado
                 ResultSet rs = pstmt.getGeneratedKeys();
                 if (rs.next()) entrenador.setId(rs.getInt(1));
                 System.out.println("Entrenador registrado: " + entrenador.getNombres());
@@ -47,6 +54,7 @@ public class EntrenadorDAO {
         return false;
     }
     
+    // Retorna lista de todos los entrenadores ordenados por apellido y nombre
     public List<Entrenador> obtenerTodosEntrenadores() {
         List<Entrenador> entrenadores = new ArrayList<>();
         String sql = "SELECT * FROM ENTRENADOR ORDER BY Apellidos, Nombres";
@@ -61,6 +69,7 @@ public class EntrenadorDAO {
         return entrenadores;
     }
     
+       // Retorna un entrenador usando su ID
     public Entrenador obtenerEntrenadorPorId(int id) {
         String sql = "SELECT * FROM ENTRENADOR WHERE Id = ?";
         try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
@@ -73,6 +82,8 @@ public class EntrenadorDAO {
         return null;
     }
     
+    // Actualiza datos de un entrenador existente
+    // Retorna true si fue exitoso
     public boolean actualizarEntrenador(Entrenador entrenador) {
         String sql = "UPDATE ENTRENADOR SET Nombres = ?, Apellidos = ?, Email = ?, " +
                      "Telefono = ?, Especialidad = ?, Estado = ? WHERE Id = ?";
@@ -91,6 +102,7 @@ public class EntrenadorDAO {
         return false;
     }
     
+    // Retorna lista de entrenadores cuyo estado es activo
     public List<Entrenador> obtenerEntrenadoresActivos() {
         List<Entrenador> entrenadores = new ArrayList<>();
         String sql = "SELECT * FROM ENTRENADOR WHERE Estado = 1 ORDER BY Apellidos";
@@ -105,6 +117,7 @@ public class EntrenadorDAO {
         return entrenadores;
     }
     
+    // Retorna lista de entrenadores activos filtrados por especialidad
     public List<Entrenador> obtenerEntrenadoresPorEspecialidad(String especialidad) {
         List<Entrenador> entrenadores = new ArrayList<>();
         String sql = "SELECT * FROM ENTRENADOR WHERE Especialidad LIKE ? AND Estado = 1";
@@ -120,6 +133,7 @@ public class EntrenadorDAO {
         return entrenadores;
     }
     
+    // Verifica si existe un correo registrado
     public boolean existeEmail(String email) {
         String sql = "SELECT COUNT(*) FROM ENTRENADOR WHERE Email = ?";
         try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
@@ -132,6 +146,7 @@ public class EntrenadorDAO {
         return false;
     }
     
+    // Cambia el estado de un entrenador (activo/inactivo)
     public boolean cambiarEstado(int id, boolean estado) {
         String sql = "UPDATE ENTRENADOR SET Estado = ? WHERE Id = ?";
         try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
@@ -144,6 +159,7 @@ public class EntrenadorDAO {
         return false;
     }
     
+    // Convierte un registro del ResultSet en un objeto Entrenador
     private Entrenador mapearResultSetAEntrenador(ResultSet rs) throws SQLException {
         Entrenador entrenador = new Entrenador();
         entrenador.setId(rs.getInt("Id"));
