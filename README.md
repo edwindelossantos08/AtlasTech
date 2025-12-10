@@ -1,12 +1,94 @@
-Este proyecto es una aplicación desarrollada para administrar de manera eficiente las operaciones internas de un club deportivo. Incluye módulos para gestionar socios, membresías, pagos, horarios, usuarios del sistema y más.
-El objetivo es ofrecer una herramienta intuitiva, moderna y escalable para facilitar el control administrativo del club.
-Gestión de Socios: Registro, actualización, estado, historial y datos personales.
+<h2>Descripción del Proyecto</h2>
+Sistema integral de gestión para clubes deportivos desarrollado en Java con interfaz gráfica Swing. Permite administrar socios, membresías, reservas, pagos, entrenadores, instalaciones y deportes.
 
-Control de Membresías: Tipos de membresía, descripción, duración, costos y renovaciones.
-Registro de Pagos: Historial de pagos, validación, estado y reportes básicos.
-Horarios y Reservas: Control de horarios disponibles según actividad o área.
-Usuarios del Sistema:
-Administrador → Acceso total a todas las funciones.
-Socio → Acceso limitado a su información, estado de membresía y pagos.
-Interfaz Gráfica (UI): Construida con Swing/JFrame con navegación clara y organizada.
-Base de Datos MySQL: Estructura optimizada con claves foráneas, relaciones y autoincrements.
+<h2>Características Principales</h2>
+<h3>Para Administradores:</h3>
+
+
+✅ Gestión completa de socios y usuarios
+
+
+💳 Administración de membresías y suscripciones
+
+
+🏟️ Control de instalaciones deportivas
+
+
+📅 Gestión de reservas
+
+
+💰 Seguimiento de pagos y finanzas
+
+
+👨‍🏫 Administración de entrenadores
+
+
+⚽ Catálogo de deportes
+
+
+📊 Dashboard con estadísticas en tiempo real
+
+
+
+<h3>Para Socios:</h3>
+
+
+👤 Visualización de perfil personal
+
+
+📅 Consulta de reservas propias
+
+
+💳 Historial de pagos
+
+
+🏟️ Visualización de instalaciones disponibles
+
+
+
+<h2>🛠️ Tecnologías Utilizadas</h2>
+
+
+Lenguaje: Java 8+
+
+
+GUI: Java Swing
+
+
+Base de Datos: MySQL
+
+
+JDBC: Conector MySQL
+
+
+IDE Recomendado: NetBeans / IntelliJ IDEA / Eclipse
+
+
+<h2>📋 Requisitos Previos</h2>
+Software Necesario:
+
+
+JDK (Java Development Kit) 8 o superior
+Descargar desde: https://www.oracle.com/java/technologies/downloads/
+
+
+MySQL Server 5.7 o superior
+Descargar desde: https://dev.mysql.com/downloads/mysql/
+
+
+MySQL Connector/J (JDBC Driver)
+Descargar desde: https://dev.mysql.com/downloads/connector/j/
+
+
+IDE Java (Opcional pero recomendado)
+
+NetBeans: https://netbeans.apache.org/
+
+
+IntelliJ IDEA: https://www.jetbrains.com/idea/
+
+
+Eclipse: https://www.eclipse.org/
+
+<h2>Estructura del Proyecto</h2>
+<img width="405" height="731" alt="Screen Shot 2025-12-10 at 2 44 44 PM" src="https://github.com/user-attachments/assets/7d84a834-10d2-4b8a-977f-bec8760035d9" />
