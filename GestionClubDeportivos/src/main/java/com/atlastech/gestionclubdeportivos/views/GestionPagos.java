@@ -29,9 +29,7 @@ public class GestionPagos extends JFrame {
         setLocationRelativeTo(parent);
     }
 
-    GestionPagos() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+  
     
     private void initComponents() {
         setTitle("Gestión de Pagos");
@@ -73,7 +71,7 @@ public class GestionPagos extends JFrame {
         topPanel.add(searchPanel, BorderLayout.EAST);
         
         // ========== TABLA ==========
-        String[] columnas = {"ID", "Concepto", "Monto", "Método", "Estado", "ID Suscripción", "ID Reserva", "ID Torneo"};
+        String[] columnas = {"ID", "Concepto", "Monto", "Método", "Estado", "ID Suscripción", "ID Reserva"};
         modeloTabla = new DefaultTableModel(columnas, 0) {
             @Override
             public boolean isCellEditable(int row, int column) {
@@ -204,42 +202,26 @@ public class GestionPagos extends JFrame {
         return btn;
     }
     
-    private void cargarTabla() {
-        modeloTabla.setRowCount(0);
-        List<Pago> pagos = pagoDAO.obtenerTodosPagos();
-        
-        for (Pago p : pagos) {
-            modeloTabla.addRow(new Object[]{
-                p.getId(),
-                p.getConcepto(),
-                "$" + p.getMonto(),
-                p.getMetodoPago(),
-                p.getEstado(),
-                p.getIdSuscripcion() != null ? p.getIdSuscripcion() : "N/A",
-                p.getIdReserva() != null ? p.getIdReserva() : "N/A",
-                p.getIdTorneo() != null ? p.getIdTorneo() : "N/A"
-            });
-        }
-    }
+    
     
     private void mostrarPagosPendientes() {
-        modeloTabla.setRowCount(0);
-        List<Pago> pagos = pagoDAO.obtenerPagosPendientes();
-        
-        for (Pago p : pagos) {
-            modeloTabla.addRow(new Object[]{
-                p.getId(),
-                p.getConcepto(),
-                "$" + p.getMonto(),
-                p.getMetodoPago(),
-                p.getEstado(),
-                p.getIdSuscripcion() != null ? p.getIdSuscripcion() : "N/A",
-                p.getIdReserva() != null ? p.getIdReserva() : "N/A",
-                p.getIdTorneo() != null ? p.getIdTorneo() : "N/A"
-            });
-        }
+    modeloTabla.setRowCount(0);
+    List<Pago> pagos = pagoDAO.obtenerPagosPendientes();
+
+    for (Pago p : pagos) {
+        modeloTabla.addRow(new Object[]{
+            p.getId(),
+            p.getConcepto(),
+            "$" + p.getMonto(),
+            p.getMetodoPago(),
+            p.getEstado(),
+            p.getIdSuscripcion() != null ? p.getIdSuscripcion() : "N/A",
+            p.getIdReserva() != null ? p.getIdReserva() : "N/A"
+            // ❌ Eliminamos p.getIdTorneo() porque esa columna no existe
+        });
     }
-    
+}
+
     private void buscarPagos() {
         String busqueda = txtBuscar.getText().trim();
         if (busqueda.isEmpty()) {
@@ -259,7 +241,7 @@ public class GestionPagos extends JFrame {
                 p.getEstado(),
                 p.getIdSuscripcion() != null ? p.getIdSuscripcion() : "N/A",
                 p.getIdReserva() != null ? p.getIdReserva() : "N/A",
-                p.getIdTorneo() != null ? p.getIdTorneo() : "N/A"
+          
             });
         }
     }
@@ -289,37 +271,47 @@ public class GestionPagos extends JFrame {
     }
     
     private void guardarPago() {
-        if (!validarCampos()) return;
-        
-        try {
-            Pago pago = new Pago();
-            pago.setConcepto(txtConcepto.getText().trim());
-            pago.setMonto(new BigDecimal(txtMonto.getText().trim()));
-            pago.setMetodoPago((String) cmbMetodoPago.getSelectedItem());
-            pago.setEstado((String) cmbEstado.getSelectedItem());
-            
-            if (pagoDAO.registrarPago(pago)) {
-                JOptionPane.showMessageDialog(this, 
-                    "Pago registrado exitosamente", 
-                    "Éxito", 
+    if (!validarCampos()) return;
+
+    try {
+        Pago pago = new Pago();
+        pago.setConcepto(txtConcepto.getText().trim());
+        pago.setMonto(new BigDecimal(txtMonto.getText().trim()));
+        pago.setMetodoPago((String) cmbMetodoPago.getSelectedItem());
+        pago.setEstado((String) cmbEstado.getSelectedItem());
+
+        // 🔴 Asegúrate de asignar algún Id válido de suscripción o reserva
+        pago.setIdSuscripcion(1); // Este ID debe existir en tu tabla SUSCRIPCION
+
+        if (pagoDAO.registrarPago(pago)) {
+            JOptionPane.showMessageDialog(this,
+                    "Pago registrado exitosamente",
+                    "Éxito",
                     JOptionPane.INFORMATION_MESSAGE);
-                cargarTabla();
-                limpiarCampos();
-                configurarEstadoBotones(false);
-            } else {
-                JOptionPane.showMessageDialog(this, 
-                    "Error al registrar pago", 
-                    "Error", 
+
+            cargarTabla();                         // ✅ Vuelve a llenar la tabla
+            modeloTabla.fireTableDataChanged();    // ✅ Notifica a la tabla que hay nuevos datos
+            tablePagos.repaint();                  // ✅ Fuerza el repintado
+            limpiarCampos();
+            configurarEstadoBotones(false);
+            System.out.println("Cargando pagos...");
+List<Pago> pagos = pagoDAO.obtenerTodosPagos();
+System.out.println("Total pagos encontrados: " + pagos.size());
+
+        } else {
+            JOptionPane.showMessageDialog(this,
+                    "Error al registrar pago",
+                    "Error",
                     JOptionPane.ERROR_MESSAGE);
-            }
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(this, 
-                "Error: " + ex.getMessage(), 
-                "Error", 
-                JOptionPane.ERROR_MESSAGE);
         }
+    } catch (Exception ex) {
+        JOptionPane.showMessageDialog(this,
+                "Error: " + ex.getMessage(),
+                "Error",
+                JOptionPane.ERROR_MESSAGE);
     }
-    
+}
+
     private void marcarComoPagado() {
         if (pagoSeleccionado == null) {
             JOptionPane.showMessageDialog(this, 
@@ -403,4 +395,22 @@ public class GestionPagos extends JFrame {
         btnMarcarRechazado.setEnabled(!modoGuardar && pagoSeleccionado != null);
         btnCancelar.setEnabled(modoGuardar);
     }
+
+private void cargarTabla() {
+    modeloTabla.setRowCount(0);
+    List<Pago> pagos = pagoDAO.obtenerTodosPagos();
+    
+    for (Pago p : pagos) {
+        modeloTabla.addRow(new Object[]{
+            p.getId(),
+            p.getConcepto(),
+            "$" + p.getMonto(),
+            p.getMetodoPago(),
+            p.getEstado(),
+            p.getIdSuscripcion() != null ? p.getIdSuscripcion() : "N/A",
+            p.getIdReserva() != null ? p.getIdReserva() : "N/A",
+       
+        });
+    }
+}
 }

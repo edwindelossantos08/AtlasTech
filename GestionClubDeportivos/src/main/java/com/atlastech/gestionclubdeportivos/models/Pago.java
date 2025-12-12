@@ -10,7 +10,6 @@ public class Pago {
     private int id;
     private Integer idSuscripcion;
     private Integer idReserva;
-    private Integer idTorneo;
     private String concepto;
     private BigDecimal monto;
     private String metodoPago;
@@ -35,7 +34,6 @@ public class Pago {
         this.id = id;
         this.idSuscripcion = idSuscripcion;
         this.idReserva = idReserva;
-        this.idTorneo = idTorneo;
         this.concepto = concepto;
         this.monto = monto;
         this.metodoPago = metodoPago;
@@ -57,8 +55,6 @@ public class Pago {
     public Integer getIdReserva() { return idReserva; }
     public void setIdReserva(Integer idReserva) { this.idReserva = idReserva; }
     
-    public Integer getIdTorneo() { return idTorneo; }
-    public void setIdTorneo(Integer idTorneo) { this.idTorneo = idTorneo; }
     
     public String getConcepto() { return concepto; }
     public void setConcepto(String concepto) { this.concepto = concepto; }
@@ -80,6 +76,15 @@ public class Pago {
         return String.format("Pago{id=%d, concepto='%s', monto=$%.2f, estado=%s}",
                 id, concepto, monto, estado);
     }
+
+    public Object getDescripcion() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public Object getFechaPago() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
 
     
 }

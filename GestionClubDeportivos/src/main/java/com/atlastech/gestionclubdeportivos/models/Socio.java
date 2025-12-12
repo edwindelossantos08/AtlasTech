@@ -124,12 +124,12 @@ public class Socio {
     public String getFotoUrl() {return fotoUrl; }
     public void setFotoUrl(String FotoUrl) {this.fotoUrl = fotoUrl; }
     
-    @Override
-    public String toString() {
-        return String.format("Socio{id=%id, nombre='%s', email='%s', estado=%s}",
-                id,
-                getNombreCompleto(),
-                email,
-                estado ? "ACTIVO" : "INACTIVO");
-    }
+@Override
+public String toString() {
+    return String.format("Socio{id=%d, nombre='%s', email='%s', estado=%s}",
+            id,
+            getNombreCompleto(),
+            email,
+            estado ? "ACTIVO" : "INACTIVO");
+}
 }

@@ -74,10 +74,10 @@ public class Usuario {
     public void setUltimoAcceso(LocalDateTime ultimoAcceso) { this.ultimoAcceso = ultimoAcceso; }
 
     @Override
-    public String toString() {
-        return String.format(
-                "Usuario{id=%d, usuario='%s', email='%s', tipo='%s', estado=%s}",
-                id, nombreUsuario, email, tipoUsuario, estado ? "Activo" : "Inactivo"
-        );
-    }
+public String toString() {
+    return String.format(
+        "Usuario{id=%d, usuario='%s', email='%s', tipo='%s', estado='%s'}",
+        id, nombreUsuario, email, tipoUsuario, estado ? "Activo" : "Inactivo"
+    );
+}
 }

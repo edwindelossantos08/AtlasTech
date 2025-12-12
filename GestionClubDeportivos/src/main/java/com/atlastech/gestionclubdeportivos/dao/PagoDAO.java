@@ -23,61 +23,68 @@ public class PagoDAO {
     }
     
     public boolean registrarPago(Pago pago) {
-        String sql = "INSERT INTO PAGO (Id_Suscripcion, Id_Reserva, Id_Torneo, " +
-                     "Concepto, Monto, Metodo_Pago, Estado, Comprobante_URL) " +
-                     "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-        
-        try (PreparedStatement pstmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
-            
-            pstmt.setObject(1, pago.getIdSuscripcion());
-            pstmt.setObject(2, pago.getIdReserva());
-            pstmt.setObject(3, pago.getIdTorneo());
-            pstmt.setString(4, pago.getConcepto());
-            pstmt.setBigDecimal(5, pago.getMonto());
-            pstmt.setString(6, pago.getMetodoPago());
-            pstmt.setString(7, pago.getEstado());
-            pstmt.setString(8, pago.getComprobanteUrl());
-            
-            int affectedRows = pstmt.executeUpdate();
-            
-            if (affectedRows > 0) {
-                try (ResultSet rs = pstmt.getGeneratedKeys()) {
-                    if (rs.next()) {
-                        pago.setId(rs.getInt(1));
-                    }
+    String sql = "INSERT INTO PAGO (Id_Suscripcion, Id_Reserva, Concepto, Monto, Metodo_Pago, Estado, Comprobante_URL) " +
+                 "VALUES (?, ?, ?, ?, ?, ?, ?)";
+
+    try (PreparedStatement pstmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+        pstmt.setObject(1, pago.getIdSuscripcion());  // Puede ser null
+        pstmt.setObject(2, pago.getIdReserva());      // Puede ser null
+        pstmt.setString(3, pago.getConcepto());
+        pstmt.setBigDecimal(4, pago.getMonto());
+        pstmt.setString(5, pago.getMetodoPago());
+        pstmt.setString(6, pago.getEstado());
+        pstmt.setString(7, pago.getComprobanteUrl()); // Puede ser null
+
+        int affectedRows = pstmt.executeUpdate();
+
+        if (affectedRows > 0) {
+            try (ResultSet rs = pstmt.getGeneratedKeys()) {
+                if (rs.next()) {
+                    pago.setId(rs.getInt(1));  // ✅ Guarda el ID del nuevo pago
                 }
-                System.out.println("Pago registrado con ID: " + pago.getId());
-                return true;
             }
-            
-        } catch (SQLException e) {
-            System.err.println("Error al registrar pago: " + e.getMessage());
-            e.printStackTrace();
+            System.out.println("Pago registrado con ID: " + pago.getId()); // Debug
+            return true;
         }
-        return false;
+
+    } catch (SQLException e) {
+        System.err.println("Error al registrar pago: " + e.getMessage());
+        e.printStackTrace();
     }
+
+    return false;
+}
     
     /*Obtiene todos los pagos de la base de datos
      * @return lista de todos los pagos */
-    public List<Pago> obtenerTodosPagos() {
-        List<Pago> pagos = new ArrayList<>();
-        String sql = "SELECT * FROM PAGO ORDER BY Id DESC";
-        
-        try (Statement stmt = connection.createStatement();
-             ResultSet rs = stmt.executeQuery(sql)) {
-            
+    /*Obtiene todos los pagos asociados a un socio
+ * @param idSocio identificador del socio
+ * @return lista de pagos del socio*/
+public List<Pago> obtenerPagosPorSocio(int idSocio) {
+    List<Pago> pagos = new ArrayList<>();
+    String sql = "SELECT * FROM PAGO WHERE Id_Suscripcion IN " +
+                 "(SELECT Id FROM SUSCRIPCION WHERE Id_Socio = ?) " +
+                 "OR Id_Reserva IN " +
+                 "(SELECT Id FROM RESERVA WHERE Id_Socio = ?) " +
+                 "ORDER BY Id DESC";
+
+    try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
+        pstmt.setInt(1, idSocio);
+        pstmt.setInt(2, idSocio);
+
+        try (ResultSet rs = pstmt.executeQuery()) {
             while (rs.next()) {
                 pagos.add(mapearResultSetAPago(rs));
             }
-            
-            System.out.println("Se obtuvieron " + pagos.size() + " pagos");
-            
-        } catch (SQLException e) {
-            System.err.println("Error al obtener pagos: " + e.getMessage());
-            e.printStackTrace();
         }
-        return pagos;
+
+    } catch (SQLException e) {
+        System.err.println("Error al obtener pagos por socio: " + e.getMessage());
+        e.printStackTrace();
     }
+    return pagos;
+}
+
     
     /*Obtiene un pago por su ID
      * @param id identificador del pago
@@ -485,11 +492,10 @@ public class PagoDAO {
         // Los campos nullable se manejan con getObject
         Integer idSuscripcion = (Integer) rs.getObject("Id_Suscripcion");
         Integer idReserva = (Integer) rs.getObject("Id_Reserva");
-        Integer idTorneo = (Integer) rs.getObject("Id_Torneo");
+       
         
         pago.setIdSuscripcion(idSuscripcion);
         pago.setIdReserva(idReserva);
-        pago.setIdTorneo(idTorneo);
         pago.setConcepto(rs.getString("Concepto"));
         pago.setMonto(rs.getBigDecimal("Monto"));
         pago.setMetodoPago(rs.getString("Metodo_Pago"));
@@ -498,4 +504,23 @@ public class PagoDAO {
         
         return pago;
     }
+
+   public List<Pago> obtenerTodosPagos() {
+    List<Pago> pagos = new ArrayList<>();
+    String sql = "SELECT * FROM PAGO ORDER BY Id DESC";
+
+    try (Statement stmt = connection.createStatement();
+         ResultSet rs = stmt.executeQuery(sql)) {
+
+        while (rs.next()) {
+            pagos.add(mapearResultSetAPago(rs));
+        }
+
+    } catch (SQLException e) {
+        System.err.println("Error al obtener todos los pagos: " + e.getMessage());
+        e.printStackTrace();
+    }
+
+    return pagos;
+}
 }
