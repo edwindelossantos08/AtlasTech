@@ -42,7 +42,7 @@ public class GestionMembresias extends JFrame {
         JPanel topPanel = new JPanel(new BorderLayout());
         topPanel.setBackground(new Color(236, 240, 241));
         
-        JLabel lblTitulo = new JLabel("💳 GESTIÓN DE MEMBRESÍAS");
+        JLabel lblTitulo = new JLabel("<html><span style='font-size:16px'>💳 GESTIÓN DE MEMBRESÍAS</span></html>");
         lblTitulo.setFont(new Font("Arial", Font.BOLD, 24));
         lblTitulo.setForeground(new Color(52, 73, 94));
         

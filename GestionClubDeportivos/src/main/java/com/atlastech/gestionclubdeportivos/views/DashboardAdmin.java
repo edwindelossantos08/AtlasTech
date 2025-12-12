@@ -1,14 +1,13 @@
-// DASHBOARDADMIN.JAVA - COMPLETO Y CORREGIDO
-
 package com.atlastech.gestionclubdeportivos.views;
-
 import com.atlastech.gestionclubdeportivos.dao.*;
-import com.atlastech.gestionclubdeportivos.models.Usuario;
+import com.atlastech.gestionclubdeportivos.models.*;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-// Asegúrate de importar las vistas que se abren desde el dashboard
+// Vistas
+
 import com.atlastech.gestionclubdeportivos.views.GestionReservas;
 import com.atlastech.gestionclubdeportivos.views.GestionSuscripciones;
 
@@ -30,9 +29,10 @@ public class DashboardAdmin extends JFrame {
 
         initComponents();
         setLocationRelativeTo(null);
-        cargarEstadisticas();
+        cargarEstadisticas(); // 🔥 NO QUEDA VACÍO
     }
 
+    // ================= INIT =================
     private void initComponents() {
         setTitle("Panel de Administración - Club Deportivo");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -42,10 +42,10 @@ public class DashboardAdmin extends JFrame {
         JPanel mainPanel = new JPanel(new BorderLayout());
         mainPanel.setBackground(new Color(236, 240, 241));
 
-        JPanel headerPanel = new JPanel();
+        // ========== HEADER ==========
+        JPanel headerPanel = new JPanel(new BorderLayout());
         headerPanel.setBackground(new Color(52, 73, 94));
         headerPanel.setPreferredSize(new Dimension(0, 70));
-        headerPanel.setLayout(new BorderLayout());
 
         JLabel lblTitle = new JLabel("  🏆 CLUB DEPORTIVO - ADMINISTRACIÓN");
         lblTitle.setFont(new Font("Arial", Font.BOLD, 24));
@@ -54,6 +54,7 @@ public class DashboardAdmin extends JFrame {
 
         JPanel userPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
         userPanel.setOpaque(false);
+
         lblWelcome = new JLabel("👤 " + usuarioActual.getNombreUsuario() + "  ");
         lblWelcome.setFont(new Font("Arial", Font.PLAIN, 14));
         lblWelcome.setForeground(Color.WHITE);
@@ -70,6 +71,7 @@ public class DashboardAdmin extends JFrame {
         userPanel.add(btnLogout);
         headerPanel.add(userPanel, BorderLayout.EAST);
 
+        // ========== SIDEBAR ==========
         JPanel sidebar = new JPanel();
         sidebar.setBackground(new Color(44, 62, 80));
         sidebar.setPreferredSize(new Dimension(250, 0));
@@ -87,6 +89,7 @@ public class DashboardAdmin extends JFrame {
         sidebar.add(crearBotonMenu("👨‍🏋 Entrenadores", e -> abrirGestionEntrenadores()));
         sidebar.add(crearBotonMenu("⚽ Deportes", e -> abrirGestionDeportes()));
 
+        // ========== CONTENT ==========
         contentPanel = new JPanel(new BorderLayout());
         contentPanel.setBackground(new Color(236, 240, 241));
         contentPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
@@ -98,10 +101,10 @@ public class DashboardAdmin extends JFrame {
         add(mainPanel);
     }
 
+    // ================= BOTÓN SIDEBAR =================
     private JButton crearBotonMenu(String texto, ActionListener action) {
         JButton btn = new JButton(texto);
         btn.setMaximumSize(new Dimension(250, 50));
-        btn.setAlignmentX(Component.LEFT_ALIGNMENT);
         btn.setFont(new Font("Arial", Font.PLAIN, 14));
         btn.setForeground(Color.WHITE);
         btn.setBackground(new Color(44, 62, 80));
@@ -112,11 +115,9 @@ public class DashboardAdmin extends JFrame {
         btn.setBorder(BorderFactory.createEmptyBorder(0, 20, 0, 0));
 
         btn.addMouseListener(new MouseAdapter() {
-            @Override
             public void mouseEntered(MouseEvent e) {
                 btn.setBackground(new Color(52, 73, 94));
             }
-            @Override
             public void mouseExited(MouseEvent e) {
                 btn.setBackground(new Color(44, 62, 80));
             }
@@ -126,68 +127,114 @@ public class DashboardAdmin extends JFrame {
         return btn;
     }
 
+    // ================= DASHBOARD ADMIN =================
     private void cargarEstadisticas() {
         contentPanel.removeAll();
-        // Aquí puedes mantener el código de tarjetas de estadísticas
+
+        JPanel mainContent = new JPanel(new BorderLayout(0, 20));
+        mainContent.setBackground(new Color(236, 240, 241));
+
+        // ===== BIENVENIDA =====
+        JPanel welcomePanel = new JPanel(new BorderLayout());
+        welcomePanel.setBackground(Color.WHITE);
+        welcomePanel.setBorder(BorderFactory.createCompoundBorder(
+                BorderFactory.createLineBorder(new Color(189, 195, 199)),
+                BorderFactory.createEmptyBorder(30, 30, 30, 30)
+        ));
+
+        JLabel lblBienvenida = new JLabel(
+                "<html><h1>¡Bienvenido Administrador!</h1>" +
+                        "<p style='font-size:12px;color:gray;'>Usuario: "
+                        + usuarioActual.getNombreUsuario() +
+                        "</p><br>" +
+                        "<p>Utilice el menú lateral para administrar el sistema.</p></html>"
+        );
+
+        welcomePanel.add(lblBienvenida, BorderLayout.CENTER);
+
+        // ===== TARJETAS =====
+        JPanel statsPanel = new JPanel(new GridLayout(1, 3, 20, 0));
+        statsPanel.setBackground(new Color(236, 240, 241));
+
+        statsPanel.add(crearTarjeta("Socios", String.valueOf(socioDAO.contarSocios()), "👥", new Color(52, 152, 219)));
+        statsPanel.add(crearTarjeta("Reservas", String.valueOf(reservaDAO.contarReservas()), "📅", new Color(155, 89, 182)));
+        statsPanel.add(crearTarjeta("Pagos", String.valueOf(pagoDAO.contarPagos()), "💳", new Color(46, 204, 113)));
+
+        mainContent.add(statsPanel, BorderLayout.NORTH);
+        mainContent.add(welcomePanel, BorderLayout.CENTER);
+
+        contentPanel.add(mainContent);
         contentPanel.revalidate();
         contentPanel.repaint();
     }
 
-    private void abrirGestionSocios() { new GestionSocios(this).setVisible(true); }
-    private void abrirGestionUsuarios() {
-    try {
-        new GestionUsuarios(this).setVisible(true);
-    } catch (Exception e) {
-        JOptionPane.showMessageDialog(this, "Error al abrir Gestión de Usuarios: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-        e.printStackTrace(); // Esto mostrará el error en la consola del IDE
-    }
-}
+    private JPanel crearTarjeta(String titulo, String valor, String emoji, Color color) {
+        JPanel tarjeta = new JPanel(new BorderLayout());
+        tarjeta.setBackground(Color.WHITE);
+        tarjeta.setBorder(BorderFactory.createCompoundBorder(
+                BorderFactory.createLineBorder(new Color(189, 195, 199)),
+                BorderFactory.createEmptyBorder(20, 20, 20, 20)
+        ));
 
-    
-    private void abrirGestionMembresias() { new GestionMembresias(this).setVisible(true); }
-    
-    private void abrirGestionInstalaciones() { new GestionInstalaciones(this).setVisible(true); }
-    
-    private void abrirGestionPagos() {
-    try {
-        GestionPagos ventanaPagos = new GestionPagos(this);
-        ventanaPagos.setVisible(true);
-    } catch (Exception e) {
-        JOptionPane.showMessageDialog(this, "Error al abrir Gestión de Pagos: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        JLabel lblEmoji = new JLabel(emoji);
+        lblEmoji.setFont(new Font("Segoe UI Emoji", Font.PLAIN, 30));
+
+        JLabel lblValor = new JLabel(valor);
+        lblValor.setFont(new Font("Arial", Font.BOLD, 26));
+        lblValor.setForeground(color);
+
+        JLabel lblTitulo = new JLabel(titulo);
+        lblTitulo.setFont(new Font("Arial", Font.PLAIN, 13));
+        lblTitulo.setForeground(Color.GRAY);
+
+        JPanel panel = new JPanel();
+        panel.setOpaque(false);
+        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+
+        panel.add(lblEmoji);
+        panel.add(Box.createRigidArea(new Dimension(0, 10)));
+        panel.add(lblValor);
+        panel.add(lblTitulo);
+
+        tarjeta.add(panel, BorderLayout.CENTER);
+        return tarjeta;
     }
-}
+
+    // ================= ABRIR VENTANAS =================
+    private void abrirGestionSocios() { new GestionSocios(this).setVisible(true); }
+
+    private void abrirGestionUsuarios() {
+        try {
+            new GestionUsuarios(this).setVisible(true);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    private void abrirGestionMembresias() { new GestionMembresias(this).setVisible(true); }
+
+    private void abrirGestionInstalaciones() { new GestionInstalaciones(this).setVisible(true); }
+
+    private void abrirGestionPagos() { new GestionPagos(this).setVisible(true); }
+
     private void abrirGestionEntrenadores() { new GestionEntrenadores(this).setVisible(true); }
-    
+
     private void abrirGestionDeportes() { new GestionDeportes(this).setVisible(true); }
 
-    // MÉTODOS CORREGIDOS
-    private void abrirGestionSuscripciones() {
-        try {
-            GestionSuscripciones ventanaSuscripciones = new GestionSuscripciones(this);
-            ventanaSuscripciones.setVisible(true);
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Error al abrir Gestión de Suscripciones: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-        }
-    }
+    private void abrirGestionSuscripciones() { new GestionSuscripciones(this).setVisible(true); }
 
-    private void abrirGestionReservas() {
-        try {
-            GestionReservas ventanaReservas = new GestionReservas(this);
-            ventanaReservas.setVisible(true);
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Error al abrir Gestión de Reservas: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-        }
-    }
+    private void abrirGestionReservas() { new GestionReservas(this).setVisible(true); }
 
+    // ================= LOGOUT =================
     private void logout() {
         int confirm = JOptionPane.showConfirmDialog(this,
-            "¿Está seguro que desea cerrar sesión?",
-            "Confirmar Salida",
-            JOptionPane.YES_NO_OPTION);
+                "¿Desea cerrar sesión?",
+                "Confirmar",
+                JOptionPane.YES_NO_OPTION);
 
         if (confirm == JOptionPane.YES_OPTION) {
             new Login().setVisible(true);
-            this.dispose();
+            dispose();
         }
     }
 }

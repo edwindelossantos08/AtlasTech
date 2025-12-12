@@ -305,4 +305,22 @@ public class SocioDAO {
         
         return socio;
     }
+    /* Cuenta el total de socios (activos + inactivos) */
+    public int contarSocios() {
+        String sql = "SELECT COUNT(*) FROM SOCIO";
+
+        try (Statement stmt = connection.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+
+            if (rs.next()) {
+                return rs.getInt(1);
+            }
+
+        } catch (SQLException e) {
+            System.err.println("Error al contar socios: " + e.getMessage());
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
 }

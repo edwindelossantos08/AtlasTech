@@ -283,4 +283,21 @@ public class ReservaDAO {
         reserva.setNotas(rs.getString("Notas"));
         return reserva;
     }
+    public int contarReservas() {
+        String sql = "SELECT COUNT(*) FROM RESERVA";
+
+        try (Statement stmt = connection.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+
+            if (rs.next()) {
+                return rs.getInt(1);
+            }
+
+        } catch (SQLException e) {
+            System.err.println("Error al contar reservas: " + e.getMessage());
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
 }

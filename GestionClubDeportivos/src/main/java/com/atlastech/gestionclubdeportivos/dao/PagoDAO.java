@@ -523,4 +523,22 @@ public List<Pago> obtenerPagosPorSocio(int idSocio) {
 
     return pagos;
 }
+   
+        public int contarPagos() {
+         String sql = "SELECT COUNT(*) FROM PAGO";
+
+         try (Statement stmt = connection.createStatement();
+              ResultSet rs = stmt.executeQuery(sql)) {
+
+             if (rs.next()) {
+                 return rs.getInt(1);
+             }
+
+         } catch (SQLException e) {
+             System.err.println("Error al contar pagos: " + e.getMessage());
+             e.printStackTrace();
+         }
+         return 0;
+     }
+
 }

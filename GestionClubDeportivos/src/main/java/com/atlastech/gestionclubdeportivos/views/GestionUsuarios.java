@@ -136,7 +136,7 @@ public class GestionUsuarios extends JFrame {
         
         // Tipo Usuario
         agregarCampo(formPanel, gbc, row++, "Tipo de Usuario:");
-        cmbTipoUsuario = new JComboBox<>(new String[]{"admin", "socio"});
+        cmbTipoUsuario = new JComboBox<>(new String[]{"administrador", "socio"});
         gbc.gridx = 0; gbc.gridy = row++; gbc.gridwidth = 2;
         formPanel.add(cmbTipoUsuario, gbc);
         gbc.gridwidth = 1;

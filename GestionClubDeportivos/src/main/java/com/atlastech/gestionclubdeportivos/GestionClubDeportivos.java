@@ -1,5 +1,7 @@
 
 package com.atlastech.gestionclubdeportivos;
+import com.atlastech.gestionclubdeportivos.views.Login;
+import javax.swing.SwingUtilities;
 
 /**
  *
@@ -8,8 +10,11 @@ package com.atlastech.gestionclubdeportivos;
 
 public class GestionClubDeportivos {
    public static void main(String[] args) {
-        // Aquí inicia tu aplicación
-        System.out.println("Aplicación iniciada");
+        SwingUtilities.invokeLater(() -> {
+            Login login = new Login();
+            login.setLocationRelativeTo(null); // Centrar ventana
+            login.setVisible(true);
+        });
     }
 }
 

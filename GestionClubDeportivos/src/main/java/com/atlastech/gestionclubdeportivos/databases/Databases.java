@@ -12,10 +12,10 @@ public class Databases {
     private static Connection cn = null;
     private static Databases instance;
 
-    // ✅ URL, USER y PASSWORD ahora son static para usarse en métodos static
-    private static final String URL = "jdbc:mysql://127.0.0.1:3306/ManagerSportClub?useSSL=false&serverTimezone=UTC";
-    private static final String USER = "root";
-    private static final String PASSWORD = "";
+    // Configuración de la base de datos
+    private final String URL = "jdbc:mysql://localhost:3306/atlas_tech";
+    private final String USER = "root";
+    private final String PASSWORD = "14162021jj";
 
     // ❌ Este método lanza error, así que lo quitamos o lo corregimos
     private static void conectar() {
